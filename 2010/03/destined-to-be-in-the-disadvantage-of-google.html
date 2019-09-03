@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg?v=7.4.0" color="#222">
+  <link rel="alternate" href="/atom.xml" title="M守望者" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="去年我曾写过一篇文章，题目叫做《Google应该赞助2010年春晚》。当时Google因为所谓的涉黄事件而被CCAV点名批评，作为不明真相者，我没有响应CCAV的号召，将栽赃Google的指导思想贯彻落实，而是写了那篇文章，分析了一下国内的大环境，然后得出这样的结论——Google要想在贵国混下去，就得多研究研究贵国的潜规则，学着百度的样子，送钱去赞助一下央视的春晚，以此来获得权力部门的免罪金牌。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="注定处于下风的Google">
+<meta property="og:url" content="http://www.poqpoq.net/2010/03/destined-to-be-in-the-disadvantage-of-google.html">
+<meta property="og:site_name" content="M守望者">
+<meta property="og:description" content="去年我曾写过一篇文章，题目叫做《Google应该赞助2010年春晚》。当时Google因为所谓的涉黄事件而被CCAV点名批评，作为不明真相者，我没有响应CCAV的号召，将栽赃Google的指导思想贯彻落实，而是写了那篇文章，分析了一下国内的大环境，然后得出这样的结论——Google要想在贵国混下去，就得多研究研究贵国的潜规则，学着百度的样子，送钱去赞助一下央视的春晚，以此来获得权力部门的免罪金牌。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-03T09:02:47.567Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="注定处于下风的Google">
+<meta name="twitter:description" content="去年我曾写过一篇文章，题目叫做《Google应该赞助2010年春晚》。当时Google因为所谓的涉黄事件而被CCAV点名批评，作为不明真相者，我没有响应CCAV的号召，将栽赃Google的指导思想贯彻落实，而是写了那篇文章，分析了一下国内的大环境，然后得出这样的结论——Google要想在贵国混下去，就得多研究研究贵国的潜规则，学着百度的样子，送钱去赞助一下央视的春晚，以此来获得权力部门的免罪金牌。">
+  <link rel="canonical" href="http://www.poqpoq.net/2010/03/destined-to-be-in-the-disadvantage-of-google">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.css"><style>
+#needsharebutton-postbottom {
+  cursor: pointer;
+  height: 26px;
+  margin-top: 10px;
+  position: relative;
+}
+#needsharebutton-postbottom .btn {
+  border: 1px solid $btn-default-border-color;
+  border-radius: 3px;
+  display: initial;
+  padding: 1px 4px;
+}
+</style>
+  <title>注定处于下风的Google | M守望者</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?8342a01453dfea35aa7807585b1b7395";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">M守望者</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">我想证明M的存在，我又想证明M的不存在，这是矛盾的，不矛盾的是，这两个证明我一个都证明不出来</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="http://www.poqpoq.net/2010/03/destined-to-be-in-the-disadvantage-of-google.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zincer Wong">
+      <meta itemprop="description" content="好读书，不求甚解，每有会意便记录一下，仅此；活着，努力活着，努力有趣活着，如是">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M守望者">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">注定处于下风的Google
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2010-03-13 10:46:00" itemprop="dateCreated datePublished" datetime="2010-03-13T10:46:00+08:00">2010-03-13</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-03 17:02:47" itemprop="dateModified" datetime="2019-09-03T17:02:47+08:00">2019-09-03</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/评论观点/" itemprop="url" rel="index"><span itemprop="name">评论观点</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>2.1k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>2 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>去年我曾写过一篇文章，题目叫做《<a href="http://www.poqpoq.net/2009/06/Opinion/Google%E5%BA%94%E8%AF%A5%E8%B5%9E%E5%8A%A92010%E5%B9%B4%E7%9A%84%E6%98%A5%E6%99%9A/">Google应该赞助2010年春晚</a>》。当时Google因为所谓的涉黄事件而被CCAV点名批评，作为不明真相者，我没有响应CCAV的号召，将栽赃Google的指导思想贯彻落实，而是写了那篇文章，分析了一下国内的大环境，然后得出这样的结论——Google要想在贵国混下去，就得多研究研究贵国的潜规则，学着百度的样子，送钱去赞助一下央视的春晚，以此来获得权力部门的免罪金牌。</p><a id="more"></a>
+<p>不过，如你所知，Google并没有去当2010年春晚的赞助商，以至于春晚不得不在晚会中四处安插广告，最会被观众批评为在广告中插播晚会。CCAV永远不差钱，但是欲壑难填，钱这东西向来是多多益善，要不然哪有资本将那么大一个大裤衩烧掉。</p>
+<p>Google不但没有赞助春晚，还在官方博客上”要挟”说要退出贵国。Google的官方博客理所当然地建在自己旗下的博客平台Blogger那里，而Blogger早就在贵国被屏蔽。这就是说Google说自己要在贵国有所行动，但是这条消息，贵国人民用正常渠道是看不到的，换言之，贵国普通民众得知这条消息，是通过媒体的转载，或者网络搬运工的分享。媒体在转载新闻时的取舍，甚或贵国媒体的有意误导，再加上信息传播过程固有的失真效应，使得大多数民众得知这条消息时仅剩下了一句话——“谷歌要挟要退出贵国”。于是听到的是第N手消息的爱国青年，在五毛党的煽风点火下，纷纷发出了对Google的攻击言论，让Google快滚的说法一时间甚嚣尘上。以上这点事实说明在这场口水战上面，其实Google并不占优势（当然我的讨论范围限定为国内，这也是为什么国外的新闻网站中文板块大多数被贵国屏蔽掉的原因之一），一千个Google在贵国产生的影响可能都比不上一个CCAV。</p>
+<p>Google的那篇博客名为在《贵国的新策略》，大意说自己的邮箱服务受到了来自于贵国的攻击，受攻击的帐号多为贵国的人权活动者；另一方面，Google在重新审视自己过滤谷歌中国搜索结果的做法，称将与政府谈判，但是自己并不看好谈判结果，有可能最终选择退出中国。这两点意思，在转述到贵国民众那里时，已经失了真变了味，人权活动者这个关键词被抹去，仅剩下了邮箱受攻击；重新审视过滤搜索引擎的做法，与之前的谷歌涉黄联系到了一处，说Google不愿意再过滤”非法”信息。于是可以想见，在这样的误传下，Google注定在舆论上处于下风。</p>
+<p>邮箱服务受攻击，这是再正常不过的事情，不能因为IP在贵国就说是贵国攻击的（贵国的相关部门的确是这么辩解的）；Google在好几个国家运行过滤的搜索引擎，所以Google没有理由在中国停止过滤非法信息。Google不过是在撒娇，或者说这是美帝国主义早有的阴谋，Google不过是美帝国主义政治上对贵国施压的工具，在这样的思路下，得出这样的结论是再正常不过的事情。人权活动者这个关键词被刻意剔除，不再过滤检索结果被具体化到不再过滤非法结果（色情结果），而Google的官方声明又在遥远的墙外，所以说Google处于一个相当不利的位置是在所难免的事。</p>
+<p>Google的目标是整合全球信息，这一点和百度的广告词是不谋而合的——百度一下，你就知道。但是聪明的百度并没有让你百度一下什么都知道，而是有选择地删去了一些敏感信息。而Google没有使用类似于”Google一下，你全知道”的广告词，但事实上，他的确是这么做的，于是悲剧发生了，Google一下的结果是，网民就此知道的太多了。一贯使用愚民政策，以此来获取利益的组织，最担心的事就是民众的觉醒，因为民众知道得太多了，就意味着他们能隐瞒的就越少了。由此来看，Google不是在争取和贵国谈判，而是在主动撞墙。</p>
+<p>在这场舆论攻防战上Google有哪些牌可打呢？我们来罗列一下：首先是美帝政府，事实上事件爆出的时候，美帝政府的确在四处奔走，但是这事美帝政府掺和的越多，Google在贵国舆论上的处境越岌岌可危，贵国有将任何事件上升为意识形态之争的能力。其次是国际舆论，国际舆论倒是十有八九声援Google，但是这些声音传不到贵国的领土，被审核的贵国就像是被抽成真空的玻璃箱子，任凭你国际媒体再摇旗呐喊，这里面民众还是什么声音都听不见。然后是Google的用户，毕竟他在国内拥有三十个百分点的市场占有率，贵国网民接近四个亿，这样算下来的话，Google有一亿用户。但是新华网的一篇文章直接将这张牌也灭掉了，人家说了Google离开仅对一小部分网民有影响，Google不了解的贵国国情是，在贵国一亿其实同样是一个小数字（屁民在计算数量的时候，权重远小于1），不过是一小撮而已。这些牌都打完了之后，Google估计能剩下的也就一张牌了，离开了Google，那些大学的学生以至于教授抄论文时可怎么办！从某种角度说，他们才是最忠诚的用户，而且从某种角度说，这些人还有一定的社会影响力。</p>
+<p>行文至此，我没有提及Google那条被很多人提及的原则——不作恶。之前我不提及这个词语，是觉得没有必要非把Google推上某个道德的制高点；现在我不提及这个词语，是觉得在普遍作恶的贵国，不作恶这个词语更像是一场秀，即便你真的不作恶，也会被认为那是你的阶段性表演。鉴于此，也就没有任何理由去讨论做不做恶的问题。</p>
+
+    </div>
+
+    
+    
+    <div class="post-widgets">
+      <div id="needsharebutton-postbottom">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    </div>
+        
+      
+        <div id="reward-container">
+  <div>你的支持是我继续创作的动力！</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/WeChatPay.png" alt="Zincer Wong 微信支付">
+        <p>微信支付</p>
+      </div>
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/AliPay.jpg" alt="Zincer Wong 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+      
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Zincer Wong</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://www.poqpoq.net/2010/03/destined-to-be-in-the-disadvantage-of-google.html" title="注定处于下风的Google">http://www.poqpoq.net/2010/03/destined-to-be-in-the-disadvantage-of-google.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+</div>
+
+      
+
+      <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2010/03/march-9-2010.html" rel="next" title="March 9, 2010">
+                  <i class="fa fa-chevron-left"></i> March 9, 2010
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2010/03/march-18,-2010.html" rel="prev" title="March 18, 2010">
+                  March 18, 2010 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+    
+    
+  <div class="comments" id="comments">
+    <div id="lv-container" data-id="city" data-uid="MTAyMC80NjQxNS8yMjkyNg=="></div>
+  </div>
+  
+  
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.png"
+      alt="Zincer Wong">
+  <p class="site-author-name" itemprop="name">Zincer Wong</p>
+  <div class="site-description" itemprop="description">好读书，不求甚解，每有会意便记录一下，仅此；活着，努力活着，努力有趣活着，如是</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">242</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://twitter.com/wongzincer" title="Twitter &rarr; https://twitter.com/wongzincer" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://www.douban.com/people/zincer" title="Douban &rarr; https://www.douban.com/people/zincer" rel="noopener" target="_blank"><i class="fa fa-fw fa-book"></i>Douban</a>
+      </span>
+    
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2009 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zincer Wong</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">254k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:51</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+
+<script src="/js/next-boot.js?v=7.4.0"></script>
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
+  <script>
+      pbOptions = {};
+        pbOptions.iconStyle = "box";
+      
+        pbOptions.boxForm = "horizontal";
+      
+        pbOptions.position = "bottomCenter";
+      
+        pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+  </script>
+<script>
+  window.livereOptions = {
+    refer: location.pathname.replace(CONFIG.root, '').replace('index.html', '')
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+</script>
+
+</body>
+</html>

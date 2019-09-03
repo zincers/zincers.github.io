@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg?v=7.4.0" color="#222">
+  <link rel="alternate" href="/atom.xml" title="M守望者" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="这两天一直想写一篇关于Google的文章，不过迟迟没有下笔，对于一件被炒到风口浪尖的事件，我个人觉得很难概括总结得全面；另一方面，我个人是一个Google服务的使用者，因为与个人利益相关，在下笔的过程中难免会有些主观。于是这两天我更多的是在观察，总揽各方面的言论，然后尽可能地得出自己的观点。说实话，这两天相关文章看了不少：国内的国外的，支持的反对的，单纯从技术角度讨论问题的，以及单纯从市场角度分析">
+<meta property="og:type" content="article">
+<meta property="og:title" content="也来说说Google事件">
+<meta property="og:url" content="http://www.poqpoq.net/2010/01/also-talk-about-google-events.html">
+<meta property="og:site_name" content="M守望者">
+<meta property="og:description" content="这两天一直想写一篇关于Google的文章，不过迟迟没有下笔，对于一件被炒到风口浪尖的事件，我个人觉得很难概括总结得全面；另一方面，我个人是一个Google服务的使用者，因为与个人利益相关，在下笔的过程中难免会有些主观。于是这两天我更多的是在观察，总揽各方面的言论，然后尽可能地得出自己的观点。说实话，这两天相关文章看了不少：国内的国外的，支持的反对的，单纯从技术角度讨论问题的，以及单纯从市场角度分析">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-03T09:02:46.167Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="也来说说Google事件">
+<meta name="twitter:description" content="这两天一直想写一篇关于Google的文章，不过迟迟没有下笔，对于一件被炒到风口浪尖的事件，我个人觉得很难概括总结得全面；另一方面，我个人是一个Google服务的使用者，因为与个人利益相关，在下笔的过程中难免会有些主观。于是这两天我更多的是在观察，总揽各方面的言论，然后尽可能地得出自己的观点。说实话，这两天相关文章看了不少：国内的国外的，支持的反对的，单纯从技术角度讨论问题的，以及单纯从市场角度分析">
+  <link rel="canonical" href="http://www.poqpoq.net/2010/01/also-talk-about-google-events">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.css"><style>
+#needsharebutton-postbottom {
+  cursor: pointer;
+  height: 26px;
+  margin-top: 10px;
+  position: relative;
+}
+#needsharebutton-postbottom .btn {
+  border: 1px solid $btn-default-border-color;
+  border-radius: 3px;
+  display: initial;
+  padding: 1px 4px;
+}
+</style>
+  <title>也来说说Google事件 | M守望者</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?8342a01453dfea35aa7807585b1b7395";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">M守望者</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">我想证明M的存在，我又想证明M的不存在，这是矛盾的，不矛盾的是，这两个证明我一个都证明不出来</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="http://www.poqpoq.net/2010/01/also-talk-about-google-events.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zincer Wong">
+      <meta itemprop="description" content="好读书，不求甚解，每有会意便记录一下，仅此；活着，努力活着，努力有趣活着，如是">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M守望者">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">也来说说Google事件
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2010-01-15 18:12:00" itemprop="dateCreated datePublished" datetime="2010-01-15T18:12:00+08:00">2010-01-15</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-03 17:02:46" itemprop="dateModified" datetime="2019-09-03T17:02:46+08:00">2019-09-03</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/评论观点/" itemprop="url" rel="index"><span itemprop="name">评论观点</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>1.4k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>1 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>这两天一直想写一篇关于Google的文章，不过迟迟没有下笔，对于一件被炒到风口浪尖的事件，我个人觉得很难概括总结得全面；另一方面，我个人是一个Google服务的使用者，因为与个人利益相关，在下笔的过程中难免会有些主观。于是这两天我更多的是在观察，总揽各方面的言论，然后尽可能地得出自己的观点。</p><p>说实话，这两天相关文章看了不少：国内的国外的，支持的反对的，单纯从技术角度讨论问题的，以及单纯从市场角度分析问题的。相较而言，后两者更耐看一些，因为较少的个人情感因素掺杂其中，所以这些分析显得更有逻辑性一些。不过人毕竟是情感的动物，此刻，于我而言，真的很难做到客观的点评这件事情。于是我今天姑且在这里反驳几个观点。</p><a id="more"></a>
+
+<p>人民网、新华网和环球网的文章反映了官方一贯的强硬立场，当然也反映了官方一贯的逻辑习惯。官方发动了大量的五毛发文，试图以此平抑来势汹汹的网络舆论，但是五毛写的文章看下来不过是两种思路：</p>
+<p>第一种思路：Google公然指责贵国的互联网审查制度，这是对中国内政的强加干涉，这时候Google已经不再是一家商业公司，他们是美国政府的棋子。于是问题被上升为意识形态之争，再加一些”帝国主义亡我之心不死”，”我辈必须奋起反抗”之类的红色语言。</p>
+<p>第二种思路：Google搜索最近因为涉黄屡屡被央视点名批评，进来与文著协谈判又遭遇瓶颈，与百度竞争贵国搜索引擎市场不利，所以Google才决议退出贵国市场。</p>
+<p>对于第一种观点，我个人不屑于反驳，如果你认为贵国曾经搞颜色革命搞得不彻底的话，欢迎你继续发展这种观点。对于后者，我要说的是：央视造假已非一次两次。心神恍惚的高也，卑劣的联想词”儿子与母亲发生关系”，央视向民众灌输的逻辑是，如果搜索”sex”后出现成人信息，那搜索引擎就难辞其咎。马勒隔壁的，要是搜索”吉泽明步”搜不到成人信息，那还叫搜索引擎吗？Google扫描图书的版权问题，我个人了解并不深入，Google即使不侵权，在操作上也的确有很多不妥之处，但是Google还不至于为了这点事情而退出贵国市场。再说Google与百度的关系，我个人其实一直不喜欢对比这二者，说实话，毫无对比性。在技术上百度落后Google绝非一点半点，但是在市场份额上确实另外一番面貌。相关原因，一来是百度时刻打民族主义的广告，即便百度理论上并非什么民族产业；再者Google因为不愿意屏蔽政治敏感信息（官方的说法是不良信息）而遭贵国官方打压。Google竞争不过百度是事实，但这绝对够不成撤退的理由。逼Google撤退的应该是Google所不适应的贵国特色的游戏规则，而非其他！</p>
+<p>官方一贯的没有逻辑，于是在贵国官方教化下，一批脑残的行为更是令人无语。这两天几乎所有的微博客都在关注Google事件，以至于新浪这种太监微博客不得不手动删除了相关热门话题。浏览大家对该话题的讨论发言是着实有趣的一件事。网民总是能说出一些妙趣横生同时针砭时事的佳句，不过在这些讨论中总是能看到一些一样的消息。典型的一个是”谷歌滚蛋”，这类消息的特点是，仅有几个字，内容无非是对谷歌的咒骂，然后再没有其他。我并非在这里袒护谷歌，事实上若是给出哪怕一个理由，对谷歌的任何攻击都是说得过去的，但是这类发言普遍为寥寥几个字，骂完了事。我不禁怀疑，这些孩子是不是没有学会如何使用一个因果状语从句。在一个官方主导一切舆论的国度，学会独立思考真不是一件容易的事情。太多的人，学会了站队伍、表立场，却难以为自己的选择说出理由，甚至哪怕是借口！</p>
+
+    </div>
+
+    
+    
+    <div class="post-widgets">
+      <div id="needsharebutton-postbottom">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    </div>
+        
+      
+        <div id="reward-container">
+  <div>你的支持是我继续创作的动力！</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/WeChatPay.png" alt="Zincer Wong 微信支付">
+        <p>微信支付</p>
+      </div>
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/AliPay.jpg" alt="Zincer Wong 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+      
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Zincer Wong</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://www.poqpoq.net/2010/01/also-talk-about-google-events.html" title="也来说说Google事件">http://www.poqpoq.net/2010/01/also-talk-about-google-events.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+</div>
+
+      
+
+      <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2010/01/baidu’s-beings-after-being-hacked.html" rel="next" title="百度被黑之后的众生相">
+                  <i class="fa fa-chevron-left"></i> 百度被黑之后的众生相
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2010/01/january-20,-2010.html" rel="prev" title="January 20, 2010">
+                  January 20, 2010 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+    
+    
+  <div class="comments" id="comments">
+    <div id="lv-container" data-id="city" data-uid="MTAyMC80NjQxNS8yMjkyNg=="></div>
+  </div>
+  
+  
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.png"
+      alt="Zincer Wong">
+  <p class="site-author-name" itemprop="name">Zincer Wong</p>
+  <div class="site-description" itemprop="description">好读书，不求甚解，每有会意便记录一下，仅此；活着，努力活着，努力有趣活着，如是</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">242</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://twitter.com/wongzincer" title="Twitter &rarr; https://twitter.com/wongzincer" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://www.douban.com/people/zincer" title="Douban &rarr; https://www.douban.com/people/zincer" rel="noopener" target="_blank"><i class="fa fa-fw fa-book"></i>Douban</a>
+      </span>
+    
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2009 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zincer Wong</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">254k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:51</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+
+<script src="/js/next-boot.js?v=7.4.0"></script>
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
+  <script>
+      pbOptions = {};
+        pbOptions.iconStyle = "box";
+      
+        pbOptions.boxForm = "horizontal";
+      
+        pbOptions.position = "bottomCenter";
+      
+        pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+  </script>
+<script>
+  window.livereOptions = {
+    refer: location.pathname.replace(CONFIG.root, '').replace('index.html', '')
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+</script>
+
+</body>
+</html>

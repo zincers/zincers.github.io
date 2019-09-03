@@ -56,18 +56,18 @@
   };
 </script>
 
-  <meta name="description" content="闲来无事鼓捣Python，都说Python和Numpy配合，再搭配Matplotlib之后完全可以替代Matlab，一时兴起姑且安装试用之。之前曾见到有人用Matlab绘制心形图案，于是这次也以此为目的进行测试。源码来自于此,本人稍作修改，然后添加了3D心形的隐函数进来。 from mpl_toolkits.mplot3d import axes3d import matplotlib.pyplo">
+  <meta name="description" content="闲来无事鼓捣Python，都说Python和Numpy配合，再搭配Matplotlib之后完全可以替代Matlab，一时兴起姑且安装试用之。之前曾见到有人用Matlab绘制心形图案，于是这次也以此为目的进行测试。源码来自于此,本人稍作修改，然后添加了3D心形的隐函数进来。from mpl_toolkits.mplot3d import axes3dimport matplotlib.pyplot">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python+Numpy+Matplotlib绘制心形图案">
 <meta property="og:url" content="http://www.poqpoq.net/2011/06/python+numpy+matplotlib-drawing-heart-patterns.html">
 <meta property="og:site_name" content="M守望者">
-<meta property="og:description" content="闲来无事鼓捣Python，都说Python和Numpy配合，再搭配Matplotlib之后完全可以替代Matlab，一时兴起姑且安装试用之。之前曾见到有人用Matlab绘制心形图案，于是这次也以此为目的进行测试。源码来自于此,本人稍作修改，然后添加了3D心形的隐函数进来。 from mpl_toolkits.mplot3d import axes3d import matplotlib.pyplo">
+<meta property="og:description" content="闲来无事鼓捣Python，都说Python和Numpy配合，再搭配Matplotlib之后完全可以替代Matlab，一时兴起姑且安装试用之。之前曾见到有人用Matlab绘制心形图案，于是这次也以此为目的进行测试。源码来自于此,本人稍作修改，然后添加了3D心形的隐函数进来。from mpl_toolkits.mplot3d import axes3dimport matplotlib.pyplot">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://ryaxmw.bay.livefilestore.com/y2pUO5VJl_snX5woYi9nJjNsifvTJXFgmUjBzlzjgWjItfALs9xn8gieozFzESR6aTIUzrtPlwOADDSQyPvbhsvJ28MAK6eLE7XzvDw-UYHbIBUMUZvDTTyHh2-ByThi3yS/heart.png?psid=1">
 <meta property="og:updated_time" content="2019-09-03T10:35:01.226Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python+Numpy+Matplotlib绘制心形图案">
-<meta name="twitter:description" content="闲来无事鼓捣Python，都说Python和Numpy配合，再搭配Matplotlib之后完全可以替代Matlab，一时兴起姑且安装试用之。之前曾见到有人用Matlab绘制心形图案，于是这次也以此为目的进行测试。源码来自于此,本人稍作修改，然后添加了3D心形的隐函数进来。 from mpl_toolkits.mplot3d import axes3d import matplotlib.pyplo">
+<meta name="twitter:description" content="闲来无事鼓捣Python，都说Python和Numpy配合，再搭配Matplotlib之后完全可以替代Matlab，一时兴起姑且安装试用之。之前曾见到有人用Matlab绘制心形图案，于是这次也以此为目的进行测试。源码来自于此,本人稍作修改，然后添加了3D心形的隐函数进来。from mpl_toolkits.mplot3d import axes3dimport matplotlib.pyplot">
 <meta name="twitter:image" content="https://ryaxmw.bay.livefilestore.com/y2pUO5VJl_snX5woYi9nJjNsifvTJXFgmUjBzlzjgWjItfALs9xn8gieozFzESR6aTIUzrtPlwOADDSQyPvbhsvJ28MAK6eLE7XzvDw-UYHbIBUMUZvDTTyHh2-ByThi3yS/heart.png?psid=1">
   <link rel="canonical" href="http://www.poqpoq.net/2011/06/python+numpy+matplotlib-drawing-heart-patterns">
 
@@ -360,44 +360,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>闲来无事鼓捣Python，都说Python和Numpy配合，再搭配Matplotlib之后完全可以替代Matlab，一时兴起姑且安装试用之。之前曾见到有人用Matlab绘制心形图案，于是这次也以此为目的进行测试。</p><p>源码来自于<strong><a href="http://stackoverflow.com/questions/4680525/plotting-implicit-equations-in-3d" target="_blank" rel="noopener">此</a></strong>,本人稍作修改，然后添加了3D心形的隐函数进来。</p><pre class="prettyprint">
-from mpl_toolkits.mplot3d import axes3d
-import matplotlib.pyplot as plt
-import numpy as np
-def fn(x,y,z):
-    return ((x**2) + 9*(y**2)/4 + (z**2) - 1)**3-(x**2)*(z**3)-9*(y**2)*(z**3)/80
-bbox=(-1.2,1.2)
-xmin, xmax, ymin, ymax, zmin, zmax = bbox*3
-fig = plt.figure()
-ax = fig.add_subplot(111, projection='3d')
-A = np.linspace(xmin, xmax, 100)
-B = np.linspace(xmin, xmax, 50)
-A1,A2 = np.meshgrid(A,A)
-
-for z in B:
-    X,Y = A1,A2
-    Z = fn(X,Y,z)
-    cset = ax.contour(X, Y, Z+z, [z], zdir='z',colors='r')
-
-for y in B:
-    X,Z = A1,A2
-    Y = fn(X,y,Z)
-    cset = ax.contour(X, Y+y, Z, [y], zdir='y',colors='b')
-
-for x in B:
-    Y,Z = A1,A2
-    X = fn(x,Y,Z)
-    cset = ax.contour(X+x, Y, Z, [x], zdir='x',colors='g')
-
-ax.set_zlim3d(zmin,zmax)
-ax.set_xlim3d(xmin,xmax)
-ax.set_ylim3d(ymin,ymax)
-
-plt.show()
-</pre><a id="more"></a>
+        <p>闲来无事鼓捣Python，都说Python和Numpy配合，再搭配Matplotlib之后完全可以替代Matlab，一时兴起姑且安装试用之。之前曾见到有人用Matlab绘制心形图案，于是这次也以此为目的进行测试。</p><p>源码来自于<strong><a href="http://stackoverflow.com/questions/4680525/plotting-implicit-equations-in-3d" target="_blank" rel="noopener">此</a></strong>,本人稍作修改，然后添加了3D心形的隐函数进来。</p><p><pre class="prettyprint"><br>from mpl_toolkits.mplot3d import axes3d<br>import matplotlib.pyplot as plt<br>import numpy as np<br>def fn(x,y,z):<br>    return ((x<strong>2) + 9*(y</strong>2)/4 + (z<strong>2) - 1)</strong>3-(x<strong>2)*(z</strong>3)-9<em>(y**2)</em>(z<em>*3)/80<br>bbox=(-1.2,1.2)<br>xmin, xmax, ymin, ymax, zmin, zmax = bbox</em>3<br>fig = plt.figure()<br>ax = fig.add_subplot(111, projection=’3d’)<br>A = np.linspace(xmin, xmax, 100)<br>B = np.linspace(xmin, xmax, 50)<br>A1,A2 = np.meshgrid(A,A)</pre></p><a id="more"></a>
 
 
-<p>最后，上图：</p>
+<p>for z in B:<br>    X,Y = A1,A2<br>    Z = fn(X,Y,z)<br>    cset = ax.contour(X, Y, Z+z, [z], zdir=’z’,colors=’r’)</p>
+<p>for y in B:<br>    X,Z = A1,A2<br>    Y = fn(X,y,Z)<br>    cset = ax.contour(X, Y+y, Z, [y], zdir=’y’,colors=’b’)</p>
+<p>for x in B:<br>    Y,Z = A1,A2<br>    X = fn(x,Y,Z)<br>    cset = ax.contour(X+x, Y, Z, [x], zdir=’x’,colors=’g’)</p>
+<p>ax.set_zlim3d(zmin,zmax)<br>ax.set_xlim3d(xmin,xmax)<br>ax.set_ylim3d(ymin,ymax)</p>
+<p>plt.show()<br>&lt;/pre&gt;<br>最后，上图：</p>
 <p><img src="https://ryaxmw.bay.livefilestore.com/y2pUO5VJl_snX5woYi9nJjNsifvTJXFgmUjBzlzjgWjItfALs9xn8gieozFzESR6aTIUzrtPlwOADDSQyPvbhsvJ28MAK6eLE7XzvDw-UYHbIBUMUZvDTTyHh2-ByThi3yS/heart.png?psid=1" alt title="3D-Heart-Python"></p>
 <p> Update：我都快忘了Python是用空格来控制循环体结构的了。</p>
 <p>————————————<br>Author:<a href="https://plus.google.com/111978736375214477383/posts" target="_blank" rel="noopener">Zincer Wong</a><br>Email :<a href="mailto:zincer@live.com" target="_blank" rel="noopener">zincer@live.com</a><br><a href="http://wongzincer.blogspot.com/" target="_blank" rel="noopener">Blogger</a>; <a href="https://twitter.com/wongzincer" target="_blank" rel="noopener">Twitter</a>; <a href="http://www.facebook.com/zincer" target="_blank" rel="noopener">Facebook</a><br>————————————</p>
@@ -579,7 +549,29 @@ plt.show()
       
         
       
+        <a href="mailto:zincer@163.com" title="E-Mail &rarr; mailto:zincer@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
         <a href="https://twitter.com/wongzincer" title="Twitter &rarr; https://twitter.com/wongzincer" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://www.facebook.com/yourname" title="FB Page &rarr; https://www.facebook.com/yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-facebook"></i>FB Page</a>
       </span>
     
       <span class="links-of-author-item">
@@ -692,6 +684,8 @@ plt.show()
 
 
 
+
+  
 
   
 

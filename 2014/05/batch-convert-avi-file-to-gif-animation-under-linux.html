@@ -360,7 +360,6 @@
       
         <p>工作需要，有一堆avi格式的小视频需要批量转换为gif动画。相较于直接在幻灯片中插入avi格式的视频而言，gif格式的动画不需要额外的播放设置，更加的方便。因为文件比较多，在Windows找了半天，都没有找到一个可以批量处理的工具，于是自然而言想到转到Linux平台用ffmpeg来做。切换后发现，xubuntu 14.04下已经不包含ffmpeg的源，取而代之的是libav-tools。</p><a id="more"></a>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install libav-tools</span><br><span class="line">for it in *.avi</span><br><span class="line">do</span><br><span class="line">   avconv -i it -pix_fmt rgb24 -vframes 10 it.gif</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
-
 <p><em>参数说明：</em></p>
 <p><code>-pix_fmt</code>: 像素格式</p>
 <p><code>-vframes</code>: 动画帧数</p>
@@ -542,7 +541,29 @@
       
         
       
+        <a href="mailto:zincer@163.com" title="E-Mail &rarr; mailto:zincer@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
         <a href="https://twitter.com/wongzincer" title="Twitter &rarr; https://twitter.com/wongzincer" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://www.facebook.com/yourname" title="FB Page &rarr; https://www.facebook.com/yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-facebook"></i>FB Page</a>
       </span>
     
       <span class="links-of-author-item">
@@ -655,6 +676,8 @@
 
 
 
+
+  
 
   
 

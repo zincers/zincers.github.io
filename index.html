@@ -1075,7 +1075,7 @@ p{font-family: sans-serif; font-size: 12pt; text-indent: 0em;}
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>806</span>
+              <span>804</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -1112,7 +1112,7 @@ p{font-family: sans-serif; font-size: 12pt; text-indent: 0em;}
 </li>
 <li><p>运行 <em>IniMesh</em> 和 <em>SetMesh</em> 组装几何和剖分网格。需要说明的是，在 <em>SetMesh</em> 过程中，一定不要将区域3误标记为gas宏单元。</p>
 </li>
-<li><p>运行 <em>wxCregeo*。在 *Plot/Tree View</em> 窗口右侧的单元树中选择区域3对应的宏单元，右键菜单下单击 <em>Convert to external boundary</em> 选项。</p>
+<li><p>运行 <em>wxCregeo</em>。在 <em>Plot/Tree View</em> 窗口右侧的单元树中选择区域3对应的宏单元，右键菜单下单击 <em>Convert to external boundary</em> 选项。</p>
 </li>
 <li><p>回到 <em>wxCregeo</em> 主窗口，在 <em>Thermal Operating Conditions</em> 选项面板中单击 <em>External boundary conditions (shell cooling, etc)</em> 右侧的 <em>Impose…</em> 按钮。</p>
 </li>
@@ -1341,7 +1341,7 @@ p{font-family: sans-serif; font-size: 12pt; text-indent: 0em;}
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>2.5k</span>
+              <span>2.4k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -1603,7 +1603,29 @@ p{font-family: sans-serif; font-size: 12pt; text-indent: 0em;}
       
         
       
+        <a href="mailto:zincer@163.com" title="E-Mail &rarr; mailto:zincer@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
         <a href="https://twitter.com/wongzincer" title="Twitter &rarr; https://twitter.com/wongzincer" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://www.facebook.com/yourname" title="FB Page &rarr; https://www.facebook.com/yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-facebook"></i>FB Page</a>
       </span>
     
       <span class="links-of-author-item">
@@ -1717,6 +1739,82 @@ p{font-family: sans-serif; font-size: 12pt; text-indent: 0em;}
 
 
 
+  
+
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+      
+    
+      
+    
+  
+    
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
   
 
   

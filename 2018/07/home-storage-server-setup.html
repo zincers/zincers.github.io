@@ -388,7 +388,6 @@
 </li>
 <li><p>修改etc/fstab文件，添加如下信息，设置开机自动将两块盘挂载到指定位置</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/dev/sdb1       /data           ext4    defaults        1       2</span><br><span class="line">/dev/sdc        /backup         ext4    defaults        1       2</span><br></pre></td></tr></table></figure>
-
 </li>
 </ol>
 <p><strong>搭建Samba服务器</strong> </p>
@@ -399,12 +398,10 @@
 </li>
 <li><p>Samba使用自己的用户账号和秘密，默认保存在<code>/etc/samba/smbpasswd</code> 文件中，可以使用<code>smbpasswd</code>命令 创建新的用户：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo smbpasswd -a username</span><br></pre></td></tr></table></figure>
-
 <p>按照程序指引，设置新用户密码，完成账号添加。</p>
 </li>
 <li><p>修改配置文件，设置data目录局域网可访问：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.bak	  # 备份配置文件，以防万一</span><br><span class="line">sudo vim /etc/samba/smb.conf						# 使用VIM编辑配置文件</span><br></pre></td></tr></table></figure>
-
 <p>转到Samba长长的配置文件末尾，添加如下信息：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[data]</span><br><span class="line">path = /data</span><br><span class="line">available = yes</span><br><span class="line">valid users = username</span><br><span class="line">read only = no</span><br><span class="line">browseable = yes</span><br><span class="line">public = yes</span><br><span class="line">writable = yes</span><br></pre></td></tr></table></figure>
 </li>
@@ -427,30 +424,24 @@
 <p>相册同步使用的是<a href="https://github.com/syncthing/syncthing" target="_blank" rel="noopener">Syncthing</a>，Syncthing是开源的Resilio Sync 替代，支持在设备间进行文件的同步。</p>
 <p>服务器端，下载最新版本的安装包，解压缩，然后运行解压缩目录下的<code>syncthing</code>即可：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/syncthing/syncthing/releases/download/v0.14.48/syncthing-linux-amd64-v0.14.48.tar.gz</span><br><span class="line">tar xvzf syncthing-linux-amd64-v0.14.48.tar.gz</span><br><span class="line">cd syncthing-linux-amd64-v0.14.48</span><br><span class="line">./syncthing</span><br></pre></td></tr></table></figure>
-
 <p>程序会自动启动Web界面，用于用户管理设备之间的同步。建议将<code>~/syncthing</code>加入到开机启动项中去。</p>
 <p>Android手机自行搜索客户端下载安装即可，IOS目前还没有项目官方直接支持的客户端版本，商店里面的fsync()支持syncthing，不过没有具体测试过。文件夹同步设置按照客户端和服务器Web端引导设置即可。</p>
 <p><strong>本机备份</strong></p>
 <p>作为影音资源存储服务器，数据更新不会太频繁，实时同步意义不大，定期做一次归档就足够了。我这里使用第二块硬盘用于定期同步备份，相对于多盘配置RAID来说，这样确实简单粗暴了些，不过好处就是一旦data硬盘故障，直接把备份盘换过去即可。</p>
 <p>定期备份使用rsync同步工具配合任务计划工具crontab实现。以设置每周日23点自动同步一次文件夹为例，配置过程如下，打开终端，执行：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -e</span><br></pre></td></tr></table></figure>
-
 <p>编辑<em>crontab</em>文件，添加如下内容：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 23 * * 0 rsync -qr --delete /data/* /backup/</span><br></pre></td></tr></table></figure>
-
 <p>Crontab参数说明：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">*     *     *   *    *        command to be executed</span><br><span class="line">-     -     -   -    -</span><br><span class="line">|     |     |   |    |</span><br><span class="line">|     |     |   |    +----- day of week (0 - 6) (Sunday=0)</span><br><span class="line">|     |     |   +------- month (1 - 12)</span><br><span class="line">|     |     +--------- day of        month (1 - 31)</span><br><span class="line">|     +----------- hour (0 - 23)</span><br><span class="line">+------------- min (0 - 59)</span><br></pre></td></tr></table></figure>
-
 <p>Rsync参数说明：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-q：静默模式</span><br><span class="line">-r：递归目录</span><br><span class="line">--delete：删除目标路径下多余的文件；实现的效果其实是文件在原目录被删除，同步的时候也会删除目标目录的副本</span><br></pre></td></tr></table></figure>
-
 <p>同步命令<code>rsync</code>默认是将源目录同步到目标目录的同名子目录，data目录后面加<code>*</code>只是为了实现目录同级。</p>
 <p><strong>下载工具推荐</strong></p>
 <p>GUI：<a href="https://webtorrent.io/" target="_blank" rel="noopener">webtorrent</a></p>
 <p>CLI：<a href="https://aria2.github.io/" target="_blank" rel="noopener">aria2</a></p>
 <p>Aria2可以配置web前端，实现远程访问和管理。我这里偷懒没有配置，而是直接使用<code>nohup</code>配合<code>aria2</code>命令行实现远程下载，命令格式如下：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup [aria2下载命令] &gt;out.log 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
-
 
     </div>
 
@@ -629,7 +620,29 @@
       
         
       
+        <a href="mailto:zincer@163.com" title="E-Mail &rarr; mailto:zincer@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
         <a href="https://twitter.com/wongzincer" title="Twitter &rarr; https://twitter.com/wongzincer" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://www.facebook.com/yourname" title="FB Page &rarr; https://www.facebook.com/yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-facebook"></i>FB Page</a>
       </span>
     
       <span class="links-of-author-item">
@@ -742,6 +755,8 @@
 
 
 
+
+  
 
   
 

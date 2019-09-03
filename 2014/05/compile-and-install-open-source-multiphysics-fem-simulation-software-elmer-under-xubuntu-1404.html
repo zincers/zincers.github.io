@@ -361,25 +361,18 @@
         <p>关于<strong>Elmer</strong>，请参考<a href="http://www.csc.fi/english/pages/elmer/index_html" target="_blank" rel="noopener">官方网站</a>，是一个开源的可用于多物理场计算的FEM程序。支持对电磁、流体、结构力学、传热等问题做仿真分析，并支持将上述物理场耦合在一起做求解计算。XUbuntu软件源中包含Elmer，不过版本已经很老旧，安装后几乎不忍多视。对这个软件包感兴趣又不愿意费时间编译的，可以考虑直接下载安装<a href="http://www.caelinux.com/CMS/" target="_blank" rel="noopener">CAELinux</a>系统（当前版本是CAELinux2013，基于XUbuntu 12.04），里面整合了绝大多数用于数值仿真计算的软件包，可以直接使用。废话不多说，接下来是在XUbuntu 14.04下编译软件的过程。</p><a id="more"></a>
 <p>安装编译环境</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install gcc</span><br><span class="line">sudo apt-get install g++</span><br><span class="line">sudo apt-get install gfortran</span><br></pre></td></tr></table></figure>
-
 <p>安装<strong>svn</strong>版本控制工具</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install subversion</span><br></pre></td></tr></table></figure>
-
 <p>从源中获取最新版本的Elmer源代码，源文件大小300M+，连接的是国外的服务器，执行完这条命可以根据自己的网速情况，考虑是否打开一部电影打发时间。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">svn checkout http://svn.code.sf.net/p/elmerfem/code/trunk elmerfem</span><br></pre></td></tr></table></figure>
-
 <p>创建安装目录，并赋予读写权限：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir /opt/elmer</span><br><span class="line">sudo chmod +775 /opt/elmer</span><br><span class="line">cd elmerfem</span><br></pre></td></tr></table></figure>
-
 <p>创建脚本文件compile.sh:</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/bin/sh -f&lt;/span&gt;</span></span><br><span class="line"><span class="comment">#the compiler (here the gcc 4.X suite)</span></span><br><span class="line"><span class="built_in">export</span> CC=gcc</span><br><span class="line"><span class="built_in">export</span> CXX=g++</span><br><span class="line"><span class="built_in">export</span> FC=gfortran</span><br><span class="line"><span class="built_in">export</span> F77=gfortran</span><br><span class="line"><span class="comment">#the compiler flags</span></span><br><span class="line"><span class="built_in">export</span> CFLAGS=<span class="string">""</span></span><br><span class="line"><span class="built_in">export</span> FCFLAGS=<span class="string">""</span></span><br><span class="line"><span class="built_in">export</span> F77FLAGS=<span class="string">""</span></span><br><span class="line"><span class="built_in">export</span> FFLAGS=<span class="string">""</span></span><br><span class="line"><span class="comment">#linking</span></span><br><span class="line"><span class="built_in">export</span> LDFLAGS=<span class="string">""</span></span><br><span class="line"><span class="comment">#paths&lt;/span&gt;</span></span><br><span class="line"><span class="built_in">export</span> ELMER_HOME=<span class="string">"/opt/elmer"</span></span><br><span class="line"><span class="comment"># modules</span></span><br><span class="line">modules=<span class="string">"matc umfpack mathlibs elmergrid meshgen2d eio hutiter fem post"</span></span><br><span class="line"><span class="comment"># configure and build</span></span><br><span class="line"><span class="keyword">for</span> m <span class="keyword">in</span> <span class="variable">$modules</span>;</span><br><span class="line">  <span class="keyword">do</span></span><br><span class="line">  <span class="built_in">cd</span> <span class="variable">$m</span>;</span><br><span class="line">  ./configure --prefix=ELMER_HOME</span><br><span class="line">  make clean</span><br><span class="line">  make</span><br><span class="line">  make install</span><br><span class="line">  <span class="built_in">cd</span> ..</span><br><span class="line">  <span class="keyword">done</span></span><br></pre></td></tr></table></figure>
-
 <p>赋予脚本文件可执行权限，并执行脚本：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod u+x compile.sh</span><br><span class="line">./compile.sh</span><br></pre></td></tr></table></figure>
-
 <p>创建环境变量</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export ELMER_HOME="/opt/elmer"</span><br><span class="line">export PATH=PATH:ELMER_HOME/bin</span><br><span class="line">export LD_LIBRARY_PATH=LD_LIBRARY_PATH:ELMER_HOME/lib</span><br></pre></td></tr></table></figure>
-
 <p>下一步就是编译安装ElmerGUI，ElmerGUI编译依赖QT、QWT、VTK等，以后有时间再鼓捣了。</p>
 <p>参考资料：<a href="http://www.elmerfem.org/elmerwiki/index.php?title=Compilation_of_Elmer_on_Linux" title="Compilation_of_Elmer_on_Linux" target="_blank" rel="noopener">Compilation of Elmer on Linux</a></p>
 
@@ -560,7 +553,29 @@
       
         
       
+        <a href="mailto:zincer@163.com" title="E-Mail &rarr; mailto:zincer@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
         <a href="https://twitter.com/wongzincer" title="Twitter &rarr; https://twitter.com/wongzincer" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://www.facebook.com/yourname" title="FB Page &rarr; https://www.facebook.com/yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-facebook"></i>FB Page</a>
       </span>
     
       <span class="links-of-author-item">
@@ -673,6 +688,8 @@
 
 
 
+
+  
 
   
 

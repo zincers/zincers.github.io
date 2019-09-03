@@ -849,7 +849,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>今年年初，我写下了这一年要做的几件事，然后将其贴在了博客上，并信誓旦旦附加了“立此存证”四个字。如今半年已过，是时候检视一下这些计划的完成情况了（绿色表示已完成，红色表示未完成）。</p><p><font color="green">乘坐无所谓终点在哪里的列车，买倒数第二站的车票，然后在沿途的某个荒凉的小站走出车厢，和同自己一起下车的那个同龄人搭讪，然后让他/她推荐附近廉价的旅馆。</font></p>
+          <p>今年年初，我写下了这一年要做的几件事，然后将其贴在了博客上，并信誓旦旦附加了“立此存证”四个字。如今半年已过，是时候检视一下这些计划的完成情况了（绿色表示已完成，红色表示未完成）。</p><font color="green">乘坐无所谓终点在哪里的列车，买倒数第二站的车票，然后在沿途的某个荒凉的小站走出车厢，和同自己一起下车的那个同龄人搭讪，然后让他/她推荐附近廉价的旅馆。</font>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -1341,41 +1341,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>闲来无事鼓捣Python，都说Python和Numpy配合，再搭配Matplotlib之后完全可以替代Matlab，一时兴起姑且安装试用之。之前曾见到有人用Matlab绘制心形图案，于是这次也以此为目的进行测试。</p><p>源码来自于<strong><a href="http://stackoverflow.com/questions/4680525/plotting-implicit-equations-in-3d" target="_blank" rel="noopener">此</a></strong>,本人稍作修改，然后添加了3D心形的隐函数进来。</p><pre class="prettyprint">
-from mpl_toolkits.mplot3d import axes3d
-import matplotlib.pyplot as plt
-import numpy as np
-def fn(x,y,z):
-    return ((x**2) + 9*(y**2)/4 + (z**2) - 1)**3-(x**2)*(z**3)-9*(y**2)*(z**3)/80
-bbox=(-1.2,1.2)
-xmin, xmax, ymin, ymax, zmin, zmax = bbox*3
-fig = plt.figure()
-ax = fig.add_subplot(111, projection='3d')
-A = np.linspace(xmin, xmax, 100)
-B = np.linspace(xmin, xmax, 50)
-A1,A2 = np.meshgrid(A,A)
-
-for z in B:
-    X,Y = A1,A2
-    Z = fn(X,Y,z)
-    cset = ax.contour(X, Y, Z+z, [z], zdir='z',colors='r')
-
-for y in B:
-    X,Z = A1,A2
-    Y = fn(X,y,Z)
-    cset = ax.contour(X, Y+y, Z, [y], zdir='y',colors='b')
-
-for x in B:
-    Y,Z = A1,A2
-    X = fn(x,Y,Z)
-    cset = ax.contour(X+x, Y, Z, [x], zdir='x',colors='g')
-
-ax.set_zlim3d(zmin,zmax)
-ax.set_xlim3d(xmin,xmax)
-ax.set_ylim3d(ymin,ymax)
-
-plt.show()
-</pre>
+          <p>闲来无事鼓捣Python，都说Python和Numpy配合，再搭配Matplotlib之后完全可以替代Matlab，一时兴起姑且安装试用之。之前曾见到有人用Matlab绘制心形图案，于是这次也以此为目的进行测试。</p><p>源码来自于<strong><a href="http://stackoverflow.com/questions/4680525/plotting-implicit-equations-in-3d" target="_blank" rel="noopener">此</a></strong>,本人稍作修改，然后添加了3D心形的隐函数进来。</p><p><pre class="prettyprint"><br>from mpl_toolkits.mplot3d import axes3d<br>import matplotlib.pyplot as plt<br>import numpy as np<br>def fn(x,y,z):<br>    return ((x<strong>2) + 9*(y</strong>2)/4 + (z<strong>2) - 1)</strong>3-(x<strong>2)*(z</strong>3)-9<em>(y**2)</em>(z<em>*3)/80<br>bbox=(-1.2,1.2)<br>xmin, xmax, ymin, ymax, zmin, zmax = bbox</em>3<br>fig = plt.figure()<br>ax = fig.add_subplot(111, projection=’3d’)<br>A = np.linspace(xmin, xmax, 100)<br>B = np.linspace(xmin, xmax, 50)<br>A1,A2 = np.meshgrid(A,A)</pre></p>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -1611,7 +1577,29 @@ plt.show()
       
         
       
+        <a href="mailto:zincer@163.com" title="E-Mail &rarr; mailto:zincer@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
         <a href="https://twitter.com/wongzincer" title="Twitter &rarr; https://twitter.com/wongzincer" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://www.facebook.com/yourname" title="FB Page &rarr; https://www.facebook.com/yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-facebook"></i>FB Page</a>
       </span>
     
       <span class="links-of-author-item">
@@ -1725,6 +1713,30 @@ plt.show()
 
 
 
+  
+
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
   
 
   

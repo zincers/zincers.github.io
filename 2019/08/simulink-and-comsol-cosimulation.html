@@ -63,14 +63,14 @@
 <meta property="og:site_name" content="M守望者">
 <meta property="og:description" content="需求背景Matlab/Simulink用于控制系统仿真，COMSOL用于模型有限元仿真，如果有限元模型是控制系统的一部分，则需要将二者联立，实现Simulink和COMSOL的协同仿真。COMSOL 3.5版本（包括之前的FEMLAB）以前，提供了导出COMSOL模型到Simulink的标准接口，但对于非线性模型来说，直接导出的模型不能直接使用。后续版本，COMSOL取消了直接导出Simulink">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://www.poqpoq.net/images/blogimgs/Simulink_S_function.png">
-<meta property="og:image" content="http://www.poqpoq.net/images/blogimgs/Simulink_Scope.png">
-<meta property="og:image" content="http://www.poqpoq.net/images/blogimgs/COMSOL_Capture.png">
-<meta property="og:updated_time" content="2019-09-03T09:02:46.147Z">
+<meta property="og:image" content="http://www.poqpoq.net/images/blogimgs/cax/comsol_simulink/Simulink_S_function.png">
+<meta property="og:image" content="http://www.poqpoq.net/images/blogimgs/cax/comsol_simulink/Simulink_Scope.png">
+<meta property="og:image" content="http://www.poqpoq.net/images/blogimgs/cax/comsol_simulink/COMSOL_Capture.png">
+<meta property="og:updated_time" content="2019-09-04T07:42:59.435Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Simulink与COMSOL协同仿真">
 <meta name="twitter:description" content="需求背景Matlab/Simulink用于控制系统仿真，COMSOL用于模型有限元仿真，如果有限元模型是控制系统的一部分，则需要将二者联立，实现Simulink和COMSOL的协同仿真。COMSOL 3.5版本（包括之前的FEMLAB）以前，提供了导出COMSOL模型到Simulink的标准接口，但对于非线性模型来说，直接导出的模型不能直接使用。后续版本，COMSOL取消了直接导出Simulink">
-<meta name="twitter:image" content="http://www.poqpoq.net/images/blogimgs/Simulink_S_function.png">
+<meta name="twitter:image" content="http://www.poqpoq.net/images/blogimgs/cax/comsol_simulink/Simulink_S_function.png">
   <link rel="canonical" href="http://www.poqpoq.net/2019/08/simulink-and-comsol-cosimulation">
 
 
@@ -312,7 +312,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-03 17:02:46" itemprop="dateModified" datetime="2019-09-03T17:02:46+08:00">2019-09-03</time>
+                <time title="修改时间：2019-09-04 15:42:59" itemprop="dateModified" datetime="2019-09-04T15:42:59+08:00">2019-09-04</time>
               </span>
             
           
@@ -339,7 +339,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>823</span>
+              <span>761</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -366,16 +366,12 @@
 
 <p>思路上，Simulink的S-function支持用户自定义任意子系统，COMSOL模型可以直接保存为Matlab的”.m”文件，将其修改作为S-function的一部分直接导入到控制系统中即可。Simulink模型在仿真的过程中调用S函数，通过S函数对COMSOL的边界条件或物理参数进行修改，其后COMSOL执行一个仿真步，获取COMSOL执行该仿真步的结果并传递给Simulink，作为Simulink执行下一步的参数设置依据。</p>
 <h4 id="Demo：模拟温度控制系统"><a href="#Demo：模拟温度控制系统" class="headerlink" title="Demo：模拟温度控制系统"></a>Demo：模拟温度控制系统</h4><p>如下图所示一个简单的温度控制系统，PID控制系统的输出功率，S-Function调用COMSOL对指定功率的模型做传热分析，计算得到温度结果与参比温度（300K）进行比较，温度低则提高控制系统输出功率，温度高则降低控制系统输出功率。多次迭代后，使系统输出温度稳定在参比温度附近。</p>
-<p><img src="/images/blogimgs/Simulink_S_function.png" alt="Simulink_S_function"></p>
+<p><img src="/images/blogimgs/cax/comsol_simulink/Simulink_S_function.png" alt="Simulink_S_function"></p>
 <p>计算过程中实时监控的温度变化曲线如下。初始温度为293.15K，初始加热功率为0W/m<sup>3</sup>，PID控制器自动调高输出功率，最终COMSOL计算得到的监测点温度逐渐逼近参比温度300K。</p>
-<p><img src="/images/blogimgs/Simulink_Scope.png" alt="Simulink_Scope"></p>
+<p><img src="/images/blogimgs/cax/comsol_simulink/Simulink_Scope.png" alt="Simulink_Scope"></p>
 <p>监测点（中心点）温度达到参比温度时，COMSOL传热计算结果如下，此时，PID控制器输出的功率为155.5893W/m<sup>3</sup>。</p>
-<p><img src="/images/blogimgs/COMSOL_Capture.png" alt="COMSOL_Capture"></p>
+<p><img src="/images/blogimgs/cax/comsol_simulink/COMSOL_Capture.png" alt="COMSOL_Capture"></p>
 <p>对模型设置感兴趣，请联系作者。</p>
-<hr>
-<style>
-p{font-family: sans-serif; font-size: 12pt; text-indent: 2em;}
-</style>
 
     </div>
 
@@ -541,6 +537,15 @@ p{font-family: sans-serif; font-size: 12pt; text-indent: 2em;}
         </a>
       </div>
     
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span>
+        
+      </div>
+    
   </nav>
   <div class="feed-link motion-element">
     <a href="/atom.xml" rel="alternate">
@@ -617,12 +622,12 @@ p{font-family: sans-serif; font-size: 12pt; text-indent: 2em;}
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">254k</span>
+    <span title="站点总字数">253k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:51</span>
+    <span title="站点阅读时长">3:50</span>
 </div>
 
         

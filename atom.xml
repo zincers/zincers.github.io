@@ -42,7 +42,7 @@
     <link href="http://www.poqpoq.net/2019/08/simulink-and-comsol-cosimulation.html"/>
     <id>http://www.poqpoq.net/2019/08/simulink-and-comsol-cosimulation.html</id>
     <published>2019-08-26T09:15:00.000Z</published>
-    <updated>2019-09-04T07:42:59.435Z</updated>
+    <updated>2019-09-05T10:59:50.196Z</updated>
     
     <content type="html"><![CDATA[<h4 id="需求背景"><a href="#需求背景" class="headerlink" title="需求背景"></a>需求背景</h4><p>Matlab/Simulink用于控制系统仿真，COMSOL用于模型有限元仿真，如果有限元模型是控制系统的一部分，则需要将二者联立，实现Simulink和COMSOL的协同仿真。</p><p>COMSOL 3.5版本（包括之前的FEMLAB）以前，提供了导出COMSOL模型到Simulink的标准接口，但对于非线性模型来说，直接导出的模型不能直接使用。后续版本，COMSOL取消了直接导出Simulink的功能，与Simulink的连接方式也发生了变更。</p><a id="more"></a><p>思路上，Simulink的S-function支持用户自定义任意子系统，COMSOL模型可以直接保存为Matlab的”.m”文件，将其修改作为S-function的一部分直接导入到控制系统中即可。Simulink模型在仿真的过程中调用S函数，通过S函数对COMSOL的边界条件或物理参数进行修改，其后COMSOL执行一个仿真步，获取COMSOL执行该仿真步的结果并传递给Simulink，作为Simulink执行下一步的参数设置依据。</p><h4 id="Demo：模拟温度控制系统"><a href="#Demo：模拟温度控制系统" class="headerlink" title="Demo：模拟温度控制系统"></a>Demo：模拟温度控制系统</h4><p>如下图所示一个简单的温度控制系统，PID控制系统的输出功率，S-Function调用COMSOL对指定功率的模型做传热分析，计算得到温度结果与参比温度（300K）进行比较，温度低则提高控制系统输出功率，温度高则降低控制系统输出功率。多次迭代后，使系统输出温度稳定在参比温度附近。</p><p><img src="/images/blogimgs/cax/comsol_simulink/Simulink_S_function.png" alt="Simulink_S_function"></p><p>计算过程中实时监控的温度变化曲线如下。初始温度为293.15K，初始加热功率为0W/m<sup>3</sup>，PID控制器自动调高输出功率，最终COMSOL计算得到的监测点温度逐渐逼近参比温度300K。</p><p><img src="/images/blogimgs/cax/comsol_simulink/Simulink_Scope.png" alt="Simulink_Scope"></p><p>监测点（中心点）温度达到参比温度时，COMSOL传热计算结果如下，此时，PID控制器输出的功率为155.5893W/m<sup>3</sup>。</p><p><img src="/images/blogimgs/cax/comsol_simulink/COMSOL_Capture.png" alt="COMSOL_Capture"></p><p>对模型设置感兴趣，请联系作者。</p>]]></content>
     
@@ -56,6 +56,20 @@
       <category term="软件学习" scheme="http://www.poqpoq.net/categories/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/"/>
     
     
+      <category term="CAE" scheme="http://www.poqpoq.net/tags/CAE/"/>
+    
+      <category term="COMSOL" scheme="http://www.poqpoq.net/tags/COMSOL/"/>
+    
+      <category term="仿真" scheme="http://www.poqpoq.net/tags/%E4%BB%BF%E7%9C%9F/"/>
+    
+      <category term="计算" scheme="http://www.poqpoq.net/tags/%E8%AE%A1%E7%AE%97/"/>
+    
+      <category term="Simulink" scheme="http://www.poqpoq.net/tags/Simulink/"/>
+    
+      <category term="Matlab" scheme="http://www.poqpoq.net/tags/Matlab/"/>
+    
+      <category term="PID" scheme="http://www.poqpoq.net/tags/PID/"/>
+    
   </entry>
   
   <entry>
@@ -63,7 +77,7 @@
     <link href="http://www.poqpoq.net/2019/08/in-the-name-of-love.html"/>
     <id>http://www.poqpoq.net/2019/08/in-the-name-of-love.html</id>
     <published>2019-08-20T00:12:00.000Z</published>
-    <updated>2019-09-04T07:42:58.803Z</updated>
+    <updated>2019-09-05T06:40:42.333Z</updated>
     
     <content type="html"><![CDATA[<p>阅读《母爱的羁绊》的时候，注意到了篇首引用纪伯伦的一首诗《论孩子》，首句写道“你的孩子，不是你的孩子“。查了一下，发现刚好有一部以此为题的电视剧。10集的篇幅，五个相对独立的故事。评论称之为台版”黑镜“，不过黑镜在讨论科技与人文，而这部剧中科技只是叙事的线索，真正讨论的则是”母爱“。</p><h4 id="《妈妈的遥控器》"><a href="#《妈妈的遥控器》" class="headerlink" title="《妈妈的遥控器》"></a>《妈妈的遥控器》</h4><p>母亲可以用遥控器一次又一次地倒带儿子的人生，以便让孩子沿着自己预设的路线成长。这感觉如同打电子游戏，母亲是游戏者，而儿子是被游戏者控制着的虚拟人物，闯关失败，可以无限次重来。不同的是，电子游戏中游戏者往往是追求新鲜刺激的冒险者，而剧中母亲则是循规蹈矩的世俗拥鼐者。儿子为了摆脱控制，多次自杀，而可以倒带人生的遥控器使得儿子连死都不能够，唯一的选择就是妥协长大，儿子成年后，身上已然有了诸多母亲的痕迹。</p><a id="more"></a><p>一次被安排的相亲经历之后，儿子又一次尝试夺回控制权。导演给了个开放式结局，没有明确给出这场控制权之争的结果，而最后一个画面着实有意思，也是我个人很关注的一个点。儿子为了打开保险箱拿到遥控器，尝试包括母亲生日在内的各种密码组合，均以失败告终，在自己几乎放弃之后，他才试了用他自己的生日。让儿子意料之外的是，母亲用了儿子的生日作为密码。儿子最后才尝试自己的生日，显然儿子不相信母亲是爱自己的，而讽刺的地方也正是在这里，母亲用儿子的生日做密码，显然在母亲的认知体系中，自己是“爱”儿子的。</p><p>这个“爱”是母亲自以为是的爱，母亲用这种“爱”掩盖自己的控制欲，他是否骗过别人我们不得而知，但是她至少成功地欺骗了自己。我们无法心安理得地重复做自己觉得不正确的事情，如果确实这么做了，唯一的方式就是先合理化自己行为的动机。而父母之爱，往往是合理化最好的选择，因为父母之爱，最不容易被质疑。以“爱”之名，合理化了自己的控制欲，既然已经合理化，那因爱之故，主体内心深处可能还有些自己如何如何伟大的错觉。</p><p>“合理化”是一个心理学词汇，我在这里聊合理化，第一时间想到了前段时间和朋友聊“潜意识”时的场景。当时朋友和我说，你知道关于“潜意识”最让人无奈的一件事是什么吗？那就是潜意识往往是当事人都拒绝承认的。只有被主体拒绝承认的意识才是“潜意识”，因为一个人一旦承认了自己的“潜意识”，潜意识就已经是他完整意识的一部分了。所以你在当事人面前讨论“潜意识”，一方面你注定徒劳无功，另一方面还会让他们本能地觉得你这个人很恐怖。我不知道我对合理化的讨论会不会陷入同样的窘境，尤其是我的讨论直接指向的是世俗中不容置疑的父母之爱。</p><p>Oliver·James在《天生非此》开篇指出，子女的性格养成很大程度上来自于子女对父母的“后代斯德哥尔摩综合症”。这一点在婴儿时期以及童年时期尤其明显，这个时期，婴儿必须通过讨好父母（养护人）才能更好地生存。青春期开始，子代进入所谓的“叛逆期”，也即父母所说的翅膀硬了，试图摆脱父母的控制。这时候其实是给了子女和父母一个共同的成长机会。不同的是，有的父母控制子女受阻后选择了放手，有的选择了变本加厉的控制；相应地，有的子女选择了独立自主，有的子女选择了依赖和逃避。</p><p>每个家庭有每个家庭的模式，我想说的是，如果现实中确实有这样的一个简单易用的遥控器的存在，我相信几乎所有的家长都会不时按下倒带键，因为子女是不成熟的孩子这个观念在他们脑海中是如此的根深蒂固。不得不说的是，觉得自己的孩子始终是孩子的父母，往往是自己没有长大的表现。同样地，觉得父母始终是儿时理解的父母的孩子，即便他/她已经身体长大，甚至也做了父母，在内心深处他/她也依然都是个婴儿。</p><h4 id="《猫的孩子》"><a href="#《猫的孩子》" class="headerlink" title="《猫的孩子》"></a>《猫的孩子》</h4><p>这一集并没有什么黑科技，故事也足够简单，就是父母攀比孩子的成绩，然后将孩子逼“疯”的故事。与其他几集不同的是，这个故事里面原生家庭是明显的女弱男强，父亲是脸谱化的负面形象，而这更凸显了母亲形象的可悲。</p><p>开篇是大家族聚餐，然后一群父母在那里攀比孩子。曾看到过一个说法，没本事的父母才会比孩子，可是这个大家庭里面不乏所谓的“事业成功”的父母。所以说，不是没本事的父母才攀比孩子，而是攀比的父母一定会攀比孩子，因为在攀比的父母心目中，孩子是自己的延伸，自然也是用于攀比的一部分。在成人世界，可用来攀比的东西很多，于是各有所长，攀比过程的伤害系数相对会低很多。而对于孩子而言，一旦建立了唯成绩论输赢的语境，攀比的伤害系数会无限放大，成绩不好几乎等于给孩子判了死刑。</p><p>如何才能取得好成绩，母亲任劳任怨提供一切后勤保障，每天耳提面命，督促孩子，同时相信棍棒教育，主动要求家教老师体罚孩子，如是种种，母亲给出的解决方案观众看起来一点都不陌生。而孩子们呢？缺乏正确引导的孩子，为好成绩建立了奇怪的因果关系，最终选择了惩罚更弱小的生命。殴打最后一名来换取自己的满级分，虐猫来换取自己的满级分，无论是哪一种，在孩子眼中，好成绩都是给自己父母的交代，有了一种献祭的味道，既然是献祭，更弱小客体的牺牲，也就变得无足轻重了。</p><p>这里面可悲的是母亲的思维逻辑。儿子拼个满级分，母亲就可以养猫，儿子拼个满级分，就不用请家教，省下来的钱就可以修好屋顶，父亲就会回家吃饭，自己失败的婚姻一下子也和儿子成绩挂了勾。认知的扭曲，起因是生活的艰辛和婚姻的不幸，可是心理不健全的父母，把子女作为了自己爱恨情感的唯一出口，最终结果是，子女背负父母养育之恩，同时也背负了父母精神的虐待和情感的勒索。</p><p>包括我们的父母在内，每个人都可能感冒发烧，社会对于身体的疾病有着足够清醒的认识，病人也会主动寻医问药。心理问题如同感冒发烧，每个人都会为其所扰，如果每个人都意识到它的存在，积极调节，它也会如同感冒发烧一样稀松平常。不幸的是，社会对于心理的疾病并没有普遍共识，病人不自知，讳疾忌医更是普遍现象。扭曲的认知其传染性比病毒其实更甚，尤其对象是认知本来就不甚健全的孩子。而如何与生活中不顺心，心理受困扰的父母和解，是在彼此的怀抱里，还是在掐死对方的冲动里，这正是这一集讨论的主题，当然我们每个人都不希望答案是后者。</p><h4 id="《茉莉的最后一天》"><a href="#《茉莉的最后一天》" class="headerlink" title="《茉莉的最后一天》"></a>《茉莉的最后一天》</h4><p>一向乖巧上进的大女儿突然跳楼自杀，母亲百思不得其解，于是借助科技手段，进入女儿生前的意识，找寻女儿自杀的真正原因。母亲硕士学历，为了照顾孩子，放弃了教职，在母亲看来自己为了孩子付出和牺牲很多，她自然想不通何以大女儿回报她的方式是一死了之。进入女儿的意识其实是给了母亲换位思考的机会，在这个过程中，她知道了女儿真正的兴趣爱好，理解了女儿内心深处真实的想法，最终母亲终于意识到将自己女儿逼向绝境的其实是自己。</p><p>父母与子女观点分歧的时候，父母一句”我这是为你好！“，就可以终结所有的观念之争，因为这个事实任何人都无法否认。亲代关系中，子女绝大多数情况下都是物质的”被施与者“，这种不对等的关系，使得子女与父母对话的时候本来就没有话语权。母亲的受教育程度，一定程度上加强了她的固执，这使得对话变得更加困难。“你爸妈的脸都被你丢光了”，“如果不是生你，我……”类似的话，从母亲口中反复说出，却全然不知道这些话的杀伤力。父母给了孩子生命，多年的养育给了孩子健康的体魄，但是扼杀自己孩子灵魂的，也往往是以爱之名的父母。父母为子女的付出自然不该被质疑，但是如果将其反复念叨出来，我们有理由怀疑这些付出的动机。子女不是父母的理财产品，但是抱着投资的心态为子女付出的父母其实不在少数。</p><p>父母亲情，不公平的地方就在于，父母有选择生育子女的权利，而子女并没有选择自己是否出生的权利。如果子女出生在强势父母的家庭，注定要承受来自强势父母的精神虐待。强势的父母为了自己所谓的权威，习惯性地利用自己社会化的思维强词夺理，而且永远不会承认错误（其实也意识不到自己的错误）。强势父母的思考是基于经验的，而非基于逻辑，这样的父母，自然很难教会自己的孩子明辨是非。子女一旦接触其他思想，来自强势父母的压力就会翻倍，他们不择手段地将子女拉回自己预设的轨道，这种精神虐待有时候比身体虐待更残忍。精神虐待是肆意蔓延的顽疾，破坏的是孩子追寻的自由意志，而自由意志一定程度上等同于生的意愿。</p><h4 id="《孔雀》"><a href="#《孔雀》" class="headerlink" title="《孔雀》"></a>《孔雀》</h4><p>这一集有点《阿拉丁与神灯》的感觉。平凡的父母含辛茹苦将女儿送入管理严苛，一切以成绩为导向的重点高中。校园里有一只孔雀，你可以用自己拥有的东西与它交换你所觊觎的东西。女儿虚荣心作祟，用自己的绘画天赋与孔雀交换了金钱，转学生用自己的声音与孔雀交换了第一名。交换的结果显现之后，孩子们失去了被交换之物才知其重要。剧集的前半段给人的感觉就是一则寓言童话，直到后半段母亲参与进了交换中，整部剧才有意思起来。</p><p>将重点高中变成普通学校，就可以换回女儿的正常，这是孔雀开给母亲的交换条件。这怎么看都是划算的交易，之前为了女儿愿意倾尽自己所有的母亲，这个时候却拒绝执行这个交换。有评论指出，这个位置母亲形象的反转不合理，我却觉得，母亲形象完全没有反转，她为了女儿上名校而辛苦付出的执着其实就是她后来拒绝名校变普通的偏执。</p><p>子女读名校，是为了子女好，是的，这个逻辑没有任何问题，但是又有几个父母会承认，子女上名校其实也是自己的谈资。我在这里指出后者，不是为了否定前者，好胜心本不是什么坏事，但是演变为虚荣心就另当别论了。女儿在弟弟和父亲协助下，完成了孔雀的交换条件，名校取消了很多严苛的管理制度，搞笑的一幕发生了，体制化的学生和家长们主动要求恢复之前的状态。其实母亲的思维逻辑并非个例，没有人愿意接受自己引以为傲的东西一夜之间变得一文不值。因为你否定的不是这件东西本身，而是所有为之趋之若鹜的人的努力。</p><p>最后的最后，母亲用自己交换了女儿的正常如初，母亲“失踪”，变成了孔雀本身，故事至此结束。这是母亲为了女儿心甘情愿的牺牲，可是在这里观者却看不到有什么值得歌颂的地方。这个荒诞的故事结束了，母亲最后成了笼子中的孔雀。至于孔雀影射的是什么，每个人都没有自己的观点，在我看来，光鲜亮丽的孔雀指代的应该就是人类的虚荣，虚荣者通过交换可以拥有一切，但是他逃离不了自己笼子，也即意味着虚荣者从一开始就失去了自由。</p><h4 id="《必须过动》"><a href="#《必须过动》" class="headerlink" title="《必须过动》"></a>《必须过动》</h4><p>这一集很”黑镜“，架空的时代，女性由政府统一分发胚胎，然后抚育后代，政府定时组织定级考，考试成绩决定家庭的阶级，这背后的逻辑是，子女成绩好坏源自于母亲教育的好坏。如果子女成绩糟糕，母亲也会受连累，除非可以证明分发的胚胎是劣质胚胎。于是在女儿成绩不好的时候，母亲为了避免自己失去目前拥有的物质条件，让女儿扮演过动症，而女儿不知道的是，一旦自己被确诊为过动症，就会被政府回收销毁。</p><p>如果说《妈妈的遥控器》一集还是”母爱”和”控制”杂糅，这一集则只剩下了”控制”，而且还直接指出了隐藏在母爱背后的自私。我从来不觉得，自私是不对的，自私本来就是人类的天性，就像孩子从一出生那一刻他就需要争夺资源，争夺父母的关注，以便使得自己更好的生存，从这个角度来说，自私其实是生物延续，社会发展的动力，所以我从来不觉得自私是需要被批判的。在我看来，真正需要被审视的是被掩盖的自私，或者说披着母爱外衣的自私，自私如果混杂了虚伪，才是恐怖的。</p><p>孩子对父母的爱是有条件的，却也是唯一选择，在亲子关系的开始，就是孩子为了获取亲代抚育而对父母的讨好，所以子女除了选择爱父母之外没有其他选择；父母对子女的爱呢，他可以是有条件的也可以是无条件的，但有一点是确定无疑的，那就是他一定不是唯一选择。子女在有独立意识之前，一定是爱父母的，子女也相信父母是爱自己的，但事实上父母对子女之爱有时候没那么纯粹，毕竟社会用法律约束的是父母的行为（义务）而非爱这种情感。自私的人一旦做了父母，他们会将对子女的付出理解为投资，在投资者看来，投资就要有回报，一旦失败就要及时止损。子女不是父母的人生的延续，也不是父母未竟梦想的补偿，更不是父母攀爬物欲之塔的阶梯。悲哀的是，自私者是不会认同这句话的。</p><p>这一集有乌托邦的元素，《天生非此》里面提到了当代学校教育的一层本质：”学校教育的主要目的之一就是为了将孩子集中照看，以便父母腾出手去工作”，学校教育从某种程度上有了点资本社会利益最大化的考量。而乌托邦社会，政治教育的引入，使得学校教育又有了“统一思想”的功用，当教育变得不容置疑的时候，教育本身其实也就禁不住推敲了。乌托邦社会，一切都被“合理化”地安排，人性和天赋被视为异端，这样的社会会不可避免地走向功利和庸俗，于是人也会一步步走向自私和无聊。但是，作为旁观者以及可能的亲历者，我真的不希望看到这样的结果，那就是走向自私的是父母，走向无聊的是孩子。</p>]]></content>
     
@@ -76,6 +90,12 @@
     
       <category term="影音映像" scheme="http://www.poqpoq.net/categories/%E5%BD%B1%E9%9F%B3%E6%98%A0%E5%83%8F/"/>
     
+    
+      <category term="评论" scheme="http://www.poqpoq.net/tags/%E8%AF%84%E8%AE%BA/"/>
+    
+      <category term="影视" scheme="http://www.poqpoq.net/tags/%E5%BD%B1%E8%A7%86/"/>
+    
+      <category term="亲子关系" scheme="http://www.poqpoq.net/tags/%E4%BA%B2%E5%AD%90%E5%85%B3%E7%B3%BB/"/>
     
   </entry>
   
@@ -135,7 +155,7 @@
     <link href="http://www.poqpoq.net/2019/06/shower-simulation-calculation-xflow.html"/>
     <id>http://www.poqpoq.net/2019/06/shower-simulation-calculation-xflow.html</id>
     <published>2019-06-22T09:15:00.000Z</published>
-    <updated>2019-09-04T07:42:59.563Z</updated>
+    <updated>2019-09-05T10:45:34.142Z</updated>
     
     <content type="html"><![CDATA[<p>之前因为时间关系，这个洗澡的模型仅仅计算了开始阶段，作为演示demo，也只是加密了上半部分的网格。这次出差，刚好把模型放到工作站上完整跑了一遭。用时1天零9个小时，这澡勉强算是洗完了吧。</p><p>软件平台：XFlow 2019x</p><p>硬件配置：CPU：AMD Threadripper 1950X 3.4GHz + RAM：32G</p><a id="more"></a><video src="/images/blogimgs/cax/shower_simulation.mp4" width="640" controls autoplay loop></video><p>对模型设置感兴趣或索要模型，请联系作者。 </p>]]></content>
     
@@ -149,6 +169,16 @@
       <category term="软件学习" scheme="http://www.poqpoq.net/categories/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/"/>
     
     
+      <category term="CAE" scheme="http://www.poqpoq.net/tags/CAE/"/>
+    
+      <category term="仿真" scheme="http://www.poqpoq.net/tags/%E4%BB%BF%E7%9C%9F/"/>
+    
+      <category term="计算" scheme="http://www.poqpoq.net/tags/%E8%AE%A1%E7%AE%97/"/>
+    
+      <category term="CFD" scheme="http://www.poqpoq.net/tags/CFD/"/>
+    
+      <category term="XFlow" scheme="http://www.poqpoq.net/tags/XFlow/"/>
+    
   </entry>
   
   <entry>
@@ -156,7 +186,7 @@
     <link href="http://www.poqpoq.net/2019/05/how-femag-considers-internal-water-cooling-jackets.html"/>
     <id>http://www.poqpoq.net/2019/05/how-femag-considers-internal-water-cooling-jackets.html</id>
     <published>2019-05-09T08:16:16.000Z</published>
-    <updated>2019-09-04T07:42:59.383Z</updated>
+    <updated>2019-09-05T11:03:49.549Z</updated>
     
     <content type="html"><![CDATA[<p>晶体生长热场模拟，如果设备包含内部水冷管（套）组件的时候，需要将内部边界等效为外部边界，从而指定其边界条件。在FEMAG软件中，设置方式如下：</p><ol><li><p>首先在 <em>GeoTool</em> 中，运行 <em>FurGeo</em> 进入炉子几何编辑。</p></li><li><p>创建水冷组件几何，以及较小一点的内部水域几何，二者的差集（管壁）是我们需要的区域， <em>FurGeo</em> 并没有布尔运算功能，不能通过差集操作直接得到管壁特征，需要借助于辅助线来完成。</p></li><li><p>如下图所示，以创建一个水冷管为例，借助于162和163两条线段，将管壁特征切分为如下三个区域，其中区域1和2是我们需要保留的管壁区域，区域3对应的则是水流流经的区域。</p><p><img src="/images/blogimgs/cax/FEMAG_cap1.PNG" alt="FEMAG设置内部水冷示意图"></p></li><li><p>单击 <em>Create topology</em> 按钮，然后顺次点击 <em>Detect 2D</em> 和 <em>Detect 1D</em> 按钮，软件将自动检测和标记宏单元。 </p></li><li><p>这之后，我们会发现区域3也被选中标记，需要我们手动取消标记。选中该区域，右键单击，然后选择 <em>Unassign</em> 选项即可。</p></li><li><p>运行 <em>IniMesh</em> 和 <em>SetMesh</em> 组装几何和剖分网格。需要说明的是，在 <em>SetMesh</em> 过程中，一定不要将区域3误标记为gas宏单元。</p></li><li><p>运行 <em>wxCregeo</em>。在 <em>Plot/Tree View</em> 窗口右侧的单元树中选择区域3对应的宏单元，右键菜单下单击 <em>Convert to external boundary</em> 选项。</p></li><li><p>回到 <em>wxCregeo</em> 主窗口，在 <em>Thermal Operating Conditions</em> 选项面板中单击 <em>External boundary conditions (shell cooling, etc)</em> 右侧的 <em>Impose…</em> 按钮。</p></li><li><p>经过如上设置，在弹出的对话框中，可以找到水冷套管内壁对应的边，这些边和炉体外壁一样，可以对其设置任意外部边界条件。</p></li></ol>]]></content>
     
@@ -174,6 +204,16 @@
     
       <category term="软件学习" scheme="http://www.poqpoq.net/categories/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/"/>
     
+    
+      <category term="CAE" scheme="http://www.poqpoq.net/tags/CAE/"/>
+    
+      <category term="仿真" scheme="http://www.poqpoq.net/tags/%E4%BB%BF%E7%9C%9F/"/>
+    
+      <category term="计算" scheme="http://www.poqpoq.net/tags/%E8%AE%A1%E7%AE%97/"/>
+    
+      <category term="FEMAG" scheme="http://www.poqpoq.net/tags/FEMAG/"/>
+    
+      <category term="CFD" scheme="http://www.poqpoq.net/tags/CFD/"/>
     
   </entry>
   
@@ -203,7 +243,7 @@
     <link href="http://www.poqpoq.net/2018/10/comsol-captures-the-time-history-dependent-variable-maximum-and-is-used-for-model-setup.html"/>
     <id>http://www.poqpoq.net/2018/10/comsol-captures-the-time-history-dependent-variable-maximum-and-is-used-for-model-setup.html</id>
     <published>2018-10-08T12:16:53.000Z</published>
-    <updated>2019-09-04T08:12:42.498Z</updated>
+    <updated>2019-09-05T11:04:37.129Z</updated>
     
     <content type="html"><![CDATA[<h4 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h4><p>在COMSOL中模拟激光加热316L不锈钢粉末过程。激光加热达到转变点后，粉末融化，从粉末状态转变为实体状态，后续即便温度降低到转变点以下，316L依然保持实体状态，不会恢复为此前粉末状态。316L不锈钢的热传导系数、比热容、密度等参数都与粉末和实体转变的状态相关。模拟过程中需要使用变量捕捉时间历程中节点的温度结果，只要曾经高于转变点温度，即认为发生相变，修改状态变量的数值，后续无论升温和降温对该状态变量都无影响。在此基础上，316L的热物参数设置为与该状态变量相关的函数，相关参数作为材料本构加载到模型中去以表征相转变对加热过程的影响。</p><a id="more"></a><h4 id="相变过程的模拟"><a href="#相变过程的模拟" class="headerlink" title="相变过程的模拟"></a>相变过程的模拟</h4><p>在COMSOL中模拟相变过程中材料属性参数的转变，相关的资料很多，这里不详述。</p><p>对于常见的固液相变，一般是定义一个相分数变量 $\phi$ ，让其在固相状态下为0，液相状态下为1。写成如下形式：</p><script type="math/tex; mode=display">\phi=(T>T_m)</script><p>然后热物性能参数（这里以热传导系数为例）写成与 $\phi$ 相关的表达式：</p><script type="math/tex; mode=display">k=k_s(1-\phi)+k_l\phi</script><p>使用上述表达式可以很好的处理可逆的相变过程，对于本需求中，转变为实体状态后即便降温依然保持实体状态的情形则无法处理。如果材料是整体加热从粉末态转变为实体态，而我们又可以判断整体完成转变的时间 $t_f$ 的话，可以简单将上式修改为如下形式：</p><script type="math/tex; mode=display">k=(k_s(1-\phi)+k_l\phi)(t<t_f)+k_l(t>t_f)</script><p>激光加热，尤其是移动热源的激光加热，升温转变过程和降温过程在求解域中会同时存在，不存在前述的 $t_f$ ，所以上述思路不可行。</p><h4 id="捕捉时间周期变量最大值"><a href="#捕捉时间周期变量最大值" class="headerlink" title="捕捉时间周期变量最大值"></a>捕捉时间周期变量最大值</h4><p>换个思路来说，这个问题涉及的逻辑其实很简单，直接将 $\phi$ 的定义做个修改即可，如下：</p><script type="math/tex; mode=display">\phi=(T_{max}>T_m)</script><p>刚好是我们需要的逻辑，于是问题就变为了如何获取时间历程中节点温度最大值的问题。COMSOL中，获取特定时刻域内最大值很简单，<strong>模型定义</strong>下有专门的算子可以用，但是获取时间历程节点的最大值的算子只有在后处理时候才有，不满足我们的需求。</p><p>查阅COMSOL文档，有一个$timemax()$函数让人眼前一亮，简直是量身定做的函数，文档引用如下：</p><blockquote><p><strong>timemax and timemin</strong></p><p>The timemax and timemin operators evaluate the maximum and minimum, respectively, of an expression over time. timemax(t1,t2,expr) finds the maximum of expr on the interval t1 ≤ t ≤ t2. The first two arguments must be real constants</p><p><strong>The timemax and timemin operators can only be used during results evaluation, so you cannot use then when setting up the model.</strong> </p></blockquote><p>于是将 $\phi$ 定义成了 $timemax(0,t,T)&gt;T_m$ 测试，单独用于捕捉 $\phi$ 数值没问题，一旦将 $\phi$ 和 $k$ 建立联系，并用于材料设置，软件就直接报错。仔细看文档发现，这个函数还是只能在后处理过程中用，无法用于设置模型（见引用文档加粗部分）。</p><h4 id="另辟路径"><a href="#另辟路径" class="headerlink" title="另辟路径"></a>另辟路径</h4><p>看文档过程中，同时发现了一个有意思的函数 $prev(expr,i)$ ，用于获取前 $i$ 个时间步的表达式 $expr$ 的数值。于是想到可以基于此实现类似 $timemax()$ 的功能。每个时刻判断该时刻温度 $T$ 与前一时刻 $T_{max}$ 的大小，然后返回最大值给 $T_{max}$ 。</p><script type="math/tex; mode=display">T_{max}=max(prev(T_{max},1),T)</script><p>思路上没有问题，使用 $prex()$ 函数需求将求解类型切换为<strong>Time Discrete</strong>求解器，按需切换即可。至于如何将上述表达式写入软件，最开始的尝试是将这个关系写入全局方程。打开<strong>Advanced Physics Options</strong>选项，在分析模式中右键选择<strong>Global</strong> - <strong>Global equations</strong>。在<strong>Global equations</strong>的输入窗口<strong>Name</strong>中定义 $T_{max}$ 变量，表达式中写入 $T_{max}-max(prev(T_{max},1),T)$，初始值按实际情况设置。通过这种方式理论上实现了使用 $T_{max}$ 变量对温度最大值的捕捉，不过意外的是，这种情况依然报错。</p><p>抱着最后一丝希望，索性直接添加了一个 <strong>General Form PDE</strong>与原有的物理模式建立耦合分析。模型设置中，除了 $f$ 项外，所有的参数都设置为0，令 $f$ 项为$T_{max}-max(prev(T_{max},1),T)$。该思路与 <strong>Global equations</strong>类似，不同的是，基于这种方式获取的 $T_{max}$ 可以正常应用于模型，与之建立关系的 $\phi$ 和 $k$ 都可以正常使用，并直接作为材料属性参数加载到模型中去。</p><p>大功告成，最后放一个测试的结果动画。左侧区域初始温度低于相变点，右侧区域初始温度高于相变点，左边界是高于相变点温度的恒温边界，右边界是低于相变点温度的恒温边界。最终结果是左侧随时间升温发生相变，右侧降温，温度会逐渐低于相变点温度。图中上方是温度分布结果，下方是对应的热传导系数的结果，从下方的图可以看到，左侧热物性能参数随着相变界面变化而变化，实现了对瞬态相变界面的实时追踪，右侧虽然温度逐渐低于相变温度，但是热物性能维持此前的最大值状态保持不变。</p><p><img src="/images/blogimgs/cax/comsol_timemax.gif" alt="COMOSL TimeMax"></p><style>p{font-family: sans-serif; font-size: 12pt;}</style>]]></content>
     
@@ -217,6 +257,18 @@
       <category term="软件学习" scheme="http://www.poqpoq.net/categories/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/"/>
     
     
+      <category term="CAE" scheme="http://www.poqpoq.net/tags/CAE/"/>
+    
+      <category term="COMSOL" scheme="http://www.poqpoq.net/tags/COMSOL/"/>
+    
+      <category term="仿真" scheme="http://www.poqpoq.net/tags/%E4%BB%BF%E7%9C%9F/"/>
+    
+      <category term="多物理" scheme="http://www.poqpoq.net/tags/%E5%A4%9A%E7%89%A9%E7%90%86/"/>
+    
+      <category term="计算" scheme="http://www.poqpoq.net/tags/%E8%AE%A1%E7%AE%97/"/>
+    
+      <category term="相变" scheme="http://www.poqpoq.net/tags/%E7%9B%B8%E5%8F%98/"/>
+    
   </entry>
   
   <entry>
@@ -224,7 +276,7 @@
     <link href="http://www.poqpoq.net/2018/07/home-storage-server-setup.html"/>
     <id>http://www.poqpoq.net/2018/07/home-storage-server-setup.html</id>
     <published>2018-07-05T12:16:53.000Z</published>
-    <updated>2019-09-04T07:42:59.535Z</updated>
+    <updated>2019-09-05T10:49:30.345Z</updated>
     
     <content type="html"><![CDATA[<p><strong>硬件购置</strong></p><p>主板（板载CPU）：淘宝，华擎 J3455-ITX mini-ITX主板 17*17 4核CPU </p><p>Nas机箱：淘宝，4盘位热插拔存储服务器 迷你ITX铝面板机箱DIY机箱，含电源和风扇</p><p>内存条：笔记本拆机内存条，三星 4G DDR3L 1600MHz</p><p>硬盘</p><ul><li>机械硬盘：3.5寸  5400 SATA3 机械硬盘，西数蓝盘和希捷酷鱼各一块，一块做数据盘，一块做备份盘，京东618</li><li>固态硬盘：东芝 TR200系列 240GB SATA3固态硬盘，用作系统盘，京东618</li></ul><a id="more"></a><p>配件：</p><ul><li>SATA3 数据线 * 2，主板仅包含两根数据线</li><li>临时要用的鼠键套装</li><li>主板支持 DVI+VGA+HDMI 三种视频输出，准备临时接显示器的线</li></ul><p><strong>系统安装</strong></p><p>硬件几乎是按照”黑群晖“配置的，不过考虑到主要是以”做成家用存储“的名义瞎折腾，与其折腾NAS，做RAID一劳永逸，还不如直接做成一台Linux服务器，后期还可以随便加私货进去。于是乎直接做了个Ubuntu的启动U盘，装了Ubuntu 18.04上去。</p><p>装系统的时候仅插入了固态硬盘，刚开始的时候选择的手动分区，不过进行到最后一步安装Grub引导的时候报错，后来索性让系统使用全盘自动分的区，顺利通过。</p><p>系统安装完成按照惯例执行一些例行的操作，包括软件源切换国内，系统更新，固定IP配置，OpenSSH服务器安装等，这里不再赘述。</p><p><strong>挂载机械硬盘</strong></p><ol><li><p>完成系统安装，然后插入两块3.5的机械硬盘，进入Ubuntu。</p></li><li><p>使用<code>df -h</code>命令查看两块硬盘默认挂载位置，我的是<code>/dev/sdb1</code>和<code>/dev/sdc</code></p></li><li><p>在根目录下新建data和backup目录，并修改权限，其中data用作数据盘，面向局域网服务，backup用作备份盘，每隔一定时间镜像data数据</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir /data /backup</span><br><span class="line">sudo chmod -R 775 /data /backup</span><br></pre></td></tr></table></figure></li><li><p>修改etc/fstab文件，添加如下信息，设置开机自动将两块盘挂载到指定位置</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/dev/sdb1       /data           ext4    defaults        1       2</span><br><span class="line">/dev/sdc        /backup         ext4    defaults        1       2</span><br></pre></td></tr></table></figure></li></ol><p><strong>搭建Samba服务器</strong> </p><p>Samba服务器配置选项很多，这里仅需要配置局域网单用户可访问data目录即可。配置步骤如下：</p><ol><li><p>首先是安装Samba服务器：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install samba</span><br></pre></td></tr></table></figure></li><li><p>Samba使用自己的用户账号和秘密，默认保存在<code>/etc/samba/smbpasswd</code> 文件中，可以使用<code>smbpasswd</code>命令 创建新的用户：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo smbpasswd -a username</span><br></pre></td></tr></table></figure><p>按照程序指引，设置新用户密码，完成账号添加。</p></li><li><p>修改配置文件，设置data目录局域网可访问：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.bak  # 备份配置文件，以防万一</span><br><span class="line">sudo vim /etc/samba/smb.conf# 使用VIM编辑配置文件</span><br></pre></td></tr></table></figure><p>转到Samba长长的配置文件末尾，添加如下信息：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[data]</span><br><span class="line">path = /data</span><br><span class="line">available = yes</span><br><span class="line">valid users = username</span><br><span class="line">read only = no</span><br><span class="line">browseable = yes</span><br><span class="line">public = yes</span><br><span class="line">writable = yes</span><br></pre></td></tr></table></figure></li><li><p>重启Samba服务器，使配置生效</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /etc/init.d/smbd restart</span><br></pre></td></tr></table></figure></li><li><p>Samba服务器重启后，使用如下命令测试配置文件是否有语法错误：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo testparm</span><br></pre></td></tr></table></figure></li><li><p>至此，单用户的Samba服务器就搭建完成了，在局域网下应该可以浏览到该目录了。</p></li></ol><p><strong>局域网其他设备访问Samba服务器</strong></p><ul><li>Windows：打开资源管理器，地址栏输入<code>\\192.168.2.200\data</code>即可浏览到共享的目录，其中192.168.2.200是Samba服务器内网IP。</li><li>手机：需求仅限于看服务器中视频资源的话，安装VLC视频播放器即可。需要浏览更多资源的话，可以安装类似于ES文件浏览器的应用。</li><li>电视机：家用的海信电视默认不支持Samba，需要安装第三方程序，比如小白文件管理器来支持。顺便分享一个海信官网的用户吐槽：<a href="http://fans.hisense.com/thread-139650-1-1.html" target="_blank" rel="noopener">都什么年代了，居然还不支持Samba。。。</a></li></ul><p><strong>手机相册同步</strong></p><p>相册同步使用的是<a href="https://github.com/syncthing/syncthing" target="_blank" rel="noopener">Syncthing</a>，Syncthing是开源的Resilio Sync 替代，支持在设备间进行文件的同步。</p><p>服务器端，下载最新版本的安装包，解压缩，然后运行解压缩目录下的<code>syncthing</code>即可：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/syncthing/syncthing/releases/download/v0.14.48/syncthing-linux-amd64-v0.14.48.tar.gz</span><br><span class="line">tar xvzf syncthing-linux-amd64-v0.14.48.tar.gz</span><br><span class="line">cd syncthing-linux-amd64-v0.14.48</span><br><span class="line">./syncthing</span><br></pre></td></tr></table></figure><p>程序会自动启动Web界面，用于用户管理设备之间的同步。建议将<code>~/syncthing</code>加入到开机启动项中去。</p><p>Android手机自行搜索客户端下载安装即可，IOS目前还没有项目官方直接支持的客户端版本，商店里面的fsync()支持syncthing，不过没有具体测试过。文件夹同步设置按照客户端和服务器Web端引导设置即可。</p><p><strong>本机备份</strong></p><p>作为影音资源存储服务器，数据更新不会太频繁，实时同步意义不大，定期做一次归档就足够了。我这里使用第二块硬盘用于定期同步备份，相对于多盘配置RAID来说，这样确实简单粗暴了些，不过好处就是一旦data硬盘故障，直接把备份盘换过去即可。</p><p>定期备份使用rsync同步工具配合任务计划工具crontab实现。以设置每周日23点自动同步一次文件夹为例，配置过程如下，打开终端，执行：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -e</span><br></pre></td></tr></table></figure><p>编辑<em>crontab</em>文件，添加如下内容：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 23 * * 0 rsync -qr --delete /data/* /backup/</span><br></pre></td></tr></table></figure><p>Crontab参数说明：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">*     *     *   *    *        command to be executed</span><br><span class="line">-     -     -   -    -</span><br><span class="line">|     |     |   |    |</span><br><span class="line">|     |     |   |    +----- day of week (0 - 6) (Sunday=0)</span><br><span class="line">|     |     |   +------- month (1 - 12)</span><br><span class="line">|     |     +--------- day of        month (1 - 31)</span><br><span class="line">|     +----------- hour (0 - 23)</span><br><span class="line">+------------- min (0 - 59)</span><br></pre></td></tr></table></figure><p>Rsync参数说明：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-q：静默模式</span><br><span class="line">-r：递归目录</span><br><span class="line">--delete：删除目标路径下多余的文件；实现的效果其实是文件在原目录被删除，同步的时候也会删除目标目录的副本</span><br></pre></td></tr></table></figure><p>同步命令<code>rsync</code>默认是将源目录同步到目标目录的同名子目录，data目录后面加<code>*</code>只是为了实现目录同级。</p><p><strong>下载工具推荐</strong></p><p>GUI：<a href="https://webtorrent.io/" target="_blank" rel="noopener">webtorrent</a></p><p>CLI：<a href="https://aria2.github.io/" target="_blank" rel="noopener">aria2</a></p><p>Aria2可以配置web前端，实现远程访问和管理。我这里偷懒没有配置，而是直接使用<code>nohup</code>配合<code>aria2</code>命令行实现远程下载，命令格式如下：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup [aria2下载命令] &gt;out.log 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -241,6 +293,18 @@
       <category term="软件学习" scheme="http://www.poqpoq.net/categories/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/"/>
     
     
+      <category term="软件" scheme="http://www.poqpoq.net/tags/%E8%BD%AF%E4%BB%B6/"/>
+    
+      <category term="Linux" scheme="http://www.poqpoq.net/tags/Linux/"/>
+    
+      <category term="NAS" scheme="http://www.poqpoq.net/tags/NAS/"/>
+    
+      <category term="存储" scheme="http://www.poqpoq.net/tags/%E5%AD%98%E5%82%A8/"/>
+    
+      <category term="Samba" scheme="http://www.poqpoq.net/tags/Samba/"/>
+    
+      <category term="Syncthing" scheme="http://www.poqpoq.net/tags/Syncthing/"/>
+    
   </entry>
   
   <entry>
@@ -248,7 +312,7 @@
     <link href="http://www.poqpoq.net/2017/10/oneplus-5-oxygenos-brush-root-and-delete-preset-application-records.html"/>
     <id>http://www.poqpoq.net/2017/10/oneplus-5-oxygenos-brush-root-and-delete-preset-application-records.html</id>
     <published>2017-10-24T11:53:00.000Z</published>
-    <updated>2019-09-04T07:42:59.407Z</updated>
+    <updated>2019-09-05T11:02:20.008Z</updated>
     
     <content type="html"><![CDATA[<p>手机预装的是HydrogenOS，由于还是习惯Android原生体验，所以果断刷OxygenOS。OnePlus的OxygenOS预装了谷歌全家桶，相当一部分是用不到的，root之后直接删除这些预置应用。开始之前，确认打开开发者模式，以USB调试模式连接电脑。</p><p><strong>准备</strong></p><ul><li><a href="https://dl.google.com/android/repository/platform-tools-latest-windows.zip" target="_blank" rel="noopener">Platform Tools</a></li><li><a href="https://dl.twrp.me/cheeseburger/twrp-3.1.1-1-cheeseburger.img.html" target="_blank" rel="noopener">twrp-3.1.1-1-cheeseburger.img</a></li><li><a href="https://s3-us-west-2.amazonaws.com/supersu/download/zip/SuperSU-v2.82-201705271822.zip" target="_blank" rel="noopener">SuperSU</a></li></ul><a id="more"></a><p><strong>开始</strong></p><ol><li><p>解压缩 Platform Tools 包，打开命令行并进入到该解压缩目录</p></li><li><p>手机USB调试模式连接电脑，然后重启到 fastboot 模式</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb.exe reboot bootloader</span><br></pre></td></tr></table></figure></li><li><p>手机解锁，如果已经解锁，可以跳过该步骤</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fastboot.exe oem unlock</span><br></pre></td></tr></table></figure></li><li><p>将 twrp-3.1.1-1-cheeseburger.img 重命名为 twrp.img  放在 Platform Tools 解压缩目录，然后将其刷入手机</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fastboot.exe flash recovery twrp.img</span><br></pre></td></tr></table></figure></li><li><p>重启手机</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fastboot.exe reboot</span><br></pre></td></tr></table></figure></li><li><p>键入 fastboot.exe reboot 后手机会自动重启，Oneplus会尝试将用户自定义的recovery替换为系统默认的，为了避免自定义recovery被还原，键入命令后，按住音量+键，选择启动到Twrp。</p></li><li><p>成功进入Twrp界面后，选择刷入SuperSu，预先将SuperSu压缩包拷贝到手机中，浏览选择该压缩包刷入即可。</p></li><li><p>刷入SuperSu后，重启手机，然后使用adb附带的命令行工具，删除不需要的预装应用</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">adb.exe shell</span><br><span class="line">su  #切换到root用户，第一次需要在手机界面确认给予adb shell需要的root权限</span><br><span class="line">mount -o rw,remount /system  #挂载system文件系统为可读写</span><br><span class="line">cd /system/app  #进入系统预装app目录</span><br><span class="line">ls  #查看该目录下对应的app</span><br><span class="line">rm -R Gmail2 Duo YouTube Music2 ***  #删除不需要的预装app</span><br></pre></td></tr></table></figure></li></ol>]]></content>
     
@@ -266,6 +330,12 @@
       <category term="软件学习" scheme="http://www.poqpoq.net/categories/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/"/>
     
     
+      <category term="软件" scheme="http://www.poqpoq.net/tags/%E8%BD%AF%E4%BB%B6/"/>
+    
+      <category term="刷机" scheme="http://www.poqpoq.net/tags/%E5%88%B7%E6%9C%BA/"/>
+    
+      <category term="Oneplus" scheme="http://www.poqpoq.net/tags/Oneplus/"/>
+    
   </entry>
   
   <entry>
@@ -273,7 +343,7 @@
     <link href="http://www.poqpoq.net/2017/09/nail-robot-automatically-pushes-external-network-ip-to-group.html"/>
     <id>http://www.poqpoq.net/2017/09/nail-robot-automatically-pushes-external-network-ip-to-group.html</id>
     <published>2017-09-04T12:16:53.000Z</published>
-    <updated>2019-09-04T07:42:59.591Z</updated>
+    <updated>2019-09-05T10:42:51.650Z</updated>
     
     <content type="html"><![CDATA[<p>工作需要，在局域网内搭建了Gitlab服务器，然后借助花生壳动态域名解析服务（DDNS）实现外网域名访问。感谢《网络安全法》的出台，花生壳域名需要实名验证才能继续使用，实在懒得上传资料验证，索性直接使用外网IP访问服务器。唯一的问题是路由器重启后，重新拨号获得的外网IP也会变化，需要以某种方式通知项目组成员。因为公司在使用钉钉，所以自然而然地想到了钉钉的群机器人功能。</p><a id="more"></a><p>实现钉钉机器人推送内容很容易，具体请自行查看钉钉自定义机器人文档。外网IP是通过访问IP138提取网页内容得到，相关代码如下：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># coding=utf-8</span></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">ding_talk_push</span><span class="params">(content)</span>:</span></span><br><span class="line">    url = <span class="string">'https://oapi.dingtalk.com/robot/send?access_token='</span> \</span><br><span class="line">          <span class="string">'*********替换为自己的地址**************'</span></span><br><span class="line">    headers = &#123;<span class="string">"Content-Type"</span>: <span class="string">"application/json ;charset=utf-8 "</span>&#125;</span><br><span class="line">    string_text_msg = &#123;<span class="string">"msgtype"</span>: <span class="string">"text"</span>, <span class="string">"text"</span>: &#123;<span class="string">"content"</span>: content&#125;&#125;</span><br><span class="line">    string_text_msg = json.dumps(string_text_msg)</span><br><span class="line">    requests.post(url, data=string_text_msg, headers=headers)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_ext_ip</span><span class="params">()</span>:</span></span><br><span class="line">    url = <span class="string">r'http://1212.ip138.com/ic.asp'</span></span><br><span class="line">    r = requests.get(url)</span><br><span class="line">    text = r.text</span><br><span class="line">    ip = text[text.find(<span class="string">"["</span>) + <span class="number">1</span>: text.find(<span class="string">"]"</span>)]</span><br><span class="line">    <span class="keyword">return</span> ip</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line"></span><br><span class="line">    ExtIP = get_ext_ip()</span><br><span class="line">    fp = open(<span class="string">'ExtIP.txt'</span>)</span><br><span class="line">    LastExtIP = fp.read()</span><br><span class="line">    fp.close()</span><br><span class="line">    <span class="keyword">if</span> LastExtIP == ExtIP:</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        ding_talk_push(<span class="string">"外网IP："</span> + ExtIP)</span><br><span class="line">        fp2 = open(<span class="string">'ExtIP.txt'</span>, <span class="string">'w'</span>)</span><br><span class="line">        fp2.write(ExtIP)</span><br><span class="line">        fp2.close()</span><br></pre></td></tr></table></figure><p>程序运行可以自动推送外网IP（如果变了的话）到钉钉群里面。接下来设置程序工作日的早上九点自动执行，Gitlab服务器运行在Ubuntu/Linux下，任务定时执行可以直接通过<em>crontab</em>实现，上面的脚本保存为<em>DingTalkBot.py</em>，打开终端，执行</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -e</span><br></pre></td></tr></table></figure><p>编辑<em>crontab</em>文件，添加如下内容：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 9 * * 1,2,3,4,5 /pathto/python /pathto/DingTalkBot.py</span><br></pre></td></tr></table></figure><p><strong>参数说明</strong></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">*     *     *   *    *        command to be executed</span><br><span class="line">-     -     -   -    -</span><br><span class="line">|     |     |   |    |</span><br><span class="line">|     |     |   |    +----- day of week (0 - 6) (Sunday=0)</span><br><span class="line">|     |     |   +------- month (1 - 12)</span><br><span class="line">|     |     +--------- day of        month (1 - 31)</span><br><span class="line">|     +----------- hour (0 - 23)</span><br><span class="line">+------------- min (0 - 59)</span><br></pre></td></tr></table></figure><p><strong>注意：</strong>路径都使用绝对路径</p><hr><p><strong>Update</strong></p><p>由于IP 138改版，原有获取外网IP函数失效，将其替换为如下即可</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> urllib.request <span class="keyword">import</span> urlopen</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_ext_ip</span><span class="params">()</span>:</span></span><br><span class="line">    ip = json.load(urlopen(<span class="string">'http://httpbin.org/ip'</span>))[<span class="string">'origin'</span>]</span><br><span class="line">    <span class="keyword">return</span> ip</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -287,6 +357,18 @@
       <category term="软件学习" scheme="http://www.poqpoq.net/categories/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/"/>
     
     
+      <category term="网络" scheme="http://www.poqpoq.net/tags/%E7%BD%91%E7%BB%9C/"/>
+    
+      <category term="软件" scheme="http://www.poqpoq.net/tags/%E8%BD%AF%E4%BB%B6/"/>
+    
+      <category term="开发" scheme="http://www.poqpoq.net/tags/%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="Python" scheme="http://www.poqpoq.net/tags/Python/"/>
+    
+      <category term="钉钉" scheme="http://www.poqpoq.net/tags/%E9%92%89%E9%92%89/"/>
+    
+      <category term="IP" scheme="http://www.poqpoq.net/tags/IP/"/>
+    
   </entry>
   
   <entry>
@@ -294,7 +376,7 @@
     <link href="http://www.poqpoq.net/2017/07/simpleware-generates-2d-surface-mesh-based-on-single-image.html"/>
     <id>http://www.poqpoq.net/2017/07/simpleware-generates-2d-surface-mesh-based-on-single-image.html</id>
     <published>2017-07-04T12:16:53.000Z</published>
-    <updated>2019-09-04T07:42:59.423Z</updated>
+    <updated>2019-09-05T11:00:37.852Z</updated>
     
     <content type="html"><![CDATA[<p>Simpleware可以基于3D图像重构CAD模型并生成用于有限元和流体计算的网格，相关功能有很多讨论，这里不再赘述。</p><p>部分用户尤其是材料领域用户，限于实验条件，很多时候只有单张截面图（典型的，SEM照片），用户的需求也仅是处理2D的图像，然后得到2D面网格。如果使用Simpleware导入单张图片的话，软件默认是将其按照一个像素厚度的3D数据处理的，网格剖分之后默认导出的也是3D的网格，而且由于Z方向只有一个像素厚度（典型的薄层特征），所以网格质量也很差。想要规避Z方向的薄层特征，很容易想到的一个解决方案是将图片多复制几张，不过上述操作默认导出的依然是3D网格，导入到求解器之后只能通过在Z方向的上下两个面施加（周期）对称之类的边界条件，以便于基于3D网格近似处理2D问题。</p><a id="more"></a><p>上述方案将简单的2D问题复杂化成了3D问题，虽然思路上可行，但是显然会浪费大量的计算资源。事实上Simpleware本身是支持直接导出某个Shell面的2D网格的，只不过藏的比较深而已。接下来我们就来看一下相关的步骤：</p><p>逻辑上，Simpleware依然只能处理3D图像数据，所以第一步依然是将图片在Z方向复制（或者重复导入），复制的目的是为了后续图像平滑滤波等算法可以顺利使用，同时也是为了弱化薄层特征。一般而言建议复制五层以上。</p><p>平滑滤波、然后按照自己的需要分割图像，具体步骤这里不展开，这些都是Simpleware平台基础的功能，根据自己图像的特征灵活选择即可，得到自己想要Mask之后，选择创建FE模型。截至这里，流程上其实依然是2D问题转化为3D问题处理的思路。接下来的步骤则需要特别注意。</p><p>打开<strong>Model configuration</strong>窗口，切换到<strong>Volume meshing</strong>选项卡，点击<strong>More options</strong>展开高级设置，找到<strong>Target number of elements across a layer</strong>，然后将其值设置为0.01。</p><p><img src="/images/blogimgs/cax/simpleware/Simpleware_2d_mesh_cap1.png" alt></p><p>我们最终要的其实仅仅是垂直于Z方向的某一个面的面网格就可以了，所以Z方向上网格质量好坏是无所谓的，所以这里选择将薄层最小网格层数的参数设置为一个很小的值。</p><p>标记要导出的shell特征，选择垂直于Z方向的某一个面（这里以ZMax为例），Zmax和我们生成的Mask重合的区域就是我们最后要的特征，如果有多个Mask，需要分别标记。</p><p><img src="/images/blogimgs/cax/simpleware/Simpleware_2d_mesh_cap2.png" alt></p><p>这时候选择生成网格，得到的依然是3D网格，因为薄层参数的设置，Z方向网格质量没有限制，会比较粗糙，这刚好是我们期望的。直接将该3D网格导出不是我们的预期，在生成网格之前，有一个关键步骤就是选择所有的Mask，将其标记为non - export part。上述设置确保在导出的时候，只导出Shell特征，实体部分网格不再导出之列。</p><p><img src="/images/blogimgs/cax/simpleware/Simpleware_2d_mesh_cap3.png" alt></p><p>导出的网格直接用CAE软件打开会识别为shell特征。如果使用的CAE软件需要建模开始就选择维度，建议导出类型选择Nastran（.nas）格式。然后在CAE软件中创建2D模型，最后选择导入之前生成的.nas网格就可以了。</p><p><img src="/images/blogimgs/cax/simpleware/Simpleware_2d_mesh_cap4.png" alt></p>]]></content>
     
@@ -308,6 +390,18 @@
       <category term="软件学习" scheme="http://www.poqpoq.net/categories/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/"/>
     
     
+      <category term="CAE" scheme="http://www.poqpoq.net/tags/CAE/"/>
+    
+      <category term="仿真" scheme="http://www.poqpoq.net/tags/%E4%BB%BF%E7%9C%9F/"/>
+    
+      <category term="计算" scheme="http://www.poqpoq.net/tags/%E8%AE%A1%E7%AE%97/"/>
+    
+      <category term="Simpleware" scheme="http://www.poqpoq.net/tags/Simpleware/"/>
+    
+      <category term="网格" scheme="http://www.poqpoq.net/tags/%E7%BD%91%E6%A0%BC/"/>
+    
+      <category term="3D重构" scheme="http://www.poqpoq.net/tags/3D%E9%87%8D%E6%9E%84/"/>
+    
   </entry>
   
   <entry>
@@ -315,7 +409,7 @@
     <link href="http://www.poqpoq.net/2017/05/installation-test-odoo.html"/>
     <id>http://www.poqpoq.net/2017/05/installation-test-odoo.html</id>
     <published>2017-05-25T10:10:31.000Z</published>
-    <updated>2019-09-04T07:42:59.523Z</updated>
+    <updated>2019-09-05T10:50:48.213Z</updated>
     
     <content type="html"><![CDATA[<p>先放张界面截图在这里，有时间再进一步研究了</p><p><img src="/images/blogimgs/odoo_cap.png" alt> </p>]]></content>
     
@@ -334,6 +428,12 @@
       <category term="软件学习" scheme="http://www.poqpoq.net/categories/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/"/>
     
     
+      <category term="软件" scheme="http://www.poqpoq.net/tags/%E8%BD%AF%E4%BB%B6/"/>
+    
+      <category term="Odoo" scheme="http://www.poqpoq.net/tags/Odoo/"/>
+    
+      <category term="CRM" scheme="http://www.poqpoq.net/tags/CRM/"/>
+    
   </entry>
   
   <entry>
@@ -341,7 +441,7 @@
     <link href="http://www.poqpoq.net/2017/03/processing-the-stl-grid-based-on-trelis-and-exporting.html"/>
     <id>http://www.poqpoq.net/2017/03/processing-the-stl-grid-based-on-trelis-and-exporting.html</id>
     <published>2017-03-01T10:11:35.000Z</published>
-    <updated>2019-09-04T07:42:59.515Z</updated>
+    <updated>2019-09-05T10:51:37.549Z</updated>
     
     <content type="html"><![CDATA[<ol><li><p>默认导出的STL文件是不包含网格的，需要使用“mesh”选项启用</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export stl 'file.stl' mesh</span><br></pre></td></tr></table></figure></li><li><p>基于已经剖分得到的网格创建meshed-based几何，然后导出stl文件</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import stl *** merge</span><br><span class="line">surface 1 size auto factor 1</span><br><span class="line">surface 1 scheme TriMesh geometry approximation angle 15</span><br><span class="line">mesh surface 1</span><br><span class="line">disassociate mesh vol all</span><br><span class="line">delete vol all</span><br><span class="line">create mesh geometry tri all</span><br><span class="line">export stl 'file.stl' overwrite</span><br></pre></td></tr></table></figure></li></ol>]]></content>
     
@@ -360,6 +460,14 @@
       <category term="软件学习" scheme="http://www.poqpoq.net/categories/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/"/>
     
     
+      <category term="CAE" scheme="http://www.poqpoq.net/tags/CAE/"/>
+    
+      <category term="网格" scheme="http://www.poqpoq.net/tags/%E7%BD%91%E6%A0%BC/"/>
+    
+      <category term="Trelis" scheme="http://www.poqpoq.net/tags/Trelis/"/>
+    
+      <category term="STL" scheme="http://www.poqpoq.net/tags/STL/"/>
+    
   </entry>
   
   <entry>
@@ -367,7 +475,7 @@
     <link href="http://www.poqpoq.net/2016/08/how-tecplot-exports-texted-format-data.html"/>
     <id>http://www.poqpoq.net/2016/08/how-tecplot-exports-texted-format-data.html</id>
     <published>2016-08-10T13:02:11.000Z</published>
-    <updated>2019-09-04T07:42:59.451Z</updated>
+    <updated>2019-09-05T10:57:55.275Z</updated>
     
     <content type="html"><![CDATA[<p>在Tecplot安装目录下找到tecplot.add，用文本编辑器打开。找到其中的如下行：</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># $!LoadAddon "excsv";        # Export data delimited by commas, spaces or tabs</span></span><br></pre></td></tr></table></figure><p>删除前面的注释，激活该附加功能，然后在Tool菜单下面，就可以找到新激活的功能了。</p><a id="more"></a><p>注意如果是Cell-centered格式数据，目前还不支持该功能，需要首先将其转换为Nodal格式。</p><p><strong>Cell-centered格式转换为Nodal格式</strong></p><p>Tecplot可以基于cell-centered数据得到Nodal格式数据。假如我们需要得到节点格式的温度T_Node数据，而求解器默认输出的是cell-centered格式的温度T。转换方式如下：</p><ol><li><p>依次点击Data &gt; Alter &gt; Specify equations</p></li><li><p>输入方程：{T_Node} = {T} </p></li><li><p>执行计算前设置新的变量位置为“Node”  </p></li></ol><p>新得到的T_Node就是我们需要的格式，可以直接导出为csv格式的纯文本数据</p>]]></content>
     
@@ -381,6 +489,14 @@
       <category term="软件学习" scheme="http://www.poqpoq.net/categories/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/"/>
     
     
+      <category term="CAE" scheme="http://www.poqpoq.net/tags/CAE/"/>
+    
+      <category term="仿真" scheme="http://www.poqpoq.net/tags/%E4%BB%BF%E7%9C%9F/"/>
+    
+      <category term="Tecplot" scheme="http://www.poqpoq.net/tags/Tecplot/"/>
+    
+      <category term="后处理" scheme="http://www.poqpoq.net/tags/%E5%90%8E%E5%A4%84%E7%90%86/"/>
+    
   </entry>
   
   <entry>
@@ -388,7 +504,7 @@
     <link href="http://www.poqpoq.net/2016/04/fix-grub-boot-efi-mode.html"/>
     <id>http://www.poqpoq.net/2016/04/fix-grub-boot-efi-mode.html</id>
     <published>2016-04-13T12:02:13.000Z</published>
-    <updated>2019-09-04T07:42:59.483Z</updated>
+    <updated>2019-09-05T10:55:30.076Z</updated>
     
     <content type="html"><![CDATA[<p>安装系统到U盘，自动将原来的EFI引导替换了，导致原来的Windows 10/XUbuntu 14.04双系统中Ubuntu 无法正常引导，启动直接进入了Grub界面。参考<a href="http://www.ibm.com/developerworks/cn/linux/l-GRUB2-features/" target="_blank" rel="noopener">这篇文章</a>修复之，具体过程如下：</p><ul><li><p>1.首先ls产看硬盘分区，找到Linux系统/boot所在分区</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">grub&gt;</span><span class="bash">ls</span></span><br><span class="line">(hd0) (hd0,gpt9) (hd0,gpt8) (hd0,gpt7) (hd0,gpt6) (hd0,gpt5) (hd0,gpt4) (hd0,gpt3) (hd0,gpt2) (hd0,gpt1)</span><br><span class="line"><span class="meta">grub&gt;</span><span class="bash">ls (hd0,gpt8)/boot/grub</span></span><br><span class="line">abi-3.13.0-24-generic         memtest86+.elf</span><br><span class="line">abi-3.13.0-83-generic         memtest86+_multiboot.bin</span><br><span class="line">config-3.13.0-24-generic      System.map-3.13.0-24-generic</span><br><span class="line">config-3.13.0-83-generic      System.map-3.13.0-83-generic</span><br><span class="line">efi                           vmlinuz-3.13.0-24-generic</span><br><span class="line">grub                          vmlinuz-3.13.0-24-generic.efi.signed</span><br><span class="line">initrd.img-3.13.0-24-generic  vmlinuz-3.13.0-83-generic</span><br><span class="line">initrd.img-3.13.0-83-generic  vmlinuz-3.13.0-83-generic.efi.signed</span><br></pre></td></tr></table></figure></li><li><p>2.识别 GRUB 配置文件所在位置后，设置 prefix 和 root 环境变量，告诉 GRUB 在何处找到配置文件。这些变量分别识别 grub.cfg 所在的目录和它所在的分区：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">grub&gt;</span><span class="bash"><span class="built_in">set</span> prefix=(hd0,gpt8)/boot/grub</span></span><br><span class="line"><span class="meta">grub&gt;</span><span class="bash"><span class="built_in">set</span> root=(hd0,gpt8)</span></span><br></pre></td></tr></table></figure></li><li><p>3.加载 normal 模块并启动它来调出 GRUB 菜单：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">grub&gt;</span><span class="bash">insmod normal</span></span><br><span class="line"><span class="meta">grub&gt;</span><span class="bash">normal</span></span><br></pre></td></tr></table></figure></li><li><p>4.到这里就进入到熟悉的Grub引导界面了，选择进入Linux系统，接下来还需要更新引导使得设置永久生效，使用 grub-mkconfig，从 Linux 命令提示符生成一个新的grub.cfg 文件：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub-mkconfig -o /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure></li><li><p>5.将 GRUB 重新安装到硬盘上，我的与Windows boot manager一起都是在sda2分区：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub-install /dev/sda2</span><br></pre></td></tr></table></figure></li></ul>]]></content>
     
@@ -404,6 +520,16 @@
     
       <category term="软件学习" scheme="http://www.poqpoq.net/categories/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/"/>
     
+    
+      <category term="软件" scheme="http://www.poqpoq.net/tags/%E8%BD%AF%E4%BB%B6/"/>
+    
+      <category term="系统" scheme="http://www.poqpoq.net/tags/%E7%B3%BB%E7%BB%9F/"/>
+    
+      <category term="Grub" scheme="http://www.poqpoq.net/tags/Grub/"/>
+    
+      <category term="EFI" scheme="http://www.poqpoq.net/tags/EFI/"/>
+    
+      <category term="引导" scheme="http://www.poqpoq.net/tags/%E5%BC%95%E5%AF%BC/"/>
     
   </entry>
   
@@ -460,7 +586,7 @@
     <link href="http://www.poqpoq.net/2015/07/ubuntu-1404-install-wireless-network-card-driver-tlwn725n.html"/>
     <id>http://www.poqpoq.net/2015/07/ubuntu-1404-install-wireless-network-card-driver-tlwn725n.html</id>
     <published>2015-07-02T10:06:07.000Z</published>
-    <updated>2019-09-04T07:42:59.459Z</updated>
+    <updated>2019-09-05T10:57:13.591Z</updated>
     
     <content type="html"><![CDATA[<p>TL-WN725N 默认是可以驱动的，不过信号非常弱，Google一遭后终于解决：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install git</span><br><span class="line">git clone https://github.com/lwfinger/rtl8188eu.git</span><br><span class="line">sudo apt-get install dkms</span><br><span class="line">sudo dkms add ./rtl8188eu</span><br><span class="line">sudo dkms build 8188eu/1.0</span><br><span class="line">sudo dkms install 8188eu/1.0</span><br></pre></td></tr></table></figure><a id="more"></a><p>参考：<a href="https://project.altservice.com/issues/408" target="_blank" rel="noopener">https://project.altservice.com/issues/408</a></p>]]></content>
     
@@ -473,6 +599,12 @@
     
       <category term="软件学习" scheme="http://www.poqpoq.net/categories/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/"/>
     
+    
+      <category term="软件" scheme="http://www.poqpoq.net/tags/%E8%BD%AF%E4%BB%B6/"/>
+    
+      <category term="Linux" scheme="http://www.poqpoq.net/tags/Linux/"/>
+    
+      <category term="驱动" scheme="http://www.poqpoq.net/tags/%E9%A9%B1%E5%8A%A8/"/>
     
   </entry>
   

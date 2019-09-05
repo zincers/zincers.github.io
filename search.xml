@@ -37,6 +37,24 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> CAE </tag>
+            
+            <tag> COMSOL </tag>
+            
+            <tag> 仿真 </tag>
+            
+            <tag> 计算 </tag>
+            
+            <tag> Simulink </tag>
+            
+            <tag> Matlab </tag>
+            
+            <tag> PID </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -55,6 +73,16 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 评论 </tag>
+            
+            <tag> 影视 </tag>
+            
+            <tag> 亲子关系 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -113,6 +141,20 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> CAE </tag>
+            
+            <tag> 仿真 </tag>
+            
+            <tag> 计算 </tag>
+            
+            <tag> CFD </tag>
+            
+            <tag> XFlow </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -131,6 +173,20 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> CAE </tag>
+            
+            <tag> 仿真 </tag>
+            
+            <tag> 计算 </tag>
+            
+            <tag> FEMAG </tag>
+            
+            <tag> CFD </tag>
+            
+        </tags>
       
     </entry>
     
@@ -170,6 +226,22 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> CAE </tag>
+            
+            <tag> COMSOL </tag>
+            
+            <tag> 仿真 </tag>
+            
+            <tag> 多物理 </tag>
+            
+            <tag> 计算 </tag>
+            
+            <tag> 相变 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -188,6 +260,22 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 软件 </tag>
+            
+            <tag> Linux </tag>
+            
+            <tag> NAS </tag>
+            
+            <tag> 存储 </tag>
+            
+            <tag> Samba </tag>
+            
+            <tag> Syncthing </tag>
+            
+        </tags>
       
     </entry>
     
@@ -208,6 +296,16 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 软件 </tag>
+            
+            <tag> 刷机 </tag>
+            
+            <tag> Oneplus </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -226,6 +324,22 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 网络 </tag>
+            
+            <tag> 软件 </tag>
+            
+            <tag> 开发 </tag>
+            
+            <tag> Python </tag>
+            
+            <tag> 钉钉 </tag>
+            
+            <tag> IP </tag>
+            
+        </tags>
       
     </entry>
     
@@ -246,6 +360,22 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> CAE </tag>
+            
+            <tag> 仿真 </tag>
+            
+            <tag> 计算 </tag>
+            
+            <tag> Simpleware </tag>
+            
+            <tag> 网格 </tag>
+            
+            <tag> 3D重构 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -264,6 +394,16 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 软件 </tag>
+            
+            <tag> Odoo </tag>
+            
+            <tag> CRM </tag>
+            
+        </tags>
       
     </entry>
     
@@ -284,6 +424,18 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> CAE </tag>
+            
+            <tag> 网格 </tag>
+            
+            <tag> Trelis </tag>
+            
+            <tag> STL </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -303,6 +455,18 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> CAE </tag>
+            
+            <tag> 仿真 </tag>
+            
+            <tag> Tecplot </tag>
+            
+            <tag> 后处理 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -321,6 +485,20 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 软件 </tag>
+            
+            <tag> 系统 </tag>
+            
+            <tag> Grub </tag>
+            
+            <tag> EFI </tag>
+            
+            <tag> 引导 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -379,6 +557,16 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 软件 </tag>
+            
+            <tag> Linux </tag>
+            
+            <tag> 驱动 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -416,6 +604,18 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 软件 </tag>
+            
+            <tag> 刷机 </tag>
+            
+            <tag> Android </tag>
+            
+            <tag> Gapps </tag>
+            
+        </tags>
       
     </entry>
     
@@ -455,6 +655,24 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> CAE </tag>
+            
+            <tag> 多物理 </tag>
+            
+            <tag> 软件 </tag>
+            
+            <tag> 开发 </tag>
+            
+            <tag> Elmer </tag>
+            
+            <tag> 编译 </tag>
+            
+            <tag> GUI </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -475,6 +693,8 @@
       
       
         <tags>
+            
+            <tag> 审查 </tag>
             
             <tag> Elmer </tag>
             
@@ -499,6 +719,24 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> CAE </tag>
+            
+            <tag> 仿真 </tag>
+            
+            <tag> 多物理 </tag>
+            
+            <tag> 计算 </tag>
+            
+            <tag> Linux </tag>
+            
+            <tag> Elmer </tag>
+            
+            <tag> 开源 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -517,6 +755,14 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 软件 </tag>
+            
+            <tag> Linux </tag>
+            
+        </tags>
       
     </entry>
     
@@ -594,6 +840,20 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> CAE </tag>
+            
+            <tag> 仿真 </tag>
+            
+            <tag> 多物理 </tag>
+            
+            <tag> 计算 </tag>
+            
+            <tag> MBD </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -650,6 +910,20 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> CAE </tag>
+            
+            <tag> COMSOL </tag>
+            
+            <tag> 仿真 </tag>
+            
+            <tag> 多物理 </tag>
+            
+            <tag> 计算 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -727,6 +1001,24 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> CAE </tag>
+            
+            <tag> COMSOL </tag>
+            
+            <tag> 仿真 </tag>
+            
+            <tag> 多物理 </tag>
+            
+            <tag> 计算 </tag>
+            
+            <tag> CFD </tag>
+            
+            <tag> 气泡流 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -746,6 +1038,16 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 软件 </tag>
+            
+            <tag> Office </tag>
+            
+            <tag> Onedrive </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -764,6 +1066,18 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> CAE </tag>
+            
+            <tag> COMSOL </tag>
+            
+            <tag> 仿真 </tag>
+            
+            <tag> 计算 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -898,6 +1212,16 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 日志 </tag>
+            
+            <tag> 总结 </tag>
+            
+            <tag> 音乐 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -916,6 +1240,20 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 1984 </tag>
+            
+            <tag> 书籍 </tag>
+            
+            <tag> 日志 </tag>
+            
+            <tag> 总结 </tag>
+            
+            <tag> 无聊 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -1696,6 +2034,20 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 软件 </tag>
+            
+            <tag> 开发 </tag>
+            
+            <tag> Python </tag>
+            
+            <tag> Numpy </tag>
+            
+            <tag> Matplotlib </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -1771,6 +2123,14 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 评论 </tag>
+            
+            <tag> 网络 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -2113,6 +2473,14 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 评论 </tag>
+            
+            <tag> 第欧根尼 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -2532,6 +2900,16 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 评论 </tag>
+            
+            <tag> 李刚 </tag>
+            
+            <tag> 亲子关系 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -2922,6 +3300,16 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 评论 </tag>
+            
+            <tag> 网络 </tag>
+            
+            <tag> 审查 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -2959,6 +3347,14 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 网络 </tag>
+            
+            <tag> Google </tag>
+            
+        </tags>
       
     </entry>
     
@@ -3054,6 +3450,12 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 评论 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -3159,7 +3561,7 @@
       <link href="/2010/01/baidu%E2%80%99s-beings-after-being-hacked.html"/>
       <url>/2010/01/baidu%E2%80%99s-beings-after-being-hacked.html</url>
       
-        <content type="html"><![CDATA[<p>李彦宏：史无前例，史无前例啊</p><p>技术控：百度被黑的确是史无前例，但是百度黑别人应该是家常便饭了吧，继续观望</p><p>人民网：百度被伊朗黑客攻击，是因为百度的美资身份</p><p>中国外交部：百度已经恢复正常，之前疑似被攻击，具体原因尚不明晰。</p><p>伊朗网军：终于报了twitter上 #cn4iran 之仇</p><p>twitter中文用户：伊朗网军黑错了对象，之前用#cn4iran标签在twitter上支持伊朗民主派的是中国右派， 这些人从来不用百度</p><a id="more"></a><p>傻叉红客：黑百度就是黑中国，我们必须以其人之道还之以其人之身。</p><p>脑残网民：伊朗又一个网站被我们占领，现在被挂国旗、放国歌，赶紧围观。</p><p>伊朗民主派：烦请中国黑客黑这4家政府御用网站：IRNA, IRIB, Fars &amp; PressTV</p><p>twitter观光团：中伊两国人民友好！我们什么都不知道！欢迎伊朗网军攻击中国GFW，以此来还击红客</p><p>中国政府和伊朗政府发表联合声明：中伊政府友好。攻击对方互联网是一小撮别有用心的人故意挑拨两国政府用军火结成的伟大友谊</p><p>我：鄙人不明任何真相，以上为戏说。</p>]]></content>
+        <content type="html"><![CDATA[<ul><li>李彦宏：史无前例，史无前例啊</li><li>技术控：百度被黑的确是史无前例，但是百度黑别人应该是家常便饭了吧，继续观望</li><li>人民网：百度被伊朗黑客攻击，是因为百度的美资身份</li><li>中国外交部：百度已经恢复正常，之前疑似被攻击，具体原因尚不明晰</li><li>伊朗网军：终于报了twitter上 #cn4iran 之仇</li><li>twitter中文用户：伊朗网军黑错了对象，之前用#cn4iran标签在twitter上支持伊朗民主派的是中国右派， 这些人从来不用百度</li><li>傻叉红客：黑百度就是黑中国，我们必须以其人之道还之以其人之身。</li><li>脑残网民：伊朗又一个网站被我们占领，现在被挂国旗、放国歌，赶紧围观。</li><li>伊朗民主派：烦请中国黑客黑这4家政府御用网站：IRNA, IRIB, Fars &amp; PressTV</li><li>twitter观光团：中伊两国人民友好！我们什么都不知道！欢迎伊朗网军攻击中国GFW，以此来还击红客</li><li>中国政府和伊朗政府发表联合声明：中伊政府友好。攻击对方互联网是一小撮别有用心的人故意挑拨两国政府用军火结成的伟大友谊</li><li>我：鄙人不明任何真相，以上为戏说。</li></ul>]]></content>
       
       
       <categories>
@@ -3168,6 +3570,14 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 评论 </tag>
+            
+            <tag> 网络 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -3226,6 +3636,16 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 评论 </tag>
+            
+            <tag> 网络 </tag>
+            
+            <tag> 审查 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -3264,6 +3684,16 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 评论 </tag>
+            
+            <tag> 总结 </tag>
+            
+            <tag> 圈子 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -3282,6 +3712,14 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 总结 </tag>
+            
+            <tag> 博客 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -3320,6 +3758,14 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 评论 </tag>
+            
+            <tag> 审查 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -3378,6 +3824,14 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 评论 </tag>
+            
+            <tag> 网络 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -3396,6 +3850,18 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 评论 </tag>
+            
+            <tag> 网络 </tag>
+            
+            <tag> 审查 </tag>
+            
+            <tag> Opera </tag>
+            
+        </tags>
       
     </entry>
     
@@ -3434,6 +3900,16 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 评论 </tag>
+            
+            <tag> 影视 </tag>
+            
+            <tag> 日志 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -3492,6 +3968,14 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 评论 </tag>
+            
+            <tag> 影视 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -3510,6 +3994,16 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 评论 </tag>
+            
+            <tag> 信仰 </tag>
+            
+            <tag> 宗教 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -3587,6 +4081,14 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 评论 </tag>
+            
+            <tag> 微博 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -3605,6 +4107,16 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 书籍 </tag>
+            
+            <tag> 评论 </tag>
+            
+            <tag> 历史 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -3701,6 +4213,14 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 评论 </tag>
+            
+            <tag> 诺贝尔 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -3719,6 +4239,16 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 评论 </tag>
+            
+            <tag> 影视 </tag>
+            
+            <tag> 音乐 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -3796,12 +4326,20 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 评论 </tag>
+            
+            <tag> 社会 </tag>
+            
+        </tags>
+      
     </entry>
     
     
     
     <entry>
-      <title>可是理智的我到底该爱你什么呢?</title>
+      <title>可是理智的我到底该爱你什么呢</title>
       <link href="/2009/09/but-what-should-i-love-you-in-the-end.html"/>
       <url>/2009/09/but-what-should-i-love-you-in-the-end.html</url>
       
@@ -3814,6 +4352,14 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 评论 </tag>
+            
+            <tag> 民族主义 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -3948,6 +4494,14 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 评论 </tag>
+            
+            <tag> 奥运会 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -3966,6 +4520,14 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 评论 </tag>
+            
+            <tag> 校园 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -3991,25 +4553,6 @@
     
     
     <entry>
-      <title>我要写诗歌朗诵稿</title>
-      <link href="/2009/09/i-want-to-write-a-poem.html"/>
-      <url>/2009/09/i-want-to-write-a-poem.html</url>
-      
-        <content type="html"><![CDATA[<p>此刻,窗外传来的是再熟悉不过的诗歌朗诵的声音。</p><p>大工的惯例是在每年新生开学的时候举行以爱国为主题的诗歌朗诵比赛，而这种以班级为单位的比赛注定将每一个人都列为了参赛者，这样的结果是比赛退居为形式，而比赛的形式上升为主题。关于类似比赛的意义，官方给出了很多的解释，这些解释旨在自圆其说，实际上确是矛盾百出，我不相信口口声声都是口号的新生们会因此对国家多几分热爱；此外我们的国家并不是我们的私密情人，必须需要我们口口声声的”爱你”来确定我们的诚意。</p><a id="more"></a><p>作为一个过来人的过来人的过来人，我不想对此多加批评，事实上，当年我自己甚至是积极参与其中，如果我记得没错的话，我还参与了诗歌朗诵稿子的书写。存在即是合理的，即便是最为荒谬的事件我们也能找到其存在的理由，因为这是在中国，于是一切也就皆有可能。</p><p>听着楼下传来的朗诵声，或者说是呼喊声（我没有讽刺大一的学弟学妹的意思），我似乎回到了三年前的那个日子，于是我的手不免有些痒痒，我觉得我应该再写一份诗歌稿，而这份诗歌稿绝对要是感情真挚的那种，这份稿子献给有五千年文明史的华夏民族，而不是一个六十岁该退休的老人。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 日志随笔 </category>
-          
-      </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>关于职业道德的幽默</title>
       <link href="/2009/09/humor-about-professional-ethics.html"/>
       <url>/2009/09/humor-about-professional-ethics.html</url>
@@ -4020,6 +4563,25 @@
       <categories>
           
           <category> 评论观点 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>我要写诗歌朗诵稿</title>
+      <link href="/2009/09/i-want-to-write-a-poem.html"/>
+      <url>/2009/09/i-want-to-write-a-poem.html</url>
+      
+        <content type="html"><![CDATA[<p>此刻,窗外传来的是再熟悉不过的诗歌朗诵的声音。</p><p>大工的惯例是在每年新生开学的时候举行以爱国为主题的诗歌朗诵比赛，而这种以班级为单位的比赛注定将每一个人都列为了参赛者，这样的结果是比赛退居为形式，而比赛的形式上升为主题。关于类似比赛的意义，官方给出了很多的解释，这些解释旨在自圆其说，实际上确是矛盾百出，我不相信口口声声都是口号的新生们会因此对国家多几分热爱；此外我们的国家并不是我们的私密情人，必须需要我们口口声声的”爱你”来确定我们的诚意。</p><a id="more"></a><p>作为一个过来人的过来人的过来人，我不想对此多加批评，事实上，当年我自己甚至是积极参与其中，如果我记得没错的话，我还参与了诗歌朗诵稿子的书写。存在即是合理的，即便是最为荒谬的事件我们也能找到其存在的理由，因为这是在中国，于是一切也就皆有可能。</p><p>听着楼下传来的朗诵声，或者说是呼喊声（我没有讽刺大一的学弟学妹的意思），我似乎回到了三年前的那个日子，于是我的手不免有些痒痒，我觉得我应该再写一份诗歌稿，而这份诗歌稿绝对要是感情真挚的那种，这份稿子献给有五千年文明史的华夏民族，而不是一个六十岁该退休的老人。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 日志随笔 </category>
           
       </categories>
       
@@ -4062,6 +4624,14 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 评论 </tag>
+            
+            <tag> 社会 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -4080,6 +4650,18 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 评论 </tag>
+            
+            <tag> 沉默 </tag>
+            
+            <tag> 周云蓬 </tag>
+            
+            <tag> 邵飘萍 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -4195,6 +4777,14 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 评论 </tag>
+            
+            <tag> 话语权 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -4232,6 +4822,14 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 网络 </tag>
+            
+            <tag> 审查 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -4309,6 +4907,18 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 评论 </tag>
+            
+            <tag> 总结 </tag>
+            
+            <tag> 社会 </tag>
+            
+            <tag> 博客 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -4366,6 +4976,14 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 评论 </tag>
+            
+            <tag> 社会 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -4385,6 +5003,14 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 评论 </tag>
+            
+            <tag> 立场 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -4403,6 +5029,14 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 评论 </tag>
+            
+            <tag> 纪念 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -4537,6 +5171,16 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 评论 </tag>
+            
+            <tag> 沉默 </tag>
+            
+            <tag> 话语权 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -4574,6 +5218,14 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 评论 </tag>
+            
+            <tag> 社会 </tag>
+            
+        </tags>
       
     </entry>
     

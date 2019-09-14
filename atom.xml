@@ -239,6 +239,31 @@
   </entry>
   
   <entry>
+    <title>出走宁夏川</title>
+    <link href="http://www.poqpoq.net/2019/03/running-out-of-ningxia.html"/>
+    <id>http://www.poqpoq.net/2019/03/running-out-of-ningxia.html</id>
+    <published>2019-03-22T02:24:00.000Z</published>
+    <updated>2019-09-14T06:54:26.040Z</updated>
+    
+    <content type="html"><![CDATA[<p>黄河的水干了<br>贺兰山下的羊群也不知所向<br>老人没有熬过寒冬<br>春分到了，留守的农人已经忘了播种</p><p>粗旷的歌者离开了银川<br>咿咿呀呀的词里已容不下白花和水灵<br>花儿不再传唱于断壁残垣的村落<br>凤凰飘荡于温州夜空落寞的霓虹</p><p>风车慵懒地摇晃着头颅<br>电能却没有点亮脚下的一盏灯火<br>大地已然绝经，浮肿的肚皮上<br>拔地而起的是吞云吐雾的工厂</p><p>你可知道，尕妹妹的眼泪尽了<br>二阿哥将汗水和体液留在了非洲<br>你不知道，尕妹妹的心也跟着变了<br>三表姐召唤她将身体献给长江</p><a id="more"></a><hr><p><strong>Ref：</strong></p><p>赵牧阳《黄河谣》<br>野孩子《黄河谣》<br>苏阳《凤凰》《长在银川》《贺兰山下》<br>杨超《长江图》<br>Dai《来，我把书念给你听》（内部）<br>信天游《大雁雁回来又开了春》  </p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;黄河的水干了&lt;br&gt;贺兰山下的羊群也不知所向&lt;br&gt;老人没有熬过寒冬&lt;br&gt;春分到了，留守的农人已经忘了播种&lt;/p&gt;&lt;p&gt;粗旷的歌者离开了银川&lt;br&gt;咿咿呀呀的词里已容不下白花和水灵&lt;br&gt;花儿不再传唱于断壁残垣的村落&lt;br&gt;凤凰飘荡于温州夜空落寞的霓虹&lt;/p&gt;&lt;p&gt;风车慵懒地摇晃着头颅&lt;br&gt;电能却没有点亮脚下的一盏灯火&lt;br&gt;大地已然绝经，浮肿的肚皮上&lt;br&gt;拔地而起的是吞云吐雾的工厂&lt;/p&gt;&lt;p&gt;你可知道，尕妹妹的眼泪尽了&lt;br&gt;二阿哥将汗水和体液留在了非洲&lt;br&gt;你不知道，尕妹妹的心也跟着变了&lt;br&gt;三表姐召唤她将身体献给长江&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="小说文字" scheme="http://www.poqpoq.net/categories/%E5%B0%8F%E8%AF%B4%E6%96%87%E5%AD%97/"/>
+    
+    
+      <category term="日志" scheme="http://www.poqpoq.net/tags/%E6%97%A5%E5%BF%97/"/>
+    
+      <category term="诗歌" scheme="http://www.poqpoq.net/tags/%E8%AF%97%E6%AD%8C/"/>
+    
+  </entry>
+  
+  <entry>
     <title>COMSOL捕捉时间历程因变量最大值并用于模型设置</title>
     <link href="http://www.poqpoq.net/2018/10/comsol-captures-the-time-history-dependent-variable-maximum-and-is-used-for-model-setup.html"/>
     <id>http://www.poqpoq.net/2018/10/comsol-captures-the-time-history-dependent-variable-maximum-and-is-used-for-model-setup.html</id>
@@ -263,9 +288,9 @@
     
       <category term="仿真" scheme="http://www.poqpoq.net/tags/%E4%BB%BF%E7%9C%9F/"/>
     
-      <category term="多物理" scheme="http://www.poqpoq.net/tags/%E5%A4%9A%E7%89%A9%E7%90%86/"/>
-    
       <category term="计算" scheme="http://www.poqpoq.net/tags/%E8%AE%A1%E7%AE%97/"/>
+    
+      <category term="多物理" scheme="http://www.poqpoq.net/tags/%E5%A4%9A%E7%89%A9%E7%90%86/"/>
     
       <category term="相变" scheme="http://www.poqpoq.net/tags/%E7%9B%B8%E5%8F%98/"/>
     
@@ -578,33 +603,6 @@
     
       <category term="日志随笔" scheme="http://www.poqpoq.net/categories/%E6%97%A5%E5%BF%97%E9%9A%8F%E7%AC%94/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>Ubuntu 14.04安装无线网卡驱动TL-WN725N</title>
-    <link href="http://www.poqpoq.net/2015/07/ubuntu-1404-install-wireless-network-card-driver-tlwn725n.html"/>
-    <id>http://www.poqpoq.net/2015/07/ubuntu-1404-install-wireless-network-card-driver-tlwn725n.html</id>
-    <published>2015-07-02T10:06:07.000Z</published>
-    <updated>2019-09-05T10:57:13.591Z</updated>
-    
-    <content type="html"><![CDATA[<p>TL-WN725N 默认是可以驱动的，不过信号非常弱，Google一遭后终于解决：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install git</span><br><span class="line">git clone https://github.com/lwfinger/rtl8188eu.git</span><br><span class="line">sudo apt-get install dkms</span><br><span class="line">sudo dkms add ./rtl8188eu</span><br><span class="line">sudo dkms build 8188eu/1.0</span><br><span class="line">sudo dkms install 8188eu/1.0</span><br></pre></td></tr></table></figure><a id="more"></a><p>参考：<a href="https://project.altservice.com/issues/408" target="_blank" rel="noopener">https://project.altservice.com/issues/408</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;TL-WN725N 默认是可以驱动的，不过信号非常弱，Google一遭后终于解决：&lt;/p&gt;&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo apt-get install git&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git clone https://github.com/lwfinger/rtl8188eu.git&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo apt-get install dkms&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo dkms add ./rtl8188eu&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo dkms build 8188eu/1.0&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo dkms install 8188eu/1.0&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-    
-      <category term="软件学习" scheme="http://www.poqpoq.net/categories/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="软件" scheme="http://www.poqpoq.net/tags/%E8%BD%AF%E4%BB%B6/"/>
-    
-      <category term="Linux" scheme="http://www.poqpoq.net/tags/Linux/"/>
-    
-      <category term="驱动" scheme="http://www.poqpoq.net/tags/%E9%A9%B1%E5%8A%A8/"/>
     
   </entry>
   

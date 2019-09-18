@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.poqpoq.net/"/>
-  <updated>2019-09-04T07:42:58.431Z</updated>
+  <updated>2019-09-18T09:34:40.238Z</updated>
   <id>http://www.poqpoq.net/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>象限</title>
+    <link href="http://www.poqpoq.net/2019/09/reconciliation-quadrant.html"/>
+    <id>http://www.poqpoq.net/2019/09/reconciliation-quadrant.html</id>
+    <published>2019-09-18T01:00:00.000Z</published>
+    <updated>2019-09-18T09:34:40.238Z</updated>
+    
+    <content type="html"><![CDATA[<p>这都是哪跟哪？</p><p><img src="/images/blogimgs/quadrant.png" alt="quadrant"></p><p>不务正业若此！</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;这都是哪跟哪？&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/blogimgs/quadrant.png&quot; alt=&quot;quadrant&quot;&gt;&lt;/p&gt;
+&lt;p&gt;不务正业若此！&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+      <category term="杂七杂八" scheme="http://www.poqpoq.net/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/"/>
+    
+    
+      <category term="心理" scheme="http://www.poqpoq.net/tags/%E5%BF%83%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>September 1, 2019</title>
@@ -93,9 +122,9 @@
     
       <category term="评论" scheme="http://www.poqpoq.net/tags/%E8%AF%84%E8%AE%BA/"/>
     
-      <category term="影视" scheme="http://www.poqpoq.net/tags/%E5%BD%B1%E8%A7%86/"/>
-    
       <category term="亲子关系" scheme="http://www.poqpoq.net/tags/%E4%BA%B2%E5%AD%90%E5%85%B3%E7%B3%BB/"/>
+    
+      <category term="影视" scheme="http://www.poqpoq.net/tags/%E5%BD%B1%E8%A7%86/"/>
     
   </entry>
   
@@ -570,33 +599,6 @@
     <summary type="html">
     
       &lt;p&gt;此刻，我在上海南站候车室内，等待着夜间的列车的到来。我不知道这是第几次在这里等待，但我知道的，这不会是最后一次。没有四顾茫然，却也难以平气静心。从一个地方走到另一个地方本就不是容易的事情，只不过我习惯于用“习以为常”来压抑自己潜意识的抵触罢了。&lt;/p&gt;&lt;p&gt;难以想象，很多年前的自己竟然无比喜欢这种即将开始下一程的感觉。可能那时候的自己满脑子想的都是陌生城市带来的新鲜感，而现在的自己经历的却是从陌生的城市出发，在陌生的城市醒来，而这所有的城市除了同样陌生以外，竟然还诸般雷同，并无什么新鲜可言。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="日志随笔" scheme="http://www.poqpoq.net/categories/%E6%97%A5%E5%BF%97%E9%9A%8F%E7%AC%94/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>记录一下</title>
-    <link href="http://www.poqpoq.net/2015/11/record-it.html"/>
-    <id>http://www.poqpoq.net/2015/11/record-it.html</id>
-    <published>2015-11-08T12:33:32.000Z</published>
-    <updated>2019-09-04T07:42:58.723Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/images/blogimgs/capture/wep_crack.png" alt></p><p>折腾半天只为破解这样的一个密码太没成就感了。</p><p>WEP密码破解教程网上一搜一大堆，我这里就不做搬运工了。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;img src=&quot;/images/blogimgs/capture/wep_crack.png&quot; alt&gt;&lt;/p&gt;
-&lt;p&gt;折腾半天只为破解这样的一个密码太没成就感了。&lt;/p&gt;
-&lt;p&gt;WEP密码破解教程网上一搜一大堆，我这里就不做搬运工了。&lt;/p&gt;
-
-      
     
     </summary>
     

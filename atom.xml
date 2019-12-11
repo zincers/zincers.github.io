@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.poqpoq.net/"/>
-  <updated>2019-11-19T14:34:56.449Z</updated>
+  <updated>2019-12-11T06:39:01.713Z</updated>
   <id>http://www.poqpoq.net/</id>
   
   <author>
@@ -15,6 +15,45 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>二看红楼</title>
+    <link href="http://www.poqpoq.net/2019/12/read-a-dream-of-red-mansions-again.html"/>
+    <id>http://www.poqpoq.net/2019/12/read-a-dream-of-red-mansions-again.html</id>
+    <published>2019-12-10T14:22:22.000Z</published>
+    <updated>2019-12-11T06:39:01.713Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="前引"><a href="#前引" class="headerlink" title="前引"></a>前引</h3><blockquote><p>恻隐之心，仁之端也；羞恶之心，义之端也；辞让之心，礼之端也；是非之心，智之端也。</p><div align="right">——《孟子·公孙丑上》</div><p>复次，善男子，八相名苦，所谓生苦、老苦、病苦、死苦、爱别离苦、怨憎会苦、求不得苦、五盛阴苦；能生如是八苦法者，是名为集；无有如是八法之处，是名为灭；十力、四无所畏、三念处、大悲，是名为道。</p><div align="right">——《涅槃经》</div><p>一切生命，其本质上皆为痛苦</p><div align="right">——叔本华</div></blockquote><a id="more"></a><hr><p>引此三句于前，为文之总领；二看，非二次看，取自“王二”看；若联想至“张看”，我之荣幸。</p><p>拙文仅是阅读笔记，幼读书，窥风月故事，少年时寻诗寻句，然后初涉“红学”，孜寻文后蛛丝马迹，此刻想来，无论考据，抑或索引，皆偏离文字之美本身。前读胡菊人《小说红楼》，亦被道家“出世”思想洗心，而一旦怀悲悯之心复看，则处处是人生之苦痛，于是于人物再不敢有批判之心。如下记录，关注点仅在人情。</p><h2 id="——2019年12月10日"><a href="#——2019年12月10日" class="headerlink" title="——2019年12月10日"></a><div align="right">——2019年12月10日</div></h2><p>（本页续更）</p><hr><p><img src="/images/blogimgs/happy_b.jpg" alt></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;前引&quot;&gt;&lt;a href=&quot;#前引&quot; class=&quot;headerlink&quot; title=&quot;前引&quot;&gt;&lt;/a&gt;前引&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;恻隐之心，仁之端也；羞恶之心，义之端也；辞让之心，礼之端也；是非之心，智之端也。&lt;/p&gt;
+&lt;div align=&quot;right&quot;&gt;——《孟子·公孙丑上》&lt;/div&gt;
+
+
+&lt;p&gt;复次，善男子，八相名苦，所谓生苦、老苦、病苦、死苦、爱别离苦、怨憎会苦、求不得苦、五盛阴苦；能生如是八苦法者，是名为集；无有如是八法之处，是名为灭；十力、四无所畏、三念处、大悲，是名为道。&lt;/p&gt;
+&lt;div align=&quot;right&quot;&gt;——《涅槃经》&lt;/div&gt;
+
+
+&lt;p&gt;一切生命，其本质上皆为痛苦&lt;/p&gt;
+&lt;div align=&quot;right&quot;&gt;——叔本华&lt;/div&gt;
+
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="影音映像" scheme="http://www.poqpoq.net/categories/%E5%BD%B1%E9%9F%B3%E6%98%A0%E5%83%8F/"/>
+    
+    
+      <category term="评论" scheme="http://www.poqpoq.net/tags/%E8%AF%84%E8%AE%BA/"/>
+    
+      <category term="书籍" scheme="http://www.poqpoq.net/tags/%E4%B9%A6%E7%B1%8D/"/>
+    
+      <category term="红楼梦" scheme="http://www.poqpoq.net/tags/%E7%BA%A2%E6%A5%BC%E6%A2%A6/"/>
+    
+  </entry>
   
   <entry>
     <title>九月</title>
@@ -579,40 +618,6 @@
       <category term="Tecplot" scheme="http://www.poqpoq.net/tags/Tecplot/"/>
     
       <category term="后处理" scheme="http://www.poqpoq.net/tags/%E5%90%8E%E5%A4%84%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>修复Grub引导（EFI模式）</title>
-    <link href="http://www.poqpoq.net/2016/04/fix-grub-boot-efi-mode.html"/>
-    <id>http://www.poqpoq.net/2016/04/fix-grub-boot-efi-mode.html</id>
-    <published>2016-04-13T12:02:13.000Z</published>
-    <updated>2019-09-05T10:55:30.076Z</updated>
-    
-    <content type="html"><![CDATA[<p>安装系统到U盘，自动将原来的EFI引导替换了，导致原来的Windows 10/XUbuntu 14.04双系统中Ubuntu 无法正常引导，启动直接进入了Grub界面。参考<a href="http://www.ibm.com/developerworks/cn/linux/l-GRUB2-features/" target="_blank" rel="noopener">这篇文章</a>修复之，具体过程如下：</p><ul><li><p>1.首先ls产看硬盘分区，找到Linux系统/boot所在分区</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">grub&gt;</span><span class="bash">ls</span></span><br><span class="line">(hd0) (hd0,gpt9) (hd0,gpt8) (hd0,gpt7) (hd0,gpt6) (hd0,gpt5) (hd0,gpt4) (hd0,gpt3) (hd0,gpt2) (hd0,gpt1)</span><br><span class="line"><span class="meta">grub&gt;</span><span class="bash">ls (hd0,gpt8)/boot/grub</span></span><br><span class="line">abi-3.13.0-24-generic         memtest86+.elf</span><br><span class="line">abi-3.13.0-83-generic         memtest86+_multiboot.bin</span><br><span class="line">config-3.13.0-24-generic      System.map-3.13.0-24-generic</span><br><span class="line">config-3.13.0-83-generic      System.map-3.13.0-83-generic</span><br><span class="line">efi                           vmlinuz-3.13.0-24-generic</span><br><span class="line">grub                          vmlinuz-3.13.0-24-generic.efi.signed</span><br><span class="line">initrd.img-3.13.0-24-generic  vmlinuz-3.13.0-83-generic</span><br><span class="line">initrd.img-3.13.0-83-generic  vmlinuz-3.13.0-83-generic.efi.signed</span><br></pre></td></tr></table></figure></li><li><p>2.识别 GRUB 配置文件所在位置后，设置 prefix 和 root 环境变量，告诉 GRUB 在何处找到配置文件。这些变量分别识别 grub.cfg 所在的目录和它所在的分区：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">grub&gt;</span><span class="bash"><span class="built_in">set</span> prefix=(hd0,gpt8)/boot/grub</span></span><br><span class="line"><span class="meta">grub&gt;</span><span class="bash"><span class="built_in">set</span> root=(hd0,gpt8)</span></span><br></pre></td></tr></table></figure></li><li><p>3.加载 normal 模块并启动它来调出 GRUB 菜单：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">grub&gt;</span><span class="bash">insmod normal</span></span><br><span class="line"><span class="meta">grub&gt;</span><span class="bash">normal</span></span><br></pre></td></tr></table></figure></li><li><p>4.到这里就进入到熟悉的Grub引导界面了，选择进入Linux系统，接下来还需要更新引导使得设置永久生效，使用 grub-mkconfig，从 Linux 命令提示符生成一个新的grub.cfg 文件：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub-mkconfig -o /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure></li><li><p>5.将 GRUB 重新安装到硬盘上，我的与Windows boot manager一起都是在sda2分区：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub-install /dev/sda2</span><br></pre></td></tr></table></figure></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;安装系统到U盘，自动将原来的EFI引导替换了，导致原来的Windows 10/XUbuntu 14.04双系统中Ubuntu 无法正常引导，启动直接进入了Grub界面。参考&lt;a href=&quot;http://www.ibm.com/developerworks/cn/linux
-      
-    
-    </summary>
-    
-    
-      <category term="软件学习" scheme="http://www.poqpoq.net/categories/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="软件" scheme="http://www.poqpoq.net/tags/%E8%BD%AF%E4%BB%B6/"/>
-    
-      <category term="系统" scheme="http://www.poqpoq.net/tags/%E7%B3%BB%E7%BB%9F/"/>
-    
-      <category term="Grub" scheme="http://www.poqpoq.net/tags/Grub/"/>
-    
-      <category term="EFI" scheme="http://www.poqpoq.net/tags/EFI/"/>
-    
-      <category term="引导" scheme="http://www.poqpoq.net/tags/%E5%BC%95%E5%AF%BC/"/>
     
   </entry>
   

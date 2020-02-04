@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.poqpoq.net/"/>
-  <updated>2020-01-17T14:11:45.992Z</updated>
+  <updated>2020-02-04T13:39:44.049Z</updated>
   <id>http://www.poqpoq.net/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>February 2, 2020</title>
+    <link href="http://www.poqpoq.net/2020/02/february-2-2020.html"/>
+    <id>http://www.poqpoq.net/2020/02/february-2-2020.html</id>
+    <published>2020-02-02T12:20:20.000Z</published>
+    <updated>2020-02-04T13:39:44.049Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id><a href="#" class="headerlink" title=" "></a> </h3><p>2020年1月13日，武汉到北京的飞机，离开的时候我写下了：“终说再见，大江大湖；终将再见，山川湖海。”，不曾想到的是，随后愈演愈烈的疫情打破了所有的节奏。我个人月初的时候就已经在外媒或多或少地了解了问题的严重，只是那时候并没有太在意，身边大部分人的不以为然更使得我没理由顾虑太多。</p><p>2月20日，国外开始对武汉出发旅客做入境排查，武汉才后知后觉地宣布做出境排查。这之后国内媒体开始密集关注此事，只过了3天，23日武汉就开始“封城”，刚开始人们惊讶于事态升级的迅猛，此刻才慢慢反应过来，其实不是疫情发展的太快，而是他开始的时候自己并不知情。</p><a id="more"></a><p>24日，除夕之夜，老家这边还处于节日欢庆之中，微信朋友圈已被湖北疫情信息刷屏。而离汉12天仍处于潜伏期的自己难免处于焦虑之中，团年饭也吃的心不在焉。关注自己身体状况之后，才发现自己对自己的陌生，以前不以为意的体征，现在都难免敏感起来。而一想到武汉的诸君，此刻的忧虑，更是胜于我十倍。依照个人传统，今年过年我依旧没有发送任何一条拜年信息，而是默默写下了如下八个字：山川湖海，各自安好。是的，此时此刻各自安好才是最好的祝福！</p><p>除夕一过，全国各省市陆续启动了一级应急响应，无论身在何处，基本上都是深居简出状态了。初二陆续联系了几个在武汉的故人，大家都是普遍的焦虑。疫情的不确定性，让年轻的我们第一次感受到了疾病和死亡的气息，佛家所谓的人生七苦，疫情直接占了两个，而在疾病和死亡面前，怨憎会，爱别离，求不得这些真的就不那么重要了。面对疫情的焦虑，如何处之，这是我此刻思考的问题。很惭愧的说，此刻的我还不具备佛家“微笑着谈论死亡”的释然，毕竟现实中的我还有太多的放不下，而正是这些“放不下”构成了我生命的斑斓底色。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot; &quot;&gt;&lt;/a&gt; &lt;/h3&gt;&lt;p&gt;2020年1月13日，武汉到北京的飞机，离开的时候我写下了：“终说再见，大江大湖；终将再见，山川湖海。”，不曾想到的是，随后愈演愈烈的疫情打破了所有的节奏。我个人月初的时候就已经在外媒或多或少地了解了问题的严重，只是那时候并没有太在意，身边大部分人的不以为然更使得我没理由顾虑太多。&lt;/p&gt;&lt;p&gt;2月20日，国外开始对武汉出发旅客做入境排查，武汉才后知后觉地宣布做出境排查。这之后国内媒体开始密集关注此事，只过了3天，23日武汉就开始“封城”，刚开始人们惊讶于事态升级的迅猛，此刻才慢慢反应过来，其实不是疫情发展的太快，而是他开始的时候自己并不知情。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="日志随笔" scheme="http://www.poqpoq.net/categories/%E6%97%A5%E5%BF%97%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="日志" scheme="http://www.poqpoq.net/tags/%E6%97%A5%E5%BF%97/"/>
+    
+      <category term="心理" scheme="http://www.poqpoq.net/tags/%E5%BF%83%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>二看红楼</title>
@@ -589,35 +614,6 @@
       <category term="Trelis" scheme="http://www.poqpoq.net/tags/Trelis/"/>
     
       <category term="STL" scheme="http://www.poqpoq.net/tags/STL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Tecplot如何导出Texted格式数据</title>
-    <link href="http://www.poqpoq.net/2016/08/how-tecplot-exports-texted-format-data.html"/>
-    <id>http://www.poqpoq.net/2016/08/how-tecplot-exports-texted-format-data.html</id>
-    <published>2016-08-10T13:02:11.000Z</published>
-    <updated>2019-09-05T10:57:55.275Z</updated>
-    
-    <content type="html"><![CDATA[<p>在Tecplot安装目录下找到tecplot.add，用文本编辑器打开。找到其中的如下行：</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># $!LoadAddon "excsv";        # Export data delimited by commas, spaces or tabs</span></span><br></pre></td></tr></table></figure><p>删除前面的注释，激活该附加功能，然后在Tool菜单下面，就可以找到新激活的功能了。</p><a id="more"></a><p>注意如果是Cell-centered格式数据，目前还不支持该功能，需要首先将其转换为Nodal格式。</p><p><strong>Cell-centered格式转换为Nodal格式</strong></p><p>Tecplot可以基于cell-centered数据得到Nodal格式数据。假如我们需要得到节点格式的温度T_Node数据，而求解器默认输出的是cell-centered格式的温度T。转换方式如下：</p><ol><li><p>依次点击Data &gt; Alter &gt; Specify equations</p></li><li><p>输入方程：{T_Node} = {T} </p></li><li><p>执行计算前设置新的变量位置为“Node”  </p></li></ol><p>新得到的T_Node就是我们需要的格式，可以直接导出为csv格式的纯文本数据</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在Tecplot安装目录下找到tecplot.add，用文本编辑器打开。找到其中的如下行：&lt;/p&gt;&lt;figure class=&quot;highlight yaml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# $!LoadAddon &quot;excsv&quot;;        # Export data delimited by commas, spaces or tabs&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;删除前面的注释，激活该附加功能，然后在Tool菜单下面，就可以找到新激活的功能了。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="软件学习" scheme="http://www.poqpoq.net/categories/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="CAE" scheme="http://www.poqpoq.net/tags/CAE/"/>
-    
-      <category term="仿真" scheme="http://www.poqpoq.net/tags/%E4%BB%BF%E7%9C%9F/"/>
-    
-      <category term="Tecplot" scheme="http://www.poqpoq.net/tags/Tecplot/"/>
-    
-      <category term="后处理" scheme="http://www.poqpoq.net/tags/%E5%90%8E%E5%A4%84%E7%90%86/"/>
     
   </entry>
   

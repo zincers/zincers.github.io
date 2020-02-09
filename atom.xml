@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.poqpoq.net/"/>
-  <updated>2020-02-05T09:12:34.074Z</updated>
+  <updated>2020-02-09T13:51:46.617Z</updated>
   <id>http://www.poqpoq.net/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>February 8, 2020</title>
+    <link href="http://www.poqpoq.net/2020/02/february-8-2020.html"/>
+    <id>http://www.poqpoq.net/2020/02/february-8-2020.html</id>
+    <published>2020-02-08T13:49:00.000Z</published>
+    <updated>2020-02-09T13:51:46.617Z</updated>
+    
+    <content type="html"><![CDATA[<p>尊重身边每一个平凡的人，因为下一个挺身而出的亦是他们；警惕身边的每一份公权力，因为不受约束的权力终将将人推向蛮愚。</p><p>言论自由是个体不需要理由就可以反对2+2=5的自由，更是个体基于自身理解表达2+2=5的自由。可悲的是，为了限制个体表达2+2=5的可能，个体表达2+2=4的自由也被剥夺了。</p><p>如果业主没有炒掉物业的权利，那么物业永远都不会好好为业主服务的。</p><a id="more"></a><p>对黄冈火速免职了一个卫健委主任举手称快之余，请思考，他是何以晋升到现在的职位的，如果你觉得体制的淘汰机制出了问题，请思考你是否可以投上一反对票。</p><p>名校学历，有一技之长，从事专业工作，有房有贷，有老有小，不关心政治，相信岁月静好，相信努力工作未来可期。就是这样一个群体在这次疫情中突然意识到，自己生活的并为之纳税的城市竟然如此的不堪一击。</p><p>这个世界上，从来就没有什么“中医”和“西医”之争，有的仅是现代医学和“经验”医学之争，或者说科学和愚昧之争，而其本质其实是智慧与非智之争。</p><p>疫情，封闭在家里，其实给了我们一个机会思考，思考人类的渺小，思考科技的局限。人应该对自然有敬畏之心，如果人类不确定自己已经完全认识了自然，请务必不要自以为是地去尝试改造自然。</p><p>不可预知的死亡，某种程度上是人类敬畏之心的基础。</p><p>只有让此刻身处异乡的湖北人感受到尊重，我们才能去要求湖北人配合不同地方的差异化管理模式。</p><p>”我们不幸生活于中国人之间，比不得华侨，可以一辈子安全地隔着适当的距离崇拜着神圣的祖国。”，这句话确实出自张爱玲。</p><p>如果我们在世上继续醉生梦死，这是否会让你感到孤独——吴虹飞与幸福大街《冷兵器》</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;尊重身边每一个平凡的人，因为下一个挺身而出的亦是他们；警惕身边的每一份公权力，因为不受约束的权力终将将人推向蛮愚。&lt;/p&gt;&lt;p&gt;言论自由是个体不需要理由就可以反对2+2=5的自由，更是个体基于自身理解表达2+2=5的自由。可悲的是，为了限制个体表达2+2=5的可能，个体表达2+2=4的自由也被剥夺了。&lt;/p&gt;&lt;p&gt;如果业主没有炒掉物业的权利，那么物业永远都不会好好为业主服务的。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="日志随笔" scheme="http://www.poqpoq.net/categories/%E6%97%A5%E5%BF%97%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="日志" scheme="http://www.poqpoq.net/tags/%E6%97%A5%E5%BF%97/"/>
+    
+      <category term="评论" scheme="http://www.poqpoq.net/tags/%E8%AF%84%E8%AE%BA/"/>
+    
+  </entry>
   
   <entry>
     <title>February 2, 2020</title>
@@ -580,40 +605,6 @@
       <category term="Odoo" scheme="http://www.poqpoq.net/tags/Odoo/"/>
     
       <category term="CRM" scheme="http://www.poqpoq.net/tags/CRM/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>基于Trelis 处理stl网格并导出</title>
-    <link href="http://www.poqpoq.net/2017/03/processing-the-stl-grid-based-on-trelis-and-exporting.html"/>
-    <id>http://www.poqpoq.net/2017/03/processing-the-stl-grid-based-on-trelis-and-exporting.html</id>
-    <published>2017-03-01T10:11:35.000Z</published>
-    <updated>2019-09-05T10:51:37.549Z</updated>
-    
-    <content type="html"><![CDATA[<ol><li><p>默认导出的STL文件是不包含网格的，需要使用“mesh”选项启用</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export stl 'file.stl' mesh</span><br></pre></td></tr></table></figure></li><li><p>基于已经剖分得到的网格创建meshed-based几何，然后导出stl文件</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import stl *** merge</span><br><span class="line">surface 1 size auto factor 1</span><br><span class="line">surface 1 scheme TriMesh geometry approximation angle 15</span><br><span class="line">mesh surface 1</span><br><span class="line">disassociate mesh vol all</span><br><span class="line">delete vol all</span><br><span class="line">create mesh geometry tri all</span><br><span class="line">export stl 'file.stl' overwrite</span><br></pre></td></tr></table></figure></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;默认导出的STL文件是不包含网格的，需要使用“mesh”选项启用&lt;/p&gt;
-&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/sp
-      
-    
-    </summary>
-    
-    
-      <category term="软件学习" scheme="http://www.poqpoq.net/categories/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="CAE" scheme="http://www.poqpoq.net/tags/CAE/"/>
-    
-      <category term="网格" scheme="http://www.poqpoq.net/tags/%E7%BD%91%E6%A0%BC/"/>
-    
-      <category term="Trelis" scheme="http://www.poqpoq.net/tags/Trelis/"/>
-    
-      <category term="STL" scheme="http://www.poqpoq.net/tags/STL/"/>
     
   </entry>
   

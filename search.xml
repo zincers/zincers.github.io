@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>COMSOL圆形偏振光</title>
+      <link href="/2020/03/comsol-circular%E2%80%94polarization.html"/>
+      <url>/2020/03/comsol-circular%E2%80%94polarization.html</url>
+      
+        <content type="html"><![CDATA[<p>很早以前做的一个demo，看到最近还有人问</p><p><img src="/images/blogimgs/cax/comsol_circular_polarization.gif" alt="Circular Polarization"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 软件学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CAE </tag>
+            
+            <tag> COMSOL </tag>
+            
+            <tag> 仿真 </tag>
+            
+            <tag> 计算 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>March 19, 2020</title>
       <link href="/2020/03/march-19-2020.html"/>
       <url>/2020/03/march-19-2020.html</url>
@@ -4784,25 +4815,6 @@
     
     
     <entry>
-      <title>关于职业道德的幽默</title>
-      <link href="/2009/09/humor-about-professional-ethics.html"/>
-      <url>/2009/09/humor-about-professional-ethics.html</url>
-      
-        <content type="html"><![CDATA[<p>嫖客：你为什么化那么浓的妆？</p><p>妓女：顾客觉得这样好看。</p><p>嫖客：其实我们倒是觉得你们素面朝天更好看！把妆卸掉怎么样？</p><p>妓女：不行，这样不符合职业道德！</p><p>PS：领导对于官话的偏爱和妓女对于浓妆的偏爱道理其实是相同的，不同的是：后者有偿为人民服务，而前者无偿被人民服务。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 评论观点 </category>
-          
-      </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>我要写诗歌朗诵稿</title>
       <link href="/2009/09/i-want-to-write-a-poem.html"/>
       <url>/2009/09/i-want-to-write-a-poem.html</url>
@@ -4813,6 +4825,25 @@
       <categories>
           
           <category> 日志随笔 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>关于职业道德的幽默</title>
+      <link href="/2009/09/humor-about-professional-ethics.html"/>
+      <url>/2009/09/humor-about-professional-ethics.html</url>
+      
+        <content type="html"><![CDATA[<p>嫖客：你为什么化那么浓的妆？</p><p>妓女：顾客觉得这样好看。</p><p>嫖客：其实我们倒是觉得你们素面朝天更好看！把妆卸掉怎么样？</p><p>妓女：不行，这样不符合职业道德！</p><p>PS：领导对于官话的偏爱和妓女对于浓妆的偏爱道理其实是相同的，不同的是：后者有偿为人民服务，而前者无偿被人民服务。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 评论观点 </category>
           
       </categories>
       

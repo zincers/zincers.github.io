@@ -778,6 +778,37 @@
     
     
     <entry>
+      <title>COMSOL圆形偏振光</title>
+      <link href="/2015/05/comsol-circular-polarization.html"/>
+      <url>/2015/05/comsol-circular-polarization.html</url>
+      
+        <content type="html"><![CDATA[<p>很早以前做的一个demo，看到最近还有人问</p><p><img src="/images/blogimgs/cax/comsol_circular_polarization.gif" alt="Circular Polarization"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 软件学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CAE </tag>
+            
+            <tag> COMSOL </tag>
+            
+            <tag> 仿真 </tag>
+            
+            <tag> 计算 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>May 3, 2015</title>
       <link href="/2015/05/may-3-2015.html"/>
       <url>/2015/05/may-3-2015.html</url>
@@ -1264,37 +1295,6 @@
       <url>/2013/07/3d-heart-shaped-parametric-curve.html</url>
       
         <content type="html"><![CDATA[<p>3D 心形参数化曲线：</p><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">u(theta)=<span class="built_in">cos</span>(theta)(<span class="built_in">sin</span>(theta)<span class="built_in">sqrt</span>(<span class="built_in">abs</span>(<span class="built_in">cos</span>(theta)))/(<span class="built_in">sin</span>(theta)+<span class="number">7</span>/<span class="number">5</span>)<span class="number">-2</span><span class="built_in">sin</span>(theta)+<span class="number">2</span>)(theta(<span class="number">40</span><span class="built_in">pi</span>-theta)); </span><br><span class="line">v(theta)=<span class="built_in">sin</span>(theta)(<span class="built_in">sin</span>(theta)<span class="built_in">sqrt</span>(<span class="built_in">abs</span>(<span class="built_in">cos</span>(theta)))/(<span class="built_in">sin</span>(theta)+<span class="number">7</span>/<span class="number">5</span>)<span class="number">-2</span><span class="built_in">sin</span>(theta)+<span class="number">2</span>)(theta(<span class="number">40</span><span class="built_in">pi</span>-theta)); </span><br><span class="line">w(theta)=<span class="number">50</span>*theta; </span><br><span class="line">theta =[<span class="number">0</span>,<span class="number">40</span>*<span class="built_in">pi</span>]</span><br></pre></td></tr></table></figure><a id="more"></a><p>效果见下图，基于COMSOL Multiphysics做的管道传热模型：</p><p><img src="/images/blogimgs/cax/3D-Heart.gif" alt> </p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 软件学习 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> CAE </tag>
-            
-            <tag> COMSOL </tag>
-            
-            <tag> 仿真 </tag>
-            
-            <tag> 计算 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>COMSOL圆形偏振光</title>
-      <link href="/2013/05/comsol-circular-polarization.html"/>
-      <url>/2013/05/comsol-circular-polarization.html</url>
-      
-        <content type="html"><![CDATA[<p>很早以前做的一个demo，看到最近还有人问</p><p><img src="/images/blogimgs/cax/comsol_circular_polarization.gif" alt="Circular Polarization"></p>]]></content>
       
       
       <categories>

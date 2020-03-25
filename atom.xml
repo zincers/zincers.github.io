@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.poqpoq.net/"/>
-  <updated>2020-03-25T14:44:58.316Z</updated>
+  <updated>2020-03-19T14:34:36.931Z</updated>
   <id>http://www.poqpoq.net/</id>
   
   <author>
@@ -15,40 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>COMSOL圆形偏振光</title>
-    <link href="http://www.poqpoq.net/2020/03/comsol-circular-polarization.html"/>
-    <id>http://www.poqpoq.net/2020/03/comsol-circular-polarization.html</id>
-    <published>2020-03-25T14:30:00.000Z</published>
-    <updated>2020-03-25T14:44:58.316Z</updated>
-    
-    <content type="html"><![CDATA[<p>很早以前做的一个demo，看到最近还有人问</p><p><img src="/images/blogimgs/cax/comsol_circular_polarization.gif" alt="Circular Polarization"></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;很早以前做的一个demo，看到最近还有人问&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/images/blogimgs/cax/comsol_circular_polarization.gif&quot; alt=&quot;Circular Polarization&quot;&gt;&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-      <category term="软件学习" scheme="http://www.poqpoq.net/categories/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="CAE" scheme="http://www.poqpoq.net/tags/CAE/"/>
-    
-      <category term="COMSOL" scheme="http://www.poqpoq.net/tags/COMSOL/"/>
-    
-      <category term="仿真" scheme="http://www.poqpoq.net/tags/%E4%BB%BF%E7%9C%9F/"/>
-    
-      <category term="计算" scheme="http://www.poqpoq.net/tags/%E8%AE%A1%E7%AE%97/"/>
-    
-  </entry>
   
   <entry>
     <title>March 19, 2020</title>
@@ -585,6 +551,39 @@
       <category term="刷机" scheme="http://www.poqpoq.net/tags/%E5%88%B7%E6%9C%BA/"/>
     
       <category term="Oneplus" scheme="http://www.poqpoq.net/tags/Oneplus/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>钉钉机器人自动推送外网IP到群组</title>
+    <link href="http://www.poqpoq.net/2017/09/nail-robot-automatically-pushes-external-network-ip-to-group.html"/>
+    <id>http://www.poqpoq.net/2017/09/nail-robot-automatically-pushes-external-network-ip-to-group.html</id>
+    <published>2017-09-04T12:16:53.000Z</published>
+    <updated>2019-09-05T10:42:51.650Z</updated>
+    
+    <content type="html"><![CDATA[<p>工作需要，在局域网内搭建了Gitlab服务器，然后借助花生壳动态域名解析服务（DDNS）实现外网域名访问。感谢《网络安全法》的出台，花生壳域名需要实名验证才能继续使用，实在懒得上传资料验证，索性直接使用外网IP访问服务器。唯一的问题是路由器重启后，重新拨号获得的外网IP也会变化，需要以某种方式通知项目组成员。因为公司在使用钉钉，所以自然而然地想到了钉钉的群机器人功能。</p><a id="more"></a><p>实现钉钉机器人推送内容很容易，具体请自行查看钉钉自定义机器人文档。外网IP是通过访问IP138提取网页内容得到，相关代码如下：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># coding=utf-8</span></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">ding_talk_push</span><span class="params">(content)</span>:</span></span><br><span class="line">    url = <span class="string">'https://oapi.dingtalk.com/robot/send?access_token='</span> \</span><br><span class="line">          <span class="string">'*********替换为自己的地址**************'</span></span><br><span class="line">    headers = &#123;<span class="string">"Content-Type"</span>: <span class="string">"application/json ;charset=utf-8 "</span>&#125;</span><br><span class="line">    string_text_msg = &#123;<span class="string">"msgtype"</span>: <span class="string">"text"</span>, <span class="string">"text"</span>: &#123;<span class="string">"content"</span>: content&#125;&#125;</span><br><span class="line">    string_text_msg = json.dumps(string_text_msg)</span><br><span class="line">    requests.post(url, data=string_text_msg, headers=headers)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_ext_ip</span><span class="params">()</span>:</span></span><br><span class="line">    url = <span class="string">r'http://1212.ip138.com/ic.asp'</span></span><br><span class="line">    r = requests.get(url)</span><br><span class="line">    text = r.text</span><br><span class="line">    ip = text[text.find(<span class="string">"["</span>) + <span class="number">1</span>: text.find(<span class="string">"]"</span>)]</span><br><span class="line">    <span class="keyword">return</span> ip</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line"></span><br><span class="line">    ExtIP = get_ext_ip()</span><br><span class="line">    fp = open(<span class="string">'ExtIP.txt'</span>)</span><br><span class="line">    LastExtIP = fp.read()</span><br><span class="line">    fp.close()</span><br><span class="line">    <span class="keyword">if</span> LastExtIP == ExtIP:</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        ding_talk_push(<span class="string">"外网IP："</span> + ExtIP)</span><br><span class="line">        fp2 = open(<span class="string">'ExtIP.txt'</span>, <span class="string">'w'</span>)</span><br><span class="line">        fp2.write(ExtIP)</span><br><span class="line">        fp2.close()</span><br></pre></td></tr></table></figure><p>程序运行可以自动推送外网IP（如果变了的话）到钉钉群里面。接下来设置程序工作日的早上九点自动执行，Gitlab服务器运行在Ubuntu/Linux下，任务定时执行可以直接通过<em>crontab</em>实现，上面的脚本保存为<em>DingTalkBot.py</em>，打开终端，执行</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -e</span><br></pre></td></tr></table></figure><p>编辑<em>crontab</em>文件，添加如下内容：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 9 * * 1,2,3,4,5 /pathto/python /pathto/DingTalkBot.py</span><br></pre></td></tr></table></figure><p><strong>参数说明</strong></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">*     *     *   *    *        command to be executed</span><br><span class="line">-     -     -   -    -</span><br><span class="line">|     |     |   |    |</span><br><span class="line">|     |     |   |    +----- day of week (0 - 6) (Sunday=0)</span><br><span class="line">|     |     |   +------- month (1 - 12)</span><br><span class="line">|     |     +--------- day of        month (1 - 31)</span><br><span class="line">|     +----------- hour (0 - 23)</span><br><span class="line">+------------- min (0 - 59)</span><br></pre></td></tr></table></figure><p><strong>注意：</strong>路径都使用绝对路径</p><hr><p><strong>Update</strong></p><p>由于IP 138改版，原有获取外网IP函数失效，将其替换为如下即可</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> urllib.request <span class="keyword">import</span> urlopen</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_ext_ip</span><span class="params">()</span>:</span></span><br><span class="line">    ip = json.load(urlopen(<span class="string">'http://httpbin.org/ip'</span>))[<span class="string">'origin'</span>]</span><br><span class="line">    <span class="keyword">return</span> ip</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;工作需要，在局域网内搭建了Gitlab服务器，然后借助花生壳动态域名解析服务（DDNS）实现外网域名访问。感谢《网络安全法》的出台，花生壳域名需要实名验证才能继续使用，实在懒得上传资料验证，索性直接使用外网IP访问服务器。唯一的问题是路由器重启后，重新拨号获得的外网IP也会变化，需要以某种方式通知项目组成员。因为公司在使用钉钉，所以自然而然地想到了钉钉的群机器人功能。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="软件学习" scheme="http://www.poqpoq.net/categories/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="软件" scheme="http://www.poqpoq.net/tags/%E8%BD%AF%E4%BB%B6/"/>
+    
+      <category term="开发" scheme="http://www.poqpoq.net/tags/%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="Python" scheme="http://www.poqpoq.net/tags/Python/"/>
+    
+      <category term="网络" scheme="http://www.poqpoq.net/tags/%E7%BD%91%E7%BB%9C/"/>
+    
+      <category term="钉钉" scheme="http://www.poqpoq.net/tags/%E9%92%89%E9%92%89/"/>
+    
+      <category term="IP" scheme="http://www.poqpoq.net/tags/IP/"/>
     
   </entry>
   

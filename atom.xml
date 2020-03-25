@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.poqpoq.net/"/>
-  <updated>2020-03-25T14:39:48.325Z</updated>
+  <updated>2020-03-25T14:44:58.316Z</updated>
   <id>http://www.poqpoq.net/</id>
   
   <author>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>COMSOL圆形偏振光</title>
-    <link href="http://www.poqpoq.net/2020/03/comsol-circular%E2%80%94polarization.html"/>
-    <id>http://www.poqpoq.net/2020/03/comsol-circular—polarization.html</id>
+    <link href="http://www.poqpoq.net/2020/03/comsol-circular-polarization.html"/>
+    <id>http://www.poqpoq.net/2020/03/comsol-circular-polarization.html</id>
     <published>2020-03-25T14:30:00.000Z</published>
-    <updated>2020-03-25T14:39:48.325Z</updated>
+    <updated>2020-03-25T14:44:58.316Z</updated>
     
     <content type="html"><![CDATA[<p>很早以前做的一个demo，看到最近还有人问</p><p><img src="/images/blogimgs/cax/comsol_circular_polarization.gif" alt="Circular Polarization"></p>]]></content>
     

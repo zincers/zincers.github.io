@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.poqpoq.net/"/>
-  <updated>2020-03-19T14:34:36.931Z</updated>
+  <updated>2020-02-24T10:58:05.760Z</updated>
   <id>http://www.poqpoq.net/</id>
   
   <author>
@@ -15,29 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>March 19, 2020</title>
-    <link href="http://www.poqpoq.net/2020/03/march-19-2020.html"/>
-    <id>http://www.poqpoq.net/2020/03/march-19-2020.html</id>
-    <published>2020-03-18T18:26:00.000Z</published>
-    <updated>2020-03-19T14:34:36.931Z</updated>
-    
-    <content type="html"><![CDATA[<p>凌晨2点26分，经历了从一个真切而完整的梦中逐渐醒来的过程。梦里最后一刻的自己都在怀疑，太过于美满了，过往经历的所有问题似乎都有了解答，这该不会仅是个梦吧。紧接着这种怀疑逐渐被确认，然后梦里的自己感到了前所未有的怅然所失。这种情绪传染给了真实的自己，感觉现实中身体从高空缓慢飘落，处于一种不愿意醒来，却已经逐渐醒来的事实状态。</p><a id="more"></a><p>悲哀的是这终究只是一个梦，而梦醒时分聊以慰藉的是，潜意识里面自己应该已经学着原谅。</p><p>无意中看到纳兰性德的词，抄录如下：</p><blockquote><center>采桑子·而今才道当时错</center><center>——纳兰性德</center><center>而今才道当时错</center><center>心绪凄迷</center><center>红泪偷垂</center><center>满眼春风百事非</center><center>情知此后来无计</center><center>强说欢期</center><center>一别如斯</center><center>落尽梨花月又西</center></blockquote><p align="right">（芒记）</p><hr><p>不要高估道德，爱是有索取的付出，不要低估欲望，尤其是欲望里面控制欲</p><p align="right">二话</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;凌晨2点26分，经历了从一个真切而完整的梦中逐渐醒来的过程。梦里最后一刻的自己都在怀疑，太过于美满了，过往经历的所有问题似乎都有了解答，这该不会仅是个梦吧。紧接着这种怀疑逐渐被确认，然后梦里的自己感到了前所未有的怅然所失。这种情绪传染给了真实的自己，感觉现实中身体从高空缓慢飘落，处于一种不愿意醒来，却已经逐渐醒来的事实状态。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="日志随笔" scheme="http://www.poqpoq.net/categories/%E6%97%A5%E5%BF%97%E9%9A%8F%E7%AC%94/"/>
-    
-    
-      <category term="日志" scheme="http://www.poqpoq.net/tags/%E6%97%A5%E5%BF%97/"/>
-    
-  </entry>
   
   <entry>
     <title>浮生若梦，为欢几何？</title>
@@ -584,6 +561,39 @@
       <category term="钉钉" scheme="http://www.poqpoq.net/tags/%E9%92%89%E9%92%89/"/>
     
       <category term="IP" scheme="http://www.poqpoq.net/tags/IP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Simpleware基于单张图像生成2D面网格</title>
+    <link href="http://www.poqpoq.net/2017/07/simpleware-generates-2d-surface-mesh-based-on-single-image.html"/>
+    <id>http://www.poqpoq.net/2017/07/simpleware-generates-2d-surface-mesh-based-on-single-image.html</id>
+    <published>2017-07-04T12:16:53.000Z</published>
+    <updated>2019-09-05T11:00:37.852Z</updated>
+    
+    <content type="html"><![CDATA[<p>Simpleware可以基于3D图像重构CAD模型并生成用于有限元和流体计算的网格，相关功能有很多讨论，这里不再赘述。</p><p>部分用户尤其是材料领域用户，限于实验条件，很多时候只有单张截面图（典型的，SEM照片），用户的需求也仅是处理2D的图像，然后得到2D面网格。如果使用Simpleware导入单张图片的话，软件默认是将其按照一个像素厚度的3D数据处理的，网格剖分之后默认导出的也是3D的网格，而且由于Z方向只有一个像素厚度（典型的薄层特征），所以网格质量也很差。想要规避Z方向的薄层特征，很容易想到的一个解决方案是将图片多复制几张，不过上述操作默认导出的依然是3D网格，导入到求解器之后只能通过在Z方向的上下两个面施加（周期）对称之类的边界条件，以便于基于3D网格近似处理2D问题。</p><a id="more"></a><p>上述方案将简单的2D问题复杂化成了3D问题，虽然思路上可行，但是显然会浪费大量的计算资源。事实上Simpleware本身是支持直接导出某个Shell面的2D网格的，只不过藏的比较深而已。接下来我们就来看一下相关的步骤：</p><p>逻辑上，Simpleware依然只能处理3D图像数据，所以第一步依然是将图片在Z方向复制（或者重复导入），复制的目的是为了后续图像平滑滤波等算法可以顺利使用，同时也是为了弱化薄层特征。一般而言建议复制五层以上。</p><p>平滑滤波、然后按照自己的需要分割图像，具体步骤这里不展开，这些都是Simpleware平台基础的功能，根据自己图像的特征灵活选择即可，得到自己想要Mask之后，选择创建FE模型。截至这里，流程上其实依然是2D问题转化为3D问题处理的思路。接下来的步骤则需要特别注意。</p><p>打开<strong>Model configuration</strong>窗口，切换到<strong>Volume meshing</strong>选项卡，点击<strong>More options</strong>展开高级设置，找到<strong>Target number of elements across a layer</strong>，然后将其值设置为0.01。</p><p><img src="/images/blogimgs/cax/simpleware/Simpleware_2d_mesh_cap1.png" alt></p><p>我们最终要的其实仅仅是垂直于Z方向的某一个面的面网格就可以了，所以Z方向上网格质量好坏是无所谓的，所以这里选择将薄层最小网格层数的参数设置为一个很小的值。</p><p>标记要导出的shell特征，选择垂直于Z方向的某一个面（这里以ZMax为例），Zmax和我们生成的Mask重合的区域就是我们最后要的特征，如果有多个Mask，需要分别标记。</p><p><img src="/images/blogimgs/cax/simpleware/Simpleware_2d_mesh_cap2.png" alt></p><p>这时候选择生成网格，得到的依然是3D网格，因为薄层参数的设置，Z方向网格质量没有限制，会比较粗糙，这刚好是我们期望的。直接将该3D网格导出不是我们的预期，在生成网格之前，有一个关键步骤就是选择所有的Mask，将其标记为non - export part。上述设置确保在导出的时候，只导出Shell特征，实体部分网格不再导出之列。</p><p><img src="/images/blogimgs/cax/simpleware/Simpleware_2d_mesh_cap3.png" alt></p><p>导出的网格直接用CAE软件打开会识别为shell特征。如果使用的CAE软件需要建模开始就选择维度，建议导出类型选择Nastran（.nas）格式。然后在CAE软件中创建2D模型，最后选择导入之前生成的.nas网格就可以了。</p><p><img src="/images/blogimgs/cax/simpleware/Simpleware_2d_mesh_cap4.png" alt></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Simpleware可以基于3D图像重构CAD模型并生成用于有限元和流体计算的网格，相关功能有很多讨论，这里不再赘述。&lt;/p&gt;&lt;p&gt;部分用户尤其是材料领域用户，限于实验条件，很多时候只有单张截面图（典型的，SEM照片），用户的需求也仅是处理2D的图像，然后得到2D面网格。如果使用Simpleware导入单张图片的话，软件默认是将其按照一个像素厚度的3D数据处理的，网格剖分之后默认导出的也是3D的网格，而且由于Z方向只有一个像素厚度（典型的薄层特征），所以网格质量也很差。想要规避Z方向的薄层特征，很容易想到的一个解决方案是将图片多复制几张，不过上述操作默认导出的依然是3D网格，导入到求解器之后只能通过在Z方向的上下两个面施加（周期）对称之类的边界条件，以便于基于3D网格近似处理2D问题。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="软件学习" scheme="http://www.poqpoq.net/categories/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="CAE" scheme="http://www.poqpoq.net/tags/CAE/"/>
+    
+      <category term="仿真" scheme="http://www.poqpoq.net/tags/%E4%BB%BF%E7%9C%9F/"/>
+    
+      <category term="计算" scheme="http://www.poqpoq.net/tags/%E8%AE%A1%E7%AE%97/"/>
+    
+      <category term="Simpleware" scheme="http://www.poqpoq.net/tags/Simpleware/"/>
+    
+      <category term="网格" scheme="http://www.poqpoq.net/tags/%E7%BD%91%E6%A0%BC/"/>
+    
+      <category term="3D重构" scheme="http://www.poqpoq.net/tags/3D%E9%87%8D%E6%9E%84/"/>
     
   </entry>
   

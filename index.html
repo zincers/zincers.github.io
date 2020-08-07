@@ -307,7 +307,7 @@
                 
               
 
-              <time title="创建时间：2020-08-07 09:19:00 / 修改时间：17:26:36" itemprop="dateCreated datePublished" datetime="2020-08-07T09:19:00+08:00">2020-08-07</time>
+              <time title="创建时间：2020-08-07 09:19:00 / 修改时间：17:42:08" itemprop="dateCreated datePublished" datetime="2020-08-07T09:19:00+08:00">2020-08-07</time>
             </span>
           
             
@@ -337,7 +337,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>2.2k</span>
+              <span>2.3k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -360,7 +360,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h4 id="问题概述"><a href="#问题概述" class="headerlink" title="问题概述"></a>问题概述</h4><p>COMSOL Multiphysics 软件的几何光学（Geometrical Optics）接口同时支持单色光和复色光计算，但是这里的复色光只允许定义不同的波长以便进行光路计算。对于需要考虑功率和强度分布的情况，因为软件只能指定总的辐照强度而无法指定每个波长的辐照强度，所以并不适用于需要评估实际太阳光辐照功率的情况。本文主要探讨如何基于软件的现有功能，实现太阳光能量光谱的表征。</p>
+          <h4 id="问题概述"><a href="#问题概述" class="headerlink" title="问题概述"></a>问题概述</h4><p>COMSOL Multiphysics 软件的几何光学（Geometrical Optics）接口同时支持单色光和复色光计算，但是这里的复色光只允许定义不同的波长以便进行光路计算。对于需要考虑功率和强度分布的情况，因为软件只能指定总的辐照强度而无法指定每个波长的辐照强度，所以并不适用于评估实际太阳光辐照的功率分布。本文主要探讨如何基于软件的现有功能，实现太阳光能量光谱的表征。</p>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -1727,7 +1727,7 @@
   
     
       
-    
+        
       
     
       
@@ -1745,6 +1745,58 @@
       
     
       
+    
+      
+    
+  
+    
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
     
   
 

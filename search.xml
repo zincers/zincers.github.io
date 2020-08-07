@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>COMSOL Geometrical Optics接口如何导入太阳能辐射光谱</title>
+      <link href="/2020/08/How-to-import-solar-radiation-spectrum-using-comsol-multiphysics-geometrical-interface.html"/>
+      <url>/2020/08/How-to-import-solar-radiation-spectrum-using-comsol-multiphysics-geometrical-interface.html</url>
+      
+        <content type="html"><![CDATA[<h4 id="问题概述"><a href="#问题概述" class="headerlink" title="问题概述"></a>问题概述</h4><p>COMSOL Multiphysics 软件的几何光学（Geometrical Optics）接口同时支持单色光和复色光计算，但是这里的复色光只允许定义不同的波长以便进行光路计算。对于需要考虑功率和强度分布的情况，因为软件只能指定总的辐照强度而无法指定每个波长的辐照强度，所以并不适用于需要评估实际太阳光辐照功率的情况。本文主要探讨如何基于软件的现有功能，实现太阳光能量光谱的表征。</p><a id="more"></a><h4 id="太阳能光谱"><a href="#太阳能光谱" class="headerlink" title="太阳能光谱"></a>太阳能光谱</h4><p>太阳辐照光谱随时间和位置变化，如下图$^{[1]}$所示，目前广泛采用的标准太阳能光谱是AM0（大气层外）和AM1.5（陆地），前者平均辐照强度是1366.1 $W/m^2$，后者为1000 $W/m^2$。</p><p><img src="images/blogimgs/cax/optical/solar_spectra_am1.5.png" alt></p><p>实际数值模拟中，通常采用离散的太阳光光谱以方便计算。离散的太阳光数据曲线和实际太阳光数据曲线关系如下图$^{[2]}$所示。</p><p><img src="images/blogimgs/cax/optical/solar_spectrum_simu.bmp" alt></p><p>对于连续的波段，取其特征波长，积分可得到其辐照强度占总辐照强度的权重比，基于此，上图可以改写为如下表示形式$^{[3]}$。</p><div class="table-container"><table><thead><tr><th>波段</th><th>特征波长</th><th>权重因子</th></tr></thead><tbody><tr><td>0.295-0.40</td><td>0.374</td><td>0.0267</td></tr><tr><td>0.40-0.43</td><td>0.416</td><td>0.0275</td></tr><tr><td>0.43-0.45</td><td>0.441</td><td>0.0244</td></tr><tr><td>0.45-0.47</td><td>0.460</td><td>0.0291</td></tr><tr><td>0.47-0.49</td><td>0.480</td><td>0.0320</td></tr><tr><td>0.49-0.51</td><td>0.500</td><td>0.0327</td></tr><tr><td>0.51-0.53</td><td>0.520</td><td>0.0323</td></tr><tr><td>0.53-0.55</td><td>0.540</td><td>0.0322</td></tr><tr><td>0.55-0.57</td><td>0.560</td><td>0.0319</td></tr><tr><td>0.57-0.60</td><td>0.585</td><td>0.0473</td></tr><tr><td>0.60-0.63</td><td>0.615</td><td>0.0473</td></tr><tr><td>0.63-0.66</td><td>0.645</td><td>0.0475</td></tr><tr><td>0.66-0.69</td><td>0.675</td><td>0.0456</td></tr><tr><td>0.69-0.73</td><td>0.709</td><td>0.0537</td></tr><tr><td>0.73-0.78</td><td>0.753</td><td>0.0591</td></tr><tr><td>0.78-0.83</td><td>0.804</td><td>0.0562</td></tr><tr><td>0.83-0.89</td><td>0.857</td><td>0.0623</td></tr><tr><td>0.89-0.99</td><td>0.953</td><td>0.0606</td></tr><tr><td>0.99-1.06</td><td>1.024</td><td>0.0565</td></tr><tr><td>1.06-1.21</td><td>1.129</td><td>0.0621</td></tr><tr><td>1.21-1.52</td><td>1.274</td><td>0.0649</td></tr><tr><td>1.52-2.20</td><td>1.642</td><td>0.0681</td></tr></tbody></table></div><h4 id="COMSOL表征"><a href="#COMSOL表征" class="headerlink" title="COMSOL表征"></a>COMSOL表征</h4><p>这个问题本身其实并不复杂，很容易想到，使用单色光模式，每个频率单独计算，辐照功率乘以每个频率下的权重因子，然后将计算结果累加到一起即可。如果频率比较少，可以直接手动操作；如果频率比较多，如本例中包含22个典型频率，手动操作就会比较麻烦而且显得不甚明智。对于较多频率的情况可以借助COMSOL with MATLAB编程实现，不过相关过程本文不做讨论，下面只给出完全基于COMSOL软件自身功能的实现过程。</p><ol><li><p>首先以内插函数的形式导入特征波长（$\lambda$）和权重因子（$w$）之间的关系：$ w=f(\lambda)$。</p></li><li><p>同前，选用单色光模式，单色光波长为 $\lambda$，辐照总功率设置为$1000w W/m^2$。</p></li><li><p>启用参数化求解，对参数 $\lambda$执行扫描，参数列表参照上表，依次输入即可。</p></li><li><p>求解完成后，包含所有波长和所有时间（射线追踪求解本身是含时间的瞬态分析模式）的计算结果都保存在数据集“$sol1$”中。</p></li><li>本例中对经聚光透镜汇聚的太阳光进行了计算，不同频率太阳光光路如下图所示，显示效果需要，这里仅显示了高中低三个频率。</li></ol><p><img src="images/blogimgs/cax/optical/optical_ray_trajectories_am1.5.png" alt></p><ol><li><p>接下来的结果后处理过程是本文关键，默认地用户一次只能查看特定频率和特定时间下的计算结果，如果需要对所有频率的结果求和，需要使用软件内置的一些特殊的算符$^{[4]}$。本例中输入的用于后处理的表达式为：$sum(withsol(‘sol1’,expr, setval(t,1[ns]),setind(\lambda, i)), i, 1, 22)$。其中，$sum$表示求和，$withsol$表示在特定的解（$sol1$）中提取数值，$expr$是用户预期提取的变量；$setval(t,1[ns])$表示对$t=1[ns]$时刻的结果做操作，$setind(\lambda, i)$配合随后的 $i, 1, 22$ 表示提取所有参数$\lambda$（从第1到第22个）所对应的计算结果。因为要遍历数据解，该绘图过程耗时相对较久。</p></li><li><p>本例中对底部的太阳光辐照表面的光照强度进行了提取，经由上一步操作，对所有频率求和得到的光功率分布（典型的高斯光束）如下图所示。</p></li></ol><p><img src="images/blogimgs/cax/optical/optical_ray_trajectories_am1.5_I_cell.png" alt></p><h4 id="Ref："><a href="#Ref：" class="headerlink" title="Ref："></a>Ref：</h4><p>[1] Standard Solar Spectra | PVEducation[EB/OL]. [2020-08-07]. <a href="https://www.pveducation.org/pvcdrom/appendices/standard-solar-spectra" target="_blank" rel="noopener">https://www.pveducation.org/pvcdrom/appendices/standard-solar-spectra</a>.</p><p>[2] 吴贺利. 菲涅尔太阳能聚光器研究[D]. 武汉理工大学, 2010.</p><p>[3] R. Fu <em>et al.</em>, “Design of broadband SOG Fresnel lens for GaInP/GaInAs/Ge multi-junction concentrator solar cells,” Malang, East Java, Indonesia, 2014, pp. 58–62, doi: <a href="https://doi.org/10.1063/1.4897028" target="_blank" rel="noopener">10.1063/1.4897028</a>.</p><p>[4] COMSOL, 2020. COMSOL Multiphysics reference guide (for COMSOL version 5.5,  www.comsol.com).</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 软件学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CAE </tag>
+            
+            <tag> COMSOL </tag>
+            
+            <tag> 仿真 </tag>
+            
+            <tag> 计算 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>控制</title>
       <link href="/2020/06/control.html"/>
       <url>/2020/06/control.html</url>
@@ -841,37 +872,6 @@
       <url>/2015/05/comsol-circular-polarization.html</url>
       
         <content type="html"><![CDATA[<p>很早以前做的一个demo，看到最近还有人问</p><p><img src="/images/blogimgs/cax/comsol_circular_polarization.gif" alt="Circular Polarization"></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 软件学习 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> CAE </tag>
-            
-            <tag> COMSOL </tag>
-            
-            <tag> 仿真 </tag>
-            
-            <tag> 计算 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>COMSOL Geometrical Optics接口如何导入太阳能辐射光谱</title>
-      <link href="/2015/05/How-to-import-solar-radiation-spectrum-using-comsol-multiphysics-geometrical-interface.html"/>
-      <url>/2015/05/How-to-import-solar-radiation-spectrum-using-comsol-multiphysics-geometrical-interface.html</url>
-      
-        <content type="html"><![CDATA[<h4 id="问题概述"><a href="#问题概述" class="headerlink" title="问题概述"></a>问题概述</h4><p>COMSOL Multiphysics 软件的几何光学（Geometrical Optics）接口同时支持单色光和复色光计算，但是这里的复色光只允许定义不同的波长以便进行光路计算。对于需要考虑功率和强度分布的情况，因为软件只能指定总的辐照强度而无法指定每个波长的辐照强度，所以并不适用于需要评估实际太阳光辐照功率的情况。本文主要探讨如何基于软件的现有功能，实现太阳光能量光谱的表征。</p><a id="more"></a><h4 id="太阳能光谱"><a href="#太阳能光谱" class="headerlink" title="太阳能光谱"></a>太阳能光谱</h4><p>太阳辐照光谱随时间和位置变化，如下图$^{[1]}$所示，目前广泛采用的标准太阳能光谱是AM0（大气层外）和AM1.5（陆地），前者平均辐照强度是1366.1 $W/m^2$，后者为1000 $W/m^2$。</p><p><img src="images/blogimgs/cax/optical/solar_spectra_am1.5.png" alt></p><p>实际数值模拟中，通常采用离散的太阳光光谱以方便计算。离散的太阳光数据曲线和实际太阳光数据曲线关系如下图$^{[2]}$所示。</p><p><img src="images/blogimgs/cax/optical/solar_spectrum_simu.bmp" alt></p><p>对于连续的波段，取其特征波长，积分可得到其辐照强度占总辐照强度的权重比，基于此，上图可以改写为如下表示形式$^{[3]}$。</p><div class="table-container"><table><thead><tr><th>波段</th><th>特征波长</th><th>权重因子</th></tr></thead><tbody><tr><td>0.295-0.40</td><td>0.374</td><td>0.0267</td></tr><tr><td>0.40-0.43</td><td>0.416</td><td>0.0275</td></tr><tr><td>0.43-0.45</td><td>0.441</td><td>0.0244</td></tr><tr><td>0.45-0.47</td><td>0.460</td><td>0.0291</td></tr><tr><td>0.47-0.49</td><td>0.480</td><td>0.0320</td></tr><tr><td>0.49-0.51</td><td>0.500</td><td>0.0327</td></tr><tr><td>0.51-0.53</td><td>0.520</td><td>0.0323</td></tr><tr><td>0.53-0.55</td><td>0.540</td><td>0.0322</td></tr><tr><td>0.55-0.57</td><td>0.560</td><td>0.0319</td></tr><tr><td>0.57-0.60</td><td>0.585</td><td>0.0473</td></tr><tr><td>0.60-0.63</td><td>0.615</td><td>0.0473</td></tr><tr><td>0.63-0.66</td><td>0.645</td><td>0.0475</td></tr><tr><td>0.66-0.69</td><td>0.675</td><td>0.0456</td></tr><tr><td>0.69-0.73</td><td>0.709</td><td>0.0537</td></tr><tr><td>0.73-0.78</td><td>0.753</td><td>0.0591</td></tr><tr><td>0.78-0.83</td><td>0.804</td><td>0.0562</td></tr><tr><td>0.83-0.89</td><td>0.857</td><td>0.0623</td></tr><tr><td>0.89-0.99</td><td>0.953</td><td>0.0606</td></tr><tr><td>0.99-1.06</td><td>1.024</td><td>0.0565</td></tr><tr><td>1.06-1.21</td><td>1.129</td><td>0.0621</td></tr><tr><td>1.21-1.52</td><td>1.274</td><td>0.0649</td></tr><tr><td>1.52-2.20</td><td>1.642</td><td>0.0681</td></tr></tbody></table></div><h4 id="COMSOL表征"><a href="#COMSOL表征" class="headerlink" title="COMSOL表征"></a>COMSOL表征</h4><p>这个问题本身其实并不复杂，很容易想到，使用单色光模式，每个频率单独计算，辐照功率乘以每个频率下的权重因子，然后将计算结果累加到一起即可。如果频率比较少，可以直接手动操作；如果频率比较多，如本例中包含22个典型频率，手动操作就会比较麻烦而且显得不甚明智。对于较多频率的情况可以借助COMSOL with MATLAB编程实现，不过相关过程本文不做讨论，下面只给出完全基于COMSOL软件自身功能的实现过程。</p><ol><li><p>首先以内插函数的形式导入特征波长（$\lambda$）和权重因子（$w$）之间的关系：$ w=f(\lambda)$。</p></li><li><p>同前，选用单色光模式，单色光波长为 $\lambda$，辐照总功率设置为$1000w W/m^2$。</p></li><li><p>启用参数化求解，对参数 $\lambda$执行扫描，参数列表参照上表，依次输入即可。</p></li><li><p>求解完成后，包含所有波长和所有时间（射线追踪求解本身是含时间的瞬态分析模式）的计算结果都保存在数据集“$sol1$”中。</p></li><li>本例中对经聚光透镜汇聚的太阳光进行了计算，不同频率太阳光光路如下图所示，显示效果需要，这里仅显示了高中低三个频率。</li></ol><p><img src="images/blogimgs/cax/optical/optical_ray_trajectories_am1.5.png" alt></p><ol><li><p>接下来的结果后处理过程是本文关键，默认地用户一次只能查看特定频率和特定时间下的计算结果，如果需要对所有频率的结果求和，需要使用软件内置的一些特殊的算符$^{[4]}$。本例中输入的用于后处理的表达式为：$sum(withsol(‘sol1’,expr, setval(t,1[ns]),setind(\lambda, i)), i, 1, 22)$。其中，$sum$表示求和，$withsol$表示在特定的解（$sol1$）中提取数值，$expr$是用户预期提取的变量；$setval(t,1[ns])$表示对$t=1[ns]$时刻的结果做操作，$setind(\lambda, i)$配合随后的 $i, 1, 22$ 表示提取所有参数$\lambda$（从第1到第22个）所对应的计算结果。因为要遍历数据解，该绘图过程耗时相对较久。</p></li><li><p>本例中对底部的太阳光辐照表面的光照强度进行了提取，经由上一步操作，对所有频率求和得到的光功率分布（典型的高斯光束）如下图所示。</p></li></ol><p><img src="images/blogimgs/cax/optical/optical_ray_trajectories_am1.5_I_cell.png" alt></p><h4 id="Ref："><a href="#Ref：" class="headerlink" title="Ref："></a>Ref：</h4><p>[1] Standard Solar Spectra | PVEducation[EB/OL]. [2020-08-07]. <a href="https://www.pveducation.org/pvcdrom/appendices/standard-solar-spectra" target="_blank" rel="noopener">https://www.pveducation.org/pvcdrom/appendices/standard-solar-spectra</a>.</p><p>[2] 吴贺利. 菲涅尔太阳能聚光器研究[D]. 武汉理工大学, 2010.</p><p>[3] R. Fu <em>et al.</em>, “Design of broadband SOG Fresnel lens for GaInP/GaInAs/Ge multi-junction concentrator solar cells,” Malang, East Java, Indonesia, 2014, pp. 58–62, doi: <a href="https://doi.org/10.1063/1.4897028" target="_blank" rel="noopener">10.1063/1.4897028</a>.</p><p>[4] COMSOL, 2020. COMSOL Multiphysics reference guide (for COMSOL version 5.5,  www.comsol.com).</p>]]></content>
       
       
       <categories>
@@ -5225,6 +5225,25 @@
     
     
     <entry>
+      <title>关于“绿坝-花季导航”</title>
+      <link href="/2009/06/about-green-dam-flower-season-navigation.html"/>
+      <url>/2009/06/about-green-dam-flower-season-navigation.html</url>
+      
+        <content type="html"><![CDATA[<p>毫无疑问最近大众敏感的神经都被这个软件”挑逗”着。我们”欣喜”的看到没有人关心这款软件是否真的如他所宣称的有效屏蔽90%的不良信息。事实上，更多的人在关注这款软件是不是在屏蔽不良信息之外还会像我们可爱的政府一样，顺手干点别的勾当。</p><p>一些西方媒体又一次的充当起了”维护中国言论自由”的角色，可是无疑这次他们的选错了对象，就我个人猜想这可能和他们不太懂中文有关——这款软件命名为”花季导航”，明显就是针对未成年人的。鉴于它可以自由卸载，那我可以肯定在当下除了对电脑一窍不通的人会让他装载在电脑上，其他的成年人是不会这么干的。我可不想刚刚因为那点少儿不宜的东西而心潮澎湃，紧接着就被那句：”此信息不良，将被过滤掉”弄得心情更加澎湃。</p><a id="more"></a><p>其实工信部的这次行为还可以说得上是好心。在我看来，在学校，尤其是中小学使用屏蔽软件过滤不良信息很有必要，相关的理由不用我过多论述大家也都心知肚明。只是我不得不说，他在错误的时间以错误的方式做了这件事情：</p><p>错误的时间，当”二十年之痒”使得很多网站被GFW之后，工信部推出这款软件，这不得不让人联想这件事是之前工作的延续，让我们以为某些部门真的要把事情做绝。坦率的讲，看到这条新闻我个人的第一反应就是这个软件能不能被”翻墙”。</p><p>错误的方式，我们的有些部门似乎习惯了使用”必须”这样的字眼，而且简单粗暴的不靠谱，拍脑门决策的事情始终发生在当下，我不确定他们是怎么确定这款软件就是最适合的软件，即便这款软件真的如他们所说功能强大，他们又是怎么确定大众没有使用其他同类软件的权利的呢？</p><p>最后要说的是，我们的工信部宣称这款软件是他们购买然后”免费”提供给大众的。他们一贯的没常识不要紧，我们的媒体也一起跟着没常识，试问他们的钱是哪来的？我们纳税人的钱怎么花我们一直不知道，这到也罢了，反正我们一直就不知道，但是我不能容忍他们花我们的钱为我们做了一件事情之后，大言不惭的说这是他们免费为我们做的。这就好比我借了你一百块钱然后告诉你：”我不还你钱了，我请你吃一只雪糕吧”，好吧，你看我多高尚！</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 评论观点 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>思考：个人VS社会</title>
       <link href="/2009/06/thinking-individual-vs-society.html"/>
       <url>/2009/06/thinking-individual-vs-society.html</url>
@@ -5250,25 +5269,6 @@
             <tag> 博客 </tag>
             
         </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>关于“绿坝-花季导航”</title>
-      <link href="/2009/06/about-green-dam-flower-season-navigation.html"/>
-      <url>/2009/06/about-green-dam-flower-season-navigation.html</url>
-      
-        <content type="html"><![CDATA[<p>毫无疑问最近大众敏感的神经都被这个软件”挑逗”着。我们”欣喜”的看到没有人关心这款软件是否真的如他所宣称的有效屏蔽90%的不良信息。事实上，更多的人在关注这款软件是不是在屏蔽不良信息之外还会像我们可爱的政府一样，顺手干点别的勾当。</p><p>一些西方媒体又一次的充当起了”维护中国言论自由”的角色，可是无疑这次他们的选错了对象，就我个人猜想这可能和他们不太懂中文有关——这款软件命名为”花季导航”，明显就是针对未成年人的。鉴于它可以自由卸载，那我可以肯定在当下除了对电脑一窍不通的人会让他装载在电脑上，其他的成年人是不会这么干的。我可不想刚刚因为那点少儿不宜的东西而心潮澎湃，紧接着就被那句：”此信息不良，将被过滤掉”弄得心情更加澎湃。</p><a id="more"></a><p>其实工信部的这次行为还可以说得上是好心。在我看来，在学校，尤其是中小学使用屏蔽软件过滤不良信息很有必要，相关的理由不用我过多论述大家也都心知肚明。只是我不得不说，他在错误的时间以错误的方式做了这件事情：</p><p>错误的时间，当”二十年之痒”使得很多网站被GFW之后，工信部推出这款软件，这不得不让人联想这件事是之前工作的延续，让我们以为某些部门真的要把事情做绝。坦率的讲，看到这条新闻我个人的第一反应就是这个软件能不能被”翻墙”。</p><p>错误的方式，我们的有些部门似乎习惯了使用”必须”这样的字眼，而且简单粗暴的不靠谱，拍脑门决策的事情始终发生在当下，我不确定他们是怎么确定这款软件就是最适合的软件，即便这款软件真的如他们所说功能强大，他们又是怎么确定大众没有使用其他同类软件的权利的呢？</p><p>最后要说的是，我们的工信部宣称这款软件是他们购买然后”免费”提供给大众的。他们一贯的没常识不要紧，我们的媒体也一起跟着没常识，试问他们的钱是哪来的？我们纳税人的钱怎么花我们一直不知道，这到也罢了，反正我们一直就不知道，但是我不能容忍他们花我们的钱为我们做了一件事情之后，大言不惭的说这是他们免费为我们做的。这就好比我借了你一百块钱然后告诉你：”我不还你钱了，我请你吃一只雪糕吧”，好吧，你看我多高尚！</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 评论观点 </category>
-          
-      </categories>
-      
       
     </entry>
     

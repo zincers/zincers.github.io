@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://www.poqpoq.net/2018/07/home-storage-server-setup.html</loc>
+    <lastmod>2020-11-20</lastmod>
+  </url>  <url>
     <loc>http://www.poqpoq.net/2020/10/october-31-2020.html</loc>
     <lastmod>2020-11-07</lastmod>
   </url>  <url>
@@ -101,9 +104,6 @@
     <lastmod>2019-09-05</lastmod>
   </url>  <url>
     <loc>http://www.poqpoq.net/2017/05/installation-test-odoo.html</loc>
-    <lastmod>2019-09-05</lastmod>
-  </url>  <url>
-    <loc>http://www.poqpoq.net/2018/07/home-storage-server-setup.html</loc>
     <lastmod>2019-09-05</lastmod>
   </url>  <url>
     <loc>http://www.poqpoq.net/2014/05/open-source-multiphysics-simulation-software-elmer-graphical-interface-elmergui-compilation.html</loc>

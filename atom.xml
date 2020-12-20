@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.poqpoq.net/"/>
-  <updated>2020-12-20T07:51:31.880Z</updated>
+  <updated>2020-12-20T08:05:39.630Z</updated>
   <id>http://www.poqpoq.net/</id>
   
   <author>
@@ -21,16 +21,16 @@
     <link href="http://www.poqpoq.net/2020/12/december-21-2020.html"/>
     <id>http://www.poqpoq.net/2020/12/december-21-2020.html</id>
     <published>2020-12-21T00:38:00.000Z</published>
-    <updated>2020-12-20T07:51:31.880Z</updated>
+    <updated>2020-12-20T08:05:39.630Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="images\blogimgs\family\happy_birthday.gif" alt></p><p><img src="images\blogimgs\family\happy_birthday_2.gif" alt></p>]]></content>
+    <content type="html"><![CDATA[<p><img src="\images\blogimgs\family\happy_birthday.gif" alt></p><p><img src="\images\blogimgs\family\happy_birthday_2.gif" alt></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;&lt;img src=&quot;images\blogimgs\family\happy_birthday.gif&quot; alt&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;images\blogimgs\family\happy_birthday_2.gif&quot; alt&gt;&lt;/p&gt;
+        &lt;p&gt;&lt;img src=&quot;\images\blogimgs\family\happy_birthday.gif&quot; alt&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;\images\blogimgs\family\happy_birthday_2.gif&quot; alt&gt;&lt;/p&gt;
 
       
     

@@ -35,13 +35,13 @@
       <category term="影音映像" scheme="http://www.poqpoq.net/categories/%E5%BD%B1%E9%9F%B3%E6%98%A0%E5%83%8F/"/>
     
     
+      <category term="心理" scheme="http://www.poqpoq.net/tags/%E5%BF%83%E7%90%86/"/>
+    
       <category term="评论" scheme="http://www.poqpoq.net/tags/%E8%AF%84%E8%AE%BA/"/>
     
       <category term="影视" scheme="http://www.poqpoq.net/tags/%E5%BD%B1%E8%A7%86/"/>
     
       <category term="亲子关系" scheme="http://www.poqpoq.net/tags/%E4%BA%B2%E5%AD%90%E5%85%B3%E7%B3%BB/"/>
-    
-      <category term="心理" scheme="http://www.poqpoq.net/tags/%E5%BF%83%E7%90%86/"/>
     
   </entry>
   
@@ -68,11 +68,11 @@
     
       <category term="书籍" scheme="http://www.poqpoq.net/tags/%E4%B9%A6%E7%B1%8D/"/>
     
+      <category term="音乐" scheme="http://www.poqpoq.net/tags/%E9%9F%B3%E4%B9%90/"/>
+    
       <category term="影视" scheme="http://www.poqpoq.net/tags/%E5%BD%B1%E8%A7%86/"/>
     
       <category term="总结" scheme="http://www.poqpoq.net/tags/%E6%80%BB%E7%BB%93/"/>
-    
-      <category term="音乐" scheme="http://www.poqpoq.net/tags/%E9%9F%B3%E4%B9%90/"/>
     
   </entry>
   
@@ -81,22 +81,16 @@
     <link href="http://www.poqpoq.net/2020/12/december-21-2020.html"/>
     <id>http://www.poqpoq.net/2020/12/december-21-2020.html</id>
     <published>2020-12-21T00:38:00.000Z</published>
-    <updated>2020-12-29T14:14:29.490Z</updated>
+    <updated>2021-07-18T03:05:20.945Z</updated>
     
-    <content type="html"><![CDATA[<ul><li>俗记</li></ul><p><img src="\images\blogimgs\family\happy_birthday.gif" alt></p><ul><li>免俗</li></ul><p><img src="\images\blogimgs\family\dining_table.jpg" alt></p><ul><li>清奇</li></ul><p><img src="\images\blogimgs\family\ingenuity.jpg" alt></p><ul><li>也许应该调个相册的模板了</li></ul>]]></content>
+    <content type="html"><![CDATA[<p><img src="\images\blogimgs\family\happy_birthday.gif" alt></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;ul&gt;
-&lt;li&gt;俗记&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img src=&quot;\images\blogimgs\family\happy_birthday.gif&quot; alt&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;免俗&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img src=&quot;\images\blogimg
+        &lt;p&gt;&lt;img src=&quot;\images\blogimgs\family\happy_birthday.gif&quot; alt&gt;&lt;/p&gt;
+
       
     
     </summary>
@@ -257,9 +251,9 @@
     
       <category term="日志" scheme="http://www.poqpoq.net/tags/%E6%97%A5%E5%BF%97/"/>
     
-      <category term="书籍" scheme="http://www.poqpoq.net/tags/%E4%B9%A6%E7%B1%8D/"/>
-    
       <category term="心理" scheme="http://www.poqpoq.net/tags/%E5%BF%83%E7%90%86/"/>
+    
+      <category term="书籍" scheme="http://www.poqpoq.net/tags/%E4%B9%A6%E7%B1%8D/"/>
     
   </entry>
   

@@ -20,13 +20,13 @@
       
         <tags>
             
+            <tag> 心理 </tag>
+            
             <tag> 评论 </tag>
             
             <tag> 影视 </tag>
             
             <tag> 亲子关系 </tag>
-            
-            <tag> 心理 </tag>
             
         </tags>
       
@@ -55,11 +55,11 @@
             
             <tag> 书籍 </tag>
             
+            <tag> 音乐 </tag>
+            
             <tag> 影视 </tag>
             
             <tag> 总结 </tag>
-            
-            <tag> 音乐 </tag>
             
         </tags>
       
@@ -72,7 +72,7 @@
       <link href="/2020/12/december-21-2020.html"/>
       <url>/2020/12/december-21-2020.html</url>
       
-        <content type="html"><![CDATA[<ul><li>俗记</li></ul><p><img src="\images\blogimgs\family\happy_birthday.gif" alt></p><ul><li>免俗</li></ul><p><img src="\images\blogimgs\family\dining_table.jpg" alt></p><ul><li>清奇</li></ul><p><img src="\images\blogimgs\family\ingenuity.jpg" alt></p><ul><li>也许应该调个相册的模板了</li></ul>]]></content>
+        <content type="html"><![CDATA[<p><img src="\images\blogimgs\family\happy_birthday.gif" alt></p>]]></content>
       
       
       <categories>
@@ -246,9 +246,9 @@
             
             <tag> 日志 </tag>
             
-            <tag> 书籍 </tag>
-            
             <tag> 心理 </tag>
+            
+            <tag> 书籍 </tag>
             
         </tags>
       
@@ -761,13 +761,13 @@
       
         <tags>
             
+            <tag> 网络 </tag>
+            
             <tag> 软件 </tag>
             
             <tag> 开发 </tag>
             
             <tag> Python </tag>
-            
-            <tag> 网络 </tag>
             
             <tag> 钉钉 </tag>
             
@@ -1159,9 +1159,9 @@
       
         <tags>
             
-            <tag> Elmer </tag>
-            
             <tag> 审查 </tag>
+            
+            <tag> Elmer </tag>
             
         </tags>
       
@@ -1681,9 +1681,9 @@
             
             <tag> 日志 </tag>
             
-            <tag> 总结 </tag>
-            
             <tag> 音乐 </tag>
+            
+            <tag> 总结 </tag>
             
         </tags>
       
@@ -1710,11 +1710,11 @@
             
             <tag> 日志 </tag>
             
-            <tag> 1984 </tag>
-            
             <tag> 书籍 </tag>
             
             <tag> 总结 </tag>
+            
+            <tag> 1984 </tag>
             
             <tag> 无聊 </tag>
             
@@ -3649,11 +3649,11 @@
       
         <tags>
             
-            <tag> 1984 </tag>
-            
             <tag> 书籍 </tag>
             
             <tag> 评论 </tag>
+            
+            <tag> 1984 </tag>
             
         </tags>
       
@@ -3794,9 +3794,9 @@
             
             <tag> 评论 </tag>
             
-            <tag> 审查 </tag>
-            
             <tag> 网络 </tag>
+            
+            <tag> 审查 </tag>
             
         </tags>
       
@@ -4130,9 +4130,9 @@
             
             <tag> 评论 </tag>
             
-            <tag> 审查 </tag>
-            
             <tag> 网络 </tag>
+            
+            <tag> 审查 </tag>
             
         </tags>
       
@@ -4345,9 +4345,9 @@
             
             <tag> 评论 </tag>
             
-            <tag> 审查 </tag>
-            
             <tag> 网络 </tag>
+            
+            <tag> 审查 </tag>
             
             <tag> Opera </tag>
             
@@ -4734,9 +4734,9 @@
             
             <tag> 评论 </tag>
             
-            <tag> 影视 </tag>
-            
             <tag> 音乐 </tag>
+            
+            <tag> 影视 </tag>
             
         </tags>
       
@@ -5043,25 +5043,6 @@
     
     
     <entry>
-      <title>关于职业道德的幽默</title>
-      <link href="/2009/09/humor-about-professional-ethics.html"/>
-      <url>/2009/09/humor-about-professional-ethics.html</url>
-      
-        <content type="html"><![CDATA[<p>嫖客：你为什么化那么浓的妆？</p><p>妓女：顾客觉得这样好看。</p><p>嫖客：其实我们倒是觉得你们素面朝天更好看！把妆卸掉怎么样？</p><p>妓女：不行，这样不符合职业道德！</p><p>PS：领导对于官话的偏爱和妓女对于浓妆的偏爱道理其实是相同的，不同的是：后者有偿为人民服务，而前者无偿被人民服务。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 评论观点 </category>
-          
-      </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>我要写诗歌朗诵稿</title>
       <link href="/2009/09/i-want-to-write-a-poem.html"/>
       <url>/2009/09/i-want-to-write-a-poem.html</url>
@@ -5072,6 +5053,25 @@
       <categories>
           
           <category> 日志随笔 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>关于职业道德的幽默</title>
+      <link href="/2009/09/humor-about-professional-ethics.html"/>
+      <url>/2009/09/humor-about-professional-ethics.html</url>
+      
+        <content type="html"><![CDATA[<p>嫖客：你为什么化那么浓的妆？</p><p>妓女：顾客觉得这样好看。</p><p>嫖客：其实我们倒是觉得你们素面朝天更好看！把妆卸掉怎么样？</p><p>妓女：不行，这样不符合职业道德！</p><p>PS：领导对于官话的偏爱和妓女对于浓妆的偏爱道理其实是相同的，不同的是：后者有偿为人民服务，而前者无偿被人民服务。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 评论观点 </category>
           
       </categories>
       
@@ -5315,9 +5315,9 @@
       
         <tags>
             
-            <tag> 审查 </tag>
-            
             <tag> 网络 </tag>
+            
+            <tag> 审查 </tag>
             
         </tags>
       

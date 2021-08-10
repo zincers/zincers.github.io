@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.poqpoq.net","root":"/","images":"/images","scheme":"Pisces","version":"8.7.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="硬件购置 主板（板载CPU）：淘宝，华擎 J3455-ITX mini-ITX主板 17*17 4核CPU  Nas机箱：淘宝，4盘位热插拔存储服务器 迷你ITX铝面板机箱DIY机箱，含电源和风扇 内存条：笔记本拆机内存条，三星 4G DDR3L 1600MHz 硬盘  机械硬盘：3.5寸  5400 SATA3 机械硬盘，西数蓝盘和希捷酷鱼各一块，一块做数据盘，一块做备份盘，京东618 固态硬盘">
+<meta property="og:type" content="article">
+<meta property="og:title" content="家用存储服务器搭建">
+<meta property="og:url" content="http://www.poqpoq.net/2018/07/home-storage-server-setup.html">
+<meta property="og:site_name" content="M守望者">
+<meta property="og:description" content="硬件购置 主板（板载CPU）：淘宝，华擎 J3455-ITX mini-ITX主板 17*17 4核CPU  Nas机箱：淘宝，4盘位热插拔存储服务器 迷你ITX铝面板机箱DIY机箱，含电源和风扇 内存条：笔记本拆机内存条，三星 4G DDR3L 1600MHz 硬盘  机械硬盘：3.5寸  5400 SATA3 机械硬盘，西数蓝盘和希捷酷鱼各一块，一块做数据盘，一块做备份盘，京东618 固态硬盘">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-07-05T12:16:53.000Z">
+<meta property="article:modified_time" content="2021-08-10T08:30:33.441Z">
+<meta property="article:author" content="Zincer Wong">
+<meta property="article:tag" content="软件">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="NAS">
+<meta property="article:tag" content="存储">
+<meta property="article:tag" content="Samba">
+<meta property="article:tag" content="Syncthing">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://www.poqpoq.net/2018/07/home-storage-server-setup.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://www.poqpoq.net/2018/07/home-storage-server-setup.html","path":"2018/07/home-storage-server-setup.html","title":"家用存储服务器搭建"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>家用存储服务器搭建 | M守望者</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?8342a01453dfea35aa7807585b1b7395"></script>
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.css"><style>
+#needsharebutton-postbottom {
+  cursor: pointer;
+  height: 26px;
+  margin-top: 10px;
+  position: relative;
+}
+#needsharebutton-postbottom .btn {
+  border: 1px solid $btn-default-border-color;
+  border-radius: 3px;
+  display: initial;
+  padding: 1px 4px;
+}
+</style>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="M守望者" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">M守望者</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">我想证明M的存在，我又想证明M的不存在，这是矛盾的，不矛盾的是，这两个证明我一个都证明不出来</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-overview">
+            <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zincer Wong"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Zincer Wong</p>
+  <div class="site-description" itemprop="description">好读书，不求甚解，每有会意便记录一下，仅此；活着，努力活着，努力有趣活着，如是</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">260</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">86</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/wongzincer" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;wongzincer" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/zincer" title="Facebook → https:&#x2F;&#x2F;www.facebook.com&#x2F;zincer" rel="noopener" target="_blank"><i class="fab fa-facebook fa-fw"></i>Facebook</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:zincer@163.com" title="E-Mail → mailto:zincer@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.douban.com/people/zincer" title="Douban → https:&#x2F;&#x2F;www.douban.com&#x2F;people&#x2F;zincer" rel="noopener" target="_blank"><i class="fas fa-book fa-fw"></i>Douban</a>
+      </span>
+  </div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.poqpoq.net/2018/07/home-storage-server-setup.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Zincer Wong">
+      <meta itemprop="description" content="好读书，不求甚解，每有会意便记录一下，仅此；活着，努力活着，努力有趣活着，如是">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M守望者">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          家用存储服务器搭建
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-07-05 20:16:53" itemprop="dateCreated datePublished" datetime="2018-07-05T20:16:53+08:00">2018-07-05</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-08-10 16:30:33" itemprop="dateModified" datetime="2021-08-10T16:30:33+08:00">2021-08-10</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">软件学习</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><strong>硬件购置</strong></p>
+<p>主板（板载CPU）：淘宝，华擎 J3455-ITX mini-ITX主板 17*17 4核CPU </p>
+<p>Nas机箱：淘宝，4盘位热插拔存储服务器 迷你ITX铝面板机箱DIY机箱，含电源和风扇</p>
+<p>内存条：笔记本拆机内存条，三星 4G DDR3L 1600MHz</p>
+<p>硬盘</p>
+<ul>
+<li>机械硬盘：3.5寸  5400 SATA3 机械硬盘，西数蓝盘和希捷酷鱼各一块，一块做数据盘，一块做备份盘，京东618</li>
+<li>固态硬盘：东芝 TR200系列 240GB SATA3固态硬盘，用作系统盘，京东618</li>
+</ul>
+<p>配件：</p>
+<ul>
+<li>SATA3 数据线 * 2，主板仅包含两根数据线</li>
+<li>临时要用的鼠键套装</li>
+<li>主板支持 DVI+VGA+HDMI 三种视频输出，准备临时接显示器的线</li>
+</ul>
+<p><strong>系统安装</strong></p>
+<p>硬件几乎是按照”黑群晖“配置的，不过考虑到主要是以”做成家用存储“的名义瞎折腾，与其折腾NAS，做RAID一劳永逸，还不如直接做成一台Linux服务器，后期还可以随便加私货进去。于是乎直接做了个Ubuntu的启动U盘，装了Ubuntu 18.04上去。</p>
+<p>装系统的时候仅插入了固态硬盘，刚开始的时候选择的手动分区，不过进行到最后一步安装Grub引导的时候报错，后来索性让系统使用全盘自动分的区，顺利通过。</p>
+<p>系统安装完成按照惯例执行一些例行的操作，包括软件源切换国内，系统更新，固定IP配置，OpenSSH服务器安装等，这里不再赘述。</p>
+<p><strong>挂载机械硬盘</strong></p>
+<ol>
+<li><p>完成系统安装，然后插入两块3.5的机械硬盘，进入Ubuntu。</p>
+</li>
+<li><p>使用<code>df -h</code>命令查看两块硬盘默认挂载位置，我的是<code>/dev/sdb1</code>和<code>/dev/sdc</code></p>
+</li>
+<li><p>在根目录下新建data和backup目录，并修改权限，其中data用作数据盘，面向局域网服务，backup用作备份盘，每隔一定时间镜像data数据</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir /data /backup</span><br><span class="line">sudo chmod -R 775 /data /backup</span><br></pre></td></tr></table></figure></li>
+<li><p>修改etc/fstab文件，添加如下信息，设置开机自动将两块盘挂载到指定位置</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/dev/sdb1       /data           ext4    defaults        1       2</span><br><span class="line">/dev/sdc        /backup         ext4    defaults        1       2</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p><strong>搭建Samba服务器</strong> </p>
+<p>Samba服务器配置选项很多，这里仅需要配置局域网单用户可访问data目录即可。配置步骤如下：</p>
+<ol>
+<li><p>首先是安装Samba服务器：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install samba</span><br></pre></td></tr></table></figure></li>
+<li><p>Samba使用自己的用户账号和秘密，默认保存在<code>/etc/samba/smbpasswd</code> 文件中，可以使用<code>smbpasswd</code>命令 创建新的用户：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo smbpasswd -a username</span><br></pre></td></tr></table></figure>
+
+<p>按照程序指引，设置新用户密码，完成账号添加。</p>
+</li>
+<li><p>修改配置文件，设置data目录局域网可访问：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.bak	  # 备份配置文件，以防万一</span><br><span class="line">sudo vim /etc/samba/smb.conf						# 使用VIM编辑配置文件</span><br></pre></td></tr></table></figure>
+
+<p>转到Samba长长的配置文件末尾，添加如下信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[data]</span><br><span class="line">path = /data</span><br><span class="line">available = yes</span><br><span class="line">valid users = username</span><br><span class="line">read only = no</span><br><span class="line">browseable = yes</span><br><span class="line">public = yes</span><br><span class="line">writable = yes</span><br></pre></td></tr></table></figure></li>
+<li><p>重启Samba服务器，使配置生效</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /etc/init.d/smbd restart</span><br></pre></td></tr></table></figure></li>
+<li><p>Samba服务器重启后，使用如下命令测试配置文件是否有语法错误：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo testparm</span><br></pre></td></tr></table></figure></li>
+<li><p>至此，单用户的Samba服务器就搭建完成了，在局域网下应该可以浏览到该目录了。</p>
+</li>
+</ol>
+<p><strong>局域网其他设备访问Samba服务器</strong></p>
+<ul>
+<li>Windows：打开资源管理器，地址栏输入<code>\\192.168.2.200\data</code>即可浏览到共享的目录，其中192.168.2.200是Samba服务器内网IP。</li>
+<li>手机：需求仅限于看服务器中视频资源的话，安装VLC视频播放器即可。需要浏览更多资源的话，可以安装类似于ES文件浏览器的应用。</li>
+<li>电视机：家用的海信电视默认不支持Samba，需要安装第三方程序，比如小白文件管理器来支持。顺便分享一个海信官网的用户吐槽：<a target="_blank" rel="noopener" href="http://fans.hisense.com/thread-139650-1-1.html">都什么年代了，居然还不支持Samba。。。</a></li>
+</ul>
+<p><strong>手机相册同步</strong></p>
+<p>相册同步使用的是<a target="_blank" rel="noopener" href="https://github.com/syncthing/syncthing">Syncthing</a>，Syncthing是开源的Resilio Sync 替代，支持在设备间进行文件的同步。</p>
+<p>服务器端，下载最新版本的安装包，解压缩，然后运行解压缩目录下的<code>syncthing</code>即可：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/syncthing/syncthing/releases/download/v0.14.48/syncthing-linux-amd64-v0.14.48.tar.gz</span><br><span class="line">tar xvzf syncthing-linux-amd64-v0.14.48.tar.gz</span><br><span class="line">cd syncthing-linux-amd64-v0.14.48</span><br><span class="line">./syncthing</span><br></pre></td></tr></table></figure>
+
+<p>程序会自动启动Web界面，用于用户管理设备之间的同步。建议将<code>~/syncthing</code>加入到开机启动项中去。</p>
+<p>Android手机自行搜索客户端下载安装即可，IOS目前还没有项目官方直接支持的客户端版本，商店里面的fsync()支持syncthing，不过没有具体测试过。文件夹同步设置按照客户端和服务器Web端引导设置即可。</p>
+<p><strong>本机备份</strong></p>
+<p>作为影音资源存储服务器，数据更新不会太频繁，实时同步意义不大，定期做一次归档就足够了。我这里使用第二块硬盘用于定期同步备份，相对于多盘配置RAID来说，这样确实简单粗暴了些，不过好处就是一旦data硬盘故障，直接把备份盘换过去即可。</p>
+<p>定期备份使用rsync同步工具配合任务计划工具crontab实现。以设置每周日23点自动同步一次文件夹为例，配置过程如下，打开终端，执行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -e</span><br></pre></td></tr></table></figure>
+
+<p>编辑<em>crontab</em>文件，添加如下内容：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 23 * * 0 rsync -az --delete --exclude &#x27;lost+found&#x27; /data/ /backup/</span><br></pre></td></tr></table></figure>
+
+<p>Crontab参数说明：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">*     *     *   *    *        command to be executed</span><br><span class="line">-     -     -   -    -</span><br><span class="line">|     |     |   |    |</span><br><span class="line">|     |     |   |    +----- day of week (0 - 6) (Sunday=0)</span><br><span class="line">|     |     |   +------- month (1 - 12)</span><br><span class="line">|     |     +--------- day of        month (1 - 31)</span><br><span class="line">|     +----------- hour (0 - 23)</span><br><span class="line">+------------- min (0 - 59)</span><br></pre></td></tr></table></figure>
+
+<p>Rsync参数说明：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-a：归档模式，表示以递归方式传输文件，并保持所有文件属性，等于-rlptgoD</span><br><span class="line">-z：对备份的文件在传输时进行压缩处理</span><br><span class="line">--delete：删除目标路径下多余的文件；实现的效果其实是文件在原目录被删除，同步的时候也会删除目标目录的副本</span><br><span class="line">--exclude：排除特定的目录和文件</span><br></pre></td></tr></table></figure>
+
+<p>同步命令<code>rsync</code>默认是将源目录同步到目标目录的同名子目录，data目录后面加<code>/</code>则直接同步data目录的所有子目录。</p>
+<p><strong>下载工具推荐</strong></p>
+<p>GUI：<a target="_blank" rel="noopener" href="https://webtorrent.io/">webtorrent</a></p>
+<p>CLI：<a target="_blank" rel="noopener" href="https://aria2.github.io/">aria2</a></p>
+<p>Aria2可以配置web前端，实现远程访问和管理。我这里偷懒没有配置，而是直接使用<code>nohup</code>配合<code>aria2</code>命令行实现远程下载，命令格式如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup [aria2下载命令] &gt;out.log 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
+
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><div class="post-widgets">
+      <div id="needsharebutton-postbottom">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    </div>
+          <div class="reward-container">
+  <div>你的支持是我继续创作的动力</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/WeChatPay.png" alt="Zincer Wong 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/AliPay.jpg" alt="Zincer Wong 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Zincer Wong
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://www.poqpoq.net/2018/07/home-storage-server-setup.html" title="家用存储服务器搭建">http://www.poqpoq.net/2018/07/home-storage-server-setup.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E8%BD%AF%E4%BB%B6/" rel="tag"># 软件</a>
+              <a href="/tags/Linux/" rel="tag"># Linux</a>
+              <a href="/tags/NAS/" rel="tag"># NAS</a>
+              <a href="/tags/%E5%AD%98%E5%82%A8/" rel="tag"># 存储</a>
+              <a href="/tags/Samba/" rel="tag"># Samba</a>
+              <a href="/tags/Syncthing/" rel="tag"># Syncthing</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/10/oneplus-5-oxygenos-brush-root-and-delete-preset-application-records.html" rel="prev" title="OnePlus 5 OxygenOS 刷机root以及删除预置应用记录">
+                  <i class="fa fa-chevron-left"></i> OnePlus 5 OxygenOS 刷机root以及删除预置应用记录
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2018/10/comsol-captures-the-time-history-dependent-variable-maximum-and-is-used-for-model-setup.html" rel="next" title="COMSOL捕捉时间历程因变量最大值并用于模型设置">
+                  COMSOL捕捉时间历程因变量最大值并用于模型设置 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="lv-container" data-id="city" data-uid="MTAyMC80NjQxNS8yMjkyNg=="></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2009 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zincer Wong</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">277k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">4:12</span>
+  </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
+  <script>
+      pbOptions = {};
+        pbOptions.iconStyle = "box";
+        pbOptions.boxForm = "horizontal";
+        pbOptions.position = "bottomCenter";
+        pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+  </script><script src="/js/third-party/comments/livere.js"></script>
+
+</body>
+</html>

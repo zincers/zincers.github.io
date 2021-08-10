@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.poqpoq.net","root":"/","images":"/images","scheme":"Pisces","version":"8.7.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="ElmerGUI需要qmake。 1sudo apt-get install qt4-qmake&lt;&#x2F;pre&gt; 收敛曲线绘图依赖qwt 1sudo apt-get install llibqwt5-qt4-dev 安装图形界面和后处理依赖的vtk库 12sudo apt-get install libvtk5-devsudo apt-get install libvtk5-qt4-dev">
+<meta property="og:type" content="article">
+<meta property="og:title" content="编译安装elmer图形用户界面ElmerGUI">
+<meta property="og:url" content="http://www.poqpoq.net/2014/06/compile-and-install-elmer-graphical-user-interface-elmergui.html">
+<meta property="og:site_name" content="M守望者">
+<meta property="og:description" content="ElmerGUI需要qmake。 1sudo apt-get install qt4-qmake&lt;&#x2F;pre&gt; 收敛曲线绘图依赖qwt 1sudo apt-get install llibqwt5-qt4-dev 安装图形界面和后处理依赖的vtk库 12sudo apt-get install libvtk5-devsudo apt-get install libvtk5-qt4-dev">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://www.poqpoq.net/images/blogimgs/cax/ElmerGUI.png">
+<meta property="article:published_time" content="2014-06-06T11:13:13.000Z">
+<meta property="article:modified_time" content="2021-08-10T08:30:33.481Z">
+<meta property="article:author" content="Zincer Wong">
+<meta property="article:tag" content="CAE">
+<meta property="article:tag" content="多物理">
+<meta property="article:tag" content="软件">
+<meta property="article:tag" content="开发">
+<meta property="article:tag" content="Elmer">
+<meta property="article:tag" content="编译">
+<meta property="article:tag" content="GUI">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.poqpoq.net/images/blogimgs/cax/ElmerGUI.png">
+
+
+<link rel="canonical" href="http://www.poqpoq.net/2014/06/compile-and-install-elmer-graphical-user-interface-elmergui.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://www.poqpoq.net/2014/06/compile-and-install-elmer-graphical-user-interface-elmergui.html","path":"2014/06/compile-and-install-elmer-graphical-user-interface-elmergui.html","title":"编译安装elmer图形用户界面ElmerGUI"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>编译安装elmer图形用户界面ElmerGUI | M守望者</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?8342a01453dfea35aa7807585b1b7395"></script>
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.css"><style>
+#needsharebutton-postbottom {
+  cursor: pointer;
+  height: 26px;
+  margin-top: 10px;
+  position: relative;
+}
+#needsharebutton-postbottom .btn {
+  border: 1px solid $btn-default-border-color;
+  border-radius: 3px;
+  display: initial;
+  padding: 1px 4px;
+}
+</style>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="M守望者" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">M守望者</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">我想证明M的存在，我又想证明M的不存在，这是矛盾的，不矛盾的是，这两个证明我一个都证明不出来</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-overview">
+            <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zincer Wong"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Zincer Wong</p>
+  <div class="site-description" itemprop="description">好读书，不求甚解，每有会意便记录一下，仅此；活着，努力活着，努力有趣活着，如是</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">260</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">86</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/wongzincer" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;wongzincer" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/zincer" title="Facebook → https:&#x2F;&#x2F;www.facebook.com&#x2F;zincer" rel="noopener" target="_blank"><i class="fab fa-facebook fa-fw"></i>Facebook</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:zincer@163.com" title="E-Mail → mailto:zincer@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.douban.com/people/zincer" title="Douban → https:&#x2F;&#x2F;www.douban.com&#x2F;people&#x2F;zincer" rel="noopener" target="_blank"><i class="fas fa-book fa-fw"></i>Douban</a>
+      </span>
+  </div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.poqpoq.net/2014/06/compile-and-install-elmer-graphical-user-interface-elmergui.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Zincer Wong">
+      <meta itemprop="description" content="好读书，不求甚解，每有会意便记录一下，仅此；活着，努力活着，努力有趣活着，如是">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M守望者">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          编译安装elmer图形用户界面ElmerGUI
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2014-06-06 19:13:13" itemprop="dateCreated datePublished" datetime="2014-06-06T19:13:13+08:00">2014-06-06</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-08-10 16:30:33" itemprop="dateModified" datetime="2021-08-10T16:30:33+08:00">2021-08-10</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">软件学习</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>6.7k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>6 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>ElmerGUI需要qmake。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install qt4-qmake&lt;/pre&gt;</span><br></pre></td></tr></table></figure>
+<p>收敛曲线绘图依赖qwt</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install llibqwt5-qt4-dev</span><br></pre></td></tr></table></figure>
+<p>安装图形界面和后处理依赖的vtk库</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install libvtk5-dev</span><br><span class="line">sudo apt-get install libvtk5-qt4-dev</span><br></pre></td></tr></table></figure>
+<p>安装其他依赖环境</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install libftgl2</span><br><span class="line">sudo apt-get install libtbb2</span><br><span class="line">sudo apt-get install libgl2ps0</span><br><span class="line">sudo apt-get install libfreeimage3</span><br><span class="line">sudo apt-get install libpythonqt2.1</span><br></pre></td></tr></table></figure>
+<p>转到源文件目录</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd elmerfem/ElmerGUI</span><br></pre></td></tr></table></figure>
+<p>打开并编辑配置文件ElmerGUI.pri。下面是修改之后的配置文件，因为我这里没有安装OpenCASCADE，所以可选组件这里注销掉了下面这一行。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#DEFINES += EG_OCC      # Use OpenCASCADE 6.3 for importing CAD files? Needs VTK.</span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#############修改后的配置文件，开始#####################</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#                       ElmerGUI: configuration file</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#==============================================================================</span></span><br><span class="line"><span class="comment">#------------------------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Optional components (undefine or comment out to exclude from compilation):</span></span><br><span class="line"><span class="comment">#------------------------------------------------------------------------------</span></span><br><span class="line"><span class="string">DEFINES</span> <span class="string">+=</span> <span class="string">EG_QWT</span>      <span class="comment"># Use QWT for convergence monitor?</span></span><br><span class="line"><span class="string">DEFINES</span> <span class="string">+=</span> <span class="string">EG_VTK</span>      <span class="comment"># Use VTK for postprocessing?</span></span><br><span class="line"><span class="string">DEFINES</span> <span class="string">+=</span> <span class="string">EG_PARAVIEW</span> <span class="comment"># Use ParaView for postprocessing?</span></span><br><span class="line"><span class="string">DEFINES</span> <span class="string">+=</span> <span class="string">EG_MATC</span>     <span class="comment"># Use MATC for internal operations in postprocessing?</span></span><br><span class="line"><span class="comment">#DEFINES += EG_OCC      # Use OpenCASCADE 6.3 for importing CAD files? Needs VTK.</span></span><br><span class="line"><span class="string">DEFINES</span> <span class="string">-=</span> <span class="string">EG_PYTHONQT</span> <span class="comment"># Use PythonQt for scripting in post processor?</span></span><br><span class="line"><span class="comment">#------------------------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># 64 bit system?</span></span><br><span class="line"><span class="comment">#------------------------------------------------------------------------------</span></span><br><span class="line"><span class="string">BITS</span> <span class="string">=</span> <span class="number">64</span></span><br><span class="line"><span class="comment">#------------------------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Installation directory:</span></span><br><span class="line"><span class="comment">#------------------------------------------------------------------------------</span></span><br><span class="line"><span class="string">ELMERGUI_HOME</span> <span class="string">=</span> <span class="string">$$(ELMERGUI_HOME)</span></span><br><span class="line"><span class="string">isEmpty(ELMERGUI_HOME)</span> &#123;</span><br><span class="line"><span class="string">ELMER_HOME</span> <span class="string">=</span> <span class="string">$$(ELMER_HOME)</span></span><br><span class="line"><span class="string">isEmpty(ELMER_HOME)</span> &#123;</span><br><span class="line"><span class="attr">unix:</span> <span class="string">ELMER_HOME</span> <span class="string">=</span> <span class="string">/opt/elmer</span></span><br><span class="line"><span class="attr">win32:</span> <span class="string">ELMER_HOME</span> <span class="string">=</span> <span class="string">c:/Elmer7</span></span><br><span class="line"><span class="attr">macx:</span> <span class="string">ELMER_HOME</span> <span class="string">=</span> <span class="string">/usr/local</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="string">ELMERGUI_HOME</span> <span class="string">=</span> <span class="string">$$</span>&#123;<span class="string">ELMER_HOME</span>&#125;<span class="string">/bin</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">#------------------------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Python library:</span></span><br><span class="line"><span class="comment">#------------------------------------------------------------------------------</span></span><br><span class="line"><span class="string">unix</span> &#123;</span><br><span class="line"><span class="string">PY_INCLUDEPATH</span> <span class="string">=</span> <span class="string">/usr/include/python2.7</span></span><br><span class="line"><span class="string">PY_LIBPATH</span> <span class="string">=</span> <span class="string">/usr/lib</span></span><br><span class="line"><span class="string">PY_LIBS</span> <span class="string">=</span> <span class="string">-lpython2.7</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="string">win32</span> &#123;</span><br><span class="line"><span class="string">PY_INCLUDEPATH</span> <span class="string">=</span> <span class="string">c:/PYTHON/Python-2.6.1/Include</span></span><br><span class="line"><span class="string">PY_LIBPATH</span> <span class="string">=</span> <span class="string">c:/PYTHON/Python-2.6.1/PCbuild</span></span><br><span class="line"><span class="string">PY_LIBS</span> <span class="string">=</span> <span class="string">-lpython26</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="string">macx</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">#------------------------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># QWT library:</span></span><br><span class="line"><span class="comment">#------------------------------------------------------------------------------</span></span><br><span class="line"><span class="string">unix</span> &#123;</span><br><span class="line"><span class="string">QWT_INCLUDEPATH</span> <span class="string">=</span> <span class="string">/usr/include/qwt-qt4</span></span><br><span class="line"><span class="string">QWT_LIBPATH</span> <span class="string">=</span> <span class="string">/usr/lib</span></span><br><span class="line"><span class="string">QWT_LIBS</span> <span class="string">=</span> <span class="string">-lqwt-qt4</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="string">win32</span> &#123;</span><br><span class="line"><span class="string">QWT_INCLUDEPATH</span> <span class="string">=</span> <span class="string">c:/Source/Qwt/include</span></span><br><span class="line"><span class="string">QWT_LIBPATH</span> <span class="string">=</span> <span class="string">c:/Source/Qwt/lib</span></span><br><span class="line"><span class="string">QWT_LIBS</span> <span class="string">=</span> <span class="string">-lqwt5</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="string">macx</span> &#123;</span><br><span class="line"><span class="string">QWT_INCLUDEPATH</span> <span class="string">=</span> <span class="string">/usr/local/qwt-5.0.2/include</span></span><br><span class="line"><span class="string">QWT_LIBPATH</span> <span class="string">=</span> <span class="string">/usr/local/qwt-5.0.2/lib</span></span><br><span class="line"><span class="string">QWT_LIBS</span> <span class="string">=</span>  <span class="string">-lqwt5</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">#------------------------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># VTK library:</span></span><br><span class="line"><span class="comment">#------------------------------------------------------------------------------</span></span><br><span class="line"><span class="string">unix</span> &#123;</span><br><span class="line"><span class="string">VTK_INCLUDEPATH</span> <span class="string">=</span> <span class="string">/usr/include/vtk-5.8</span></span><br><span class="line"><span class="string">VTK_LIBPATH</span> <span class="string">=</span> <span class="string">/usr/lib/vtk-5.8</span></span><br><span class="line"><span class="string">VTK_LIBS</span> <span class="string">=</span> <span class="string">-lQVTK</span> <span class="string">\</span></span><br><span class="line"><span class="string">-lvtkCommon</span> <span class="string">\</span></span><br><span class="line"><span class="string">-lvtkDICOMParser</span> <span class="string">\</span></span><br><span class="line"><span class="string">-lvtkFiltering</span> <span class="string">\</span></span><br><span class="line"><span class="string">-lvtkGenericFiltering</span> <span class="string">\</span></span><br><span class="line"><span class="string">-lvtkGraphics</span> <span class="string">\</span></span><br><span class="line"><span class="string">-lvtkHybrid</span> <span class="string">\</span></span><br><span class="line"><span class="string">-lvtkIO</span> <span class="string">\</span></span><br><span class="line"><span class="string">-lvtkImaging</span> <span class="string">\</span></span><br><span class="line"><span class="string">-lvtkInfovis</span> <span class="string">\</span></span><br><span class="line"><span class="string">-lvtkNetCDF</span> <span class="string">\</span></span><br><span class="line"><span class="string">-lvtkRendering</span> <span class="string">\</span></span><br><span class="line"><span class="string">-lvtkViews</span> <span class="string">\</span></span><br><span class="line"><span class="string">-lvtkVolumeRendering</span> <span class="string">\</span></span><br><span class="line"><span class="string">-lvtkWidgets</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="string">win32</span> &#123;</span><br><span class="line"><span class="string">VTK_INCLUDEPATH</span> <span class="string">=</span> <span class="string">c:/Source/VTK/include/vtk-5.4</span></span><br><span class="line"><span class="string">VTK_LIBPATH</span> <span class="string">=</span> <span class="string">c:/Source/VTK/lib/vtk-5.4</span></span><br><span class="line"><span class="string">VTK_LIBS</span> <span class="string">=</span> <span class="string">-lQVTK</span> <span class="string">\</span></span><br><span class="line"><span class="string">-lvtkCommon</span> <span class="string">\</span></span><br><span class="line"><span class="string">-lvtkDICOMParser</span> <span class="string">\</span></span><br><span class="line"><span class="string">-lvtkFiltering</span> <span class="string">\</span></span><br><span class="line"><span class="string">-lvtkGenericFiltering</span> <span class="string">\</span></span><br><span class="line"><span class="string">-lvtkGraphics</span> <span class="string">\</span></span><br><span class="line"><span class="string">-lvtkHybrid</span> <span class="string">\</span></span><br><span class="line"><span class="string">-lvtkIO</span> <span class="string">\</span></span><br><span class="line"><span class="string">-lvtkImaging</span> <span class="string">\</span></span><br><span class="line"><span class="string">-lvtkInfovis</span> <span class="string">\</span></span><br><span class="line"><span class="string">-lvtkNetCDF</span> <span class="string">\</span></span><br><span class="line"><span class="string">-lvtkRendering</span> <span class="string">\</span></span><br><span class="line"><span class="string">-lvtkViews</span> <span class="string">\</span></span><br><span class="line"><span class="string">-lvtkVolumeRendering</span> <span class="string">\</span></span><br><span class="line"><span class="string">-lvtkWidgets</span> <span class="string">\</span></span><br><span class="line"><span class="string">-lvtkexoIIc</span> <span class="string">\</span></span><br><span class="line"><span class="string">-lvtkexpat</span> <span class="string">\</span></span><br><span class="line"><span class="string">-lvtkfreetype</span> <span class="string">\</span></span><br><span class="line"><span class="string">-lvtkftgl</span> <span class="string">\</span></span><br><span class="line"><span class="string">-lvtkjpeg</span> <span class="string">\</span></span><br><span class="line"><span class="string">-lvtklibxml2</span> <span class="string">\</span></span><br><span class="line"><span class="string">-lvtkmetaio</span> <span class="string">\</span></span><br><span class="line"><span class="string">-lvtkpng</span> <span class="string">\</span></span><br><span class="line"><span class="string">-lvtksys</span> <span class="string">\</span></span><br><span class="line"><span class="string">-lvtktiff</span> <span class="string">\</span></span><br><span class="line"><span class="string">-lvtkverdict</span> <span class="string">\</span></span><br><span class="line"><span class="string">-lvtkzlib</span> <span class="string">\</span></span><br><span class="line"><span class="string">-ladvapi32</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="string">macx</span> &#123;</span><br><span class="line"><span class="string">VTK_INCLUDEPATH</span> <span class="string">=</span> <span class="string">/usr/local/include/vtk-5.0</span></span><br><span class="line"><span class="string">VTK_LIBPATH</span> <span class="string">=</span> <span class="string">/usr/lib</span></span><br><span class="line"><span class="string">VTK_LIBS</span> <span class="string">=</span> <span class="string">-lvtkHybrid</span> <span class="string">\</span></span><br><span class="line"><span class="string">-lvtkWidgets</span> <span class="string">\</span></span><br><span class="line"><span class="string">-lQVTK</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">#------------------------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># OpenCASCADE library:</span></span><br><span class="line"><span class="comment">#------------------------------------------------------------------------------</span></span><br><span class="line"><span class="string">unix</span> &#123;</span><br><span class="line"><span class="string">OCC_INCLUDEPATH</span> <span class="string">=</span> <span class="string">/usr/include/opencascade</span></span><br><span class="line"><span class="string">OCC_LIBPATH</span> <span class="string">=</span> <span class="string">/usr/lib</span></span><br><span class="line"><span class="string">OCC_LIBS</span> <span class="string">=</span> <span class="string">-lTKSTL</span> <span class="string">\</span></span><br><span class="line"><span class="string">-lTKBRep</span> <span class="string">\</span></span><br><span class="line"><span class="string">-lTKernel</span> <span class="string">\</span></span><br><span class="line"><span class="string">-lTKG2d</span> <span class="string">\</span></span><br><span class="line"><span class="string">-lTKG3d</span> <span class="string">\</span></span><br><span class="line"><span class="string">-lTKGeomAlgo</span> <span class="string">\</span></span><br><span class="line"><span class="string">-lTKGeomBase</span> <span class="string">\</span></span><br><span class="line"><span class="string">-lTKMath</span> <span class="string">\</span></span><br><span class="line"><span class="string">-lTKMesh</span> <span class="string">\</span></span><br><span class="line"><span class="string">-lTKShHealing</span> <span class="string">\</span></span><br><span class="line"><span class="string">-lTKSTEP</span> <span class="string">\</span></span><br><span class="line"><span class="string">-lTKSTEP209</span> <span class="string">\</span></span><br><span class="line"><span class="string">-lTKSTEPAttr</span> <span class="string">\</span></span><br><span class="line"><span class="string">-lTKSTEPBase</span> <span class="string">\</span></span><br><span class="line"><span class="string">-lTKIGES</span> <span class="string">\</span></span><br><span class="line"><span class="string">-lTKTopAlgo</span> <span class="string">\</span></span><br><span class="line"><span class="string">-lTKXSBase</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="string">win32</span> &#123;</span><br><span class="line"><span class="string">OCC_INCLUDEPATH</span> <span class="string">=</span> <span class="string">$(CASROOT)/inc</span></span><br><span class="line"><span class="string">OCC_LIBPATH</span> <span class="string">=</span> <span class="string">$(CASROOT)/win32/lib</span></span><br><span class="line"><span class="string">OCC_LIBS</span> <span class="string">=</span> <span class="string">$(CASROOT)/win32/lib/TKBRep.lib</span> <span class="string">\</span></span><br><span class="line"><span class="string">$(CASROOT)/win32/lib/TKernel.lib</span> <span class="string">\</span></span><br><span class="line"><span class="string">$(CASROOT)/win32/lib/TKG2d.lib</span> <span class="string">\</span></span><br><span class="line"><span class="string">$(CASROOT)/win32/lib/TKG3d.lib</span> <span class="string">\</span></span><br><span class="line"><span class="string">$(CASROOT)/win32/lib/TKGeomAlgo.lib</span> <span class="string">\</span></span><br><span class="line"><span class="string">$(CASROOT)/win32/lib/TKGeomBase.lib</span> <span class="string">\</span></span><br><span class="line"><span class="string">$(CASROOT)/win32/lib/TKMath.lib</span> <span class="string">\</span></span><br><span class="line"><span class="string">$(CASROOT)/win32/lib/TKMesh.lib</span> <span class="string">\</span></span><br><span class="line"><span class="string">$(CASROOT)/win32/lib/TKShHealing.lib</span> <span class="string">\</span></span><br><span class="line"><span class="string">$(CASROOT)/win32/lib/TKSTEP.lib</span> <span class="string">\</span></span><br><span class="line"><span class="string">$(CASROOT)/win32/lib/TKSTEP209.lib</span> <span class="string">\</span></span><br><span class="line"><span class="string">$(CASROOT)/win32/lib/TKSTEPAttr.lib</span> <span class="string">\</span></span><br><span class="line"><span class="string">$(CASROOT)/win32/lib/TKSTEPBase.lib</span> <span class="string">\</span></span><br><span class="line"><span class="string">$(CASROOT)/win32/lib/TKIGES.lib</span> <span class="string">\</span></span><br><span class="line"><span class="string">$(CASROOT)/win32/lib/TKTopAlgo.lib</span> <span class="string">\</span></span><br><span class="line"><span class="string">$(CASROOT)/win32/lib/TKXSBase.lib</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="string">macx</span> &#123;</span><br><span class="line"><span class="string">OCC_INCLUDEPATH</span> <span class="string">=</span></span><br><span class="line"><span class="string">OCC_LIBPATH</span> <span class="string">=</span></span><br><span class="line"><span class="string">OCC_LIBS</span> <span class="string">=</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#############修改后的配置文件，结束#####################</span></span><br></pre></td></tr></table></figure>
+
+<p>执行编译</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">qmake</span><br><span class="line">make</span><br></pre></td></tr></table></figure>
+<p>执行编译之后报错，提示找不到qwt_compat.h，报错指向<code>/ElmerGUI/Application/src/convergenceview.h</code>文件，打开该文件，找到如下这两行</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*include &lt;qwt_data.h&gt;; &lt;-- deprecated in Qwt6, using qwt_compat.h instead*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;qwt_compat.h&gt;</span>; </span></span><br></pre></td></tr></table></figure>
+<p>将其修改为：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;qwt_data.h&gt;</span> &lt;-- deprecated in Qwt6, using qwt_compat.h instead</span></span><br><span class="line"><span class="comment">/*#include &lt;qwt_compat.h&gt;*/</span></span><br></pre></td></tr></table></figure>
+<p>继续执行编译</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make</span><br></pre></td></tr></table></figure>
+<p>编译错误，报错指向<code>/ElmerGUI/Application/src/convergenceview.cpp</code>文件，打开该文件。找到如下行：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> x = (<span class="keyword">double</span>)(curve-&gt;d_data-&gt;<span class="built_in">count</span>());</span><br><span class="line">curve-&gt;d_data-&gt;<span class="built_in">append</span>(&amp;x, y, size);</span><br><span class="line"><span class="comment">/*curve-&gt;d_curve-&gt;setRawData(curve-&gt;d_data-&gt;x(),</span></span><br><span class="line"><span class="comment">			curve-&gt;d_data-&gt;y(),</span></span><br><span class="line"><span class="comment">			curve-&gt;d_data-&gt;count()); */</span></span><br><span class="line">curve-&gt;d_curve-&gt;<span class="built_in">setRawSamples</span>(curve-&gt;d_data-&gt;<span class="built_in">x</span>(),</span><br><span class="line">			curve-&gt;d_data-&gt;<span class="built_in">y</span>(),</span><br><span class="line">			curve-&gt;d_data-&gt;<span class="built_in">count</span>());</span><br><span class="line">plot-&gt;<span class="built_in">setTitle</span>(title);</span><br></pre></td></tr></table></figure>
+<p>将其修改为如下所示，然后保存退出。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> x = (<span class="keyword">double</span>)(curve-&gt;d_data-&gt;<span class="built_in">count</span>());</span><br><span class="line">curve-&gt;d_data-&gt;<span class="built_in">append</span>(&amp;x, y, size);</span><br><span class="line">curve-&gt;d_curve-&gt;<span class="built_in">setRawData</span>(curve-&gt;d_data-&gt;<span class="built_in">x</span>(),</span><br><span class="line">			curve-&gt;d_data-&gt;<span class="built_in">y</span>(),</span><br><span class="line">			curve-&gt;d_data-&gt;<span class="built_in">count</span>());</span><br><span class="line"><span class="comment">/*curve-&gt;d_curve-&gt;setRawSamples(curve-&gt;d_data-&gt;x(),</span></span><br><span class="line"><span class="comment">			curve-&gt;d_data-&gt;y(),</span></span><br><span class="line"><span class="comment">			curve-&gt;d_data-&gt;count());*/</span></span><br><span class="line">plot-&gt;<span class="built_in">setTitle</span>(title);</span><br></pre></td></tr></table></figure>
+<p>继续执行编译</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make</span><br></pre></td></tr></table></figure>
+<p>编译器报错提示：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/ld: cannot find -lvtkNetCDF</span><br></pre></td></tr></table></figure>
+<p>这里需要安装libvtkNetCDF库，因为此前安装了paraview所以直接建立了一个链接：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ln /usr/lib/paraview/libvtkNetCDF.so /usr/include/vtk-5.8/</span><br></pre></td></tr></table></figure>
+<p>再次执行编译，终于顺利完成，长嘘一口气！！！</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make</span><br></pre></td></tr></table></figure>
+<p>最后编译安装：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make install</span><br></pre></td></tr></table></figure>
+<p>创建环境变量：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export ELMERGUI_HOME = $ELMER_HOME/bin</span><br></pre></td></tr></table></figure>
+<p>最后，上张图，算作对这两天折腾的总结吧。<br><img src="/images/blogimgs/cax/ElmerGUI.png"></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><div class="post-widgets">
+      <div id="needsharebutton-postbottom">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    </div>
+          <div class="reward-container">
+  <div>你的支持是我继续创作的动力</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/WeChatPay.png" alt="Zincer Wong 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/AliPay.jpg" alt="Zincer Wong 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Zincer Wong
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://www.poqpoq.net/2014/06/compile-and-install-elmer-graphical-user-interface-elmergui.html" title="编译安装elmer图形用户界面ElmerGUI">http://www.poqpoq.net/2014/06/compile-and-install-elmer-graphical-user-interface-elmergui.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/CAE/" rel="tag"># CAE</a>
+              <a href="/tags/%E5%A4%9A%E7%89%A9%E7%90%86/" rel="tag"># 多物理</a>
+              <a href="/tags/%E8%BD%AF%E4%BB%B6/" rel="tag"># 软件</a>
+              <a href="/tags/%E5%BC%80%E5%8F%91/" rel="tag"># 开发</a>
+              <a href="/tags/Elmer/" rel="tag"># Elmer</a>
+              <a href="/tags/%E7%BC%96%E8%AF%91/" rel="tag"># 编译</a>
+              <a href="/tags/GUI/" rel="tag"># GUI</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2014/05/open-source-multiphysics-simulation-software-elmer-graphical-interface-elmergui-compilation.html" rel="prev" title="开源多物理仿真软件Elmer图形界面ElmerGUI编译">
+                  <i class="fa fa-chevron-left"></i> 开源多物理仿真软件Elmer图形界面ElmerGUI编译
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2014/10/sixday-sixcity-record.html" rel="next" title="六日六城记">
+                  六日六城记 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="lv-container" data-id="city" data-uid="MTAyMC80NjQxNS8yMjkyNg=="></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2009 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zincer Wong</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">277k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">4:12</span>
+  </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
+  <script>
+      pbOptions = {};
+        pbOptions.iconStyle = "box";
+        pbOptions.boxForm = "horizontal";
+        pbOptions.position = "bottomCenter";
+        pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+  </script><script src="/js/third-party/comments/livere.js"></script>
+
+</body>
+</html>

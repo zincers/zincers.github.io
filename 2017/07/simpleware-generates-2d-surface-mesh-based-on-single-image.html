@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.poqpoq.net","root":"/","images":"/images","scheme":"Pisces","version":"8.7.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="Simpleware可以基于3D图像重构CAD模型并生成用于有限元和流体计算的网格，相关功能有很多讨论，这里不再赘述。 部分用户尤其是材料领域用户，限于实验条件，很多时候只有单张截面图（典型的，SEM照片），用户的需求也仅是处理2D的图像，然后得到2D面网格。如果使用Simpleware导入单张图片的话，软件默认是将其按照一个像素厚度的3D数据处理的，网格剖分之后默认导出的也是3D的网格，而且由于">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Simpleware基于单张图像生成2D面网格">
+<meta property="og:url" content="http://www.poqpoq.net/2017/07/simpleware-generates-2d-surface-mesh-based-on-single-image.html">
+<meta property="og:site_name" content="M守望者">
+<meta property="og:description" content="Simpleware可以基于3D图像重构CAD模型并生成用于有限元和流体计算的网格，相关功能有很多讨论，这里不再赘述。 部分用户尤其是材料领域用户，限于实验条件，很多时候只有单张截面图（典型的，SEM照片），用户的需求也仅是处理2D的图像，然后得到2D面网格。如果使用Simpleware导入单张图片的话，软件默认是将其按照一个像素厚度的3D数据处理的，网格剖分之后默认导出的也是3D的网格，而且由于">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://www.poqpoq.net/images/blogimgs/cax/simpleware/Simpleware_2d_mesh_cap1.png">
+<meta property="og:image" content="http://www.poqpoq.net/images/blogimgs/cax/simpleware/Simpleware_2d_mesh_cap2.png">
+<meta property="og:image" content="http://www.poqpoq.net/images/blogimgs/cax/simpleware/Simpleware_2d_mesh_cap3.png">
+<meta property="og:image" content="http://www.poqpoq.net/images/blogimgs/cax/simpleware/Simpleware_2d_mesh_cap4.png">
+<meta property="article:published_time" content="2017-07-04T12:16:53.000Z">
+<meta property="article:modified_time" content="2021-08-10T08:30:33.341Z">
+<meta property="article:author" content="Zincer Wong">
+<meta property="article:tag" content="CAE">
+<meta property="article:tag" content="仿真">
+<meta property="article:tag" content="计算">
+<meta property="article:tag" content="Simpleware">
+<meta property="article:tag" content="网格">
+<meta property="article:tag" content="3D重构">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.poqpoq.net/images/blogimgs/cax/simpleware/Simpleware_2d_mesh_cap1.png">
+
+
+<link rel="canonical" href="http://www.poqpoq.net/2017/07/simpleware-generates-2d-surface-mesh-based-on-single-image.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://www.poqpoq.net/2017/07/simpleware-generates-2d-surface-mesh-based-on-single-image.html","path":"2017/07/simpleware-generates-2d-surface-mesh-based-on-single-image.html","title":"Simpleware基于单张图像生成2D面网格"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Simpleware基于单张图像生成2D面网格 | M守望者</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?8342a01453dfea35aa7807585b1b7395"></script>
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.css"><style>
+#needsharebutton-postbottom {
+  cursor: pointer;
+  height: 26px;
+  margin-top: 10px;
+  position: relative;
+}
+#needsharebutton-postbottom .btn {
+  border: 1px solid $btn-default-border-color;
+  border-radius: 3px;
+  display: initial;
+  padding: 1px 4px;
+}
+</style>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="M守望者" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">M守望者</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">我想证明M的存在，我又想证明M的不存在，这是矛盾的，不矛盾的是，这两个证明我一个都证明不出来</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-overview">
+            <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zincer Wong"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Zincer Wong</p>
+  <div class="site-description" itemprop="description">好读书，不求甚解，每有会意便记录一下，仅此；活着，努力活着，努力有趣活着，如是</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">260</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">86</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/wongzincer" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;wongzincer" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/zincer" title="Facebook → https:&#x2F;&#x2F;www.facebook.com&#x2F;zincer" rel="noopener" target="_blank"><i class="fab fa-facebook fa-fw"></i>Facebook</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:zincer@163.com" title="E-Mail → mailto:zincer@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.douban.com/people/zincer" title="Douban → https:&#x2F;&#x2F;www.douban.com&#x2F;people&#x2F;zincer" rel="noopener" target="_blank"><i class="fas fa-book fa-fw"></i>Douban</a>
+      </span>
+  </div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.poqpoq.net/2017/07/simpleware-generates-2d-surface-mesh-based-on-single-image.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Zincer Wong">
+      <meta itemprop="description" content="好读书，不求甚解，每有会意便记录一下，仅此；活着，努力活着，努力有趣活着，如是">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M守望者">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Simpleware基于单张图像生成2D面网格
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-07-04 20:16:53" itemprop="dateCreated datePublished" datetime="2017-07-04T20:16:53+08:00">2017-07-04</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-08-10 16:30:33" itemprop="dateModified" datetime="2021-08-10T16:30:33+08:00">2021-08-10</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">软件学习</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>Simpleware可以基于3D图像重构CAD模型并生成用于有限元和流体计算的网格，相关功能有很多讨论，这里不再赘述。</p>
+<p>部分用户尤其是材料领域用户，限于实验条件，很多时候只有单张截面图（典型的，SEM照片），用户的需求也仅是处理2D的图像，然后得到2D面网格。如果使用Simpleware导入单张图片的话，软件默认是将其按照一个像素厚度的3D数据处理的，网格剖分之后默认导出的也是3D的网格，而且由于Z方向只有一个像素厚度（典型的薄层特征），所以网格质量也很差。想要规避Z方向的薄层特征，很容易想到的一个解决方案是将图片多复制几张，不过上述操作默认导出的依然是3D网格，导入到求解器之后只能通过在Z方向的上下两个面施加（周期）对称之类的边界条件，以便于基于3D网格近似处理2D问题。</p>
+<p>上述方案将简单的2D问题复杂化成了3D问题，虽然思路上可行，但是显然会浪费大量的计算资源。事实上Simpleware本身是支持直接导出某个Shell面的2D网格的，只不过藏的比较深而已。接下来我们就来看一下相关的步骤：</p>
+<p>逻辑上，Simpleware依然只能处理3D图像数据，所以第一步依然是将图片在Z方向复制（或者重复导入），复制的目的是为了后续图像平滑滤波等算法可以顺利使用，同时也是为了弱化薄层特征。一般而言建议复制五层以上。</p>
+<p>平滑滤波、然后按照自己的需要分割图像，具体步骤这里不展开，这些都是Simpleware平台基础的功能，根据自己图像的特征灵活选择即可，得到自己想要Mask之后，选择创建FE模型。截至这里，流程上其实依然是2D问题转化为3D问题处理的思路。接下来的步骤则需要特别注意。</p>
+<p>打开<strong>Model configuration</strong>窗口，切换到<strong>Volume meshing</strong>选项卡，点击<strong>More options</strong>展开高级设置，找到<strong>Target number of elements across a layer</strong>，然后将其值设置为0.01。</p>
+<p><img src="/images/blogimgs/cax/simpleware/Simpleware_2d_mesh_cap1.png"></p>
+<p>我们最终要的其实仅仅是垂直于Z方向的某一个面的面网格就可以了，所以Z方向上网格质量好坏是无所谓的，所以这里选择将薄层最小网格层数的参数设置为一个很小的值。</p>
+<p>标记要导出的shell特征，选择垂直于Z方向的某一个面（这里以ZMax为例），Zmax和我们生成的Mask重合的区域就是我们最后要的特征，如果有多个Mask，需要分别标记。</p>
+<p><img src="/images/blogimgs/cax/simpleware/Simpleware_2d_mesh_cap2.png"></p>
+<p>这时候选择生成网格，得到的依然是3D网格，因为薄层参数的设置，Z方向网格质量没有限制，会比较粗糙，这刚好是我们期望的。直接将该3D网格导出不是我们的预期，在生成网格之前，有一个关键步骤就是选择所有的Mask，将其标记为non - export part。上述设置确保在导出的时候，只导出Shell特征，实体部分网格不再导出之列。</p>
+<p><img src="/images/blogimgs/cax/simpleware/Simpleware_2d_mesh_cap3.png"></p>
+<p>导出的网格直接用CAE软件打开会识别为shell特征。如果使用的CAE软件需要建模开始就选择维度，建议导出类型选择Nastran（.nas）格式。然后在CAE软件中创建2D模型，最后选择导入之前生成的.nas网格就可以了。</p>
+<p><img src="/images/blogimgs/cax/simpleware/Simpleware_2d_mesh_cap4.png"></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><div class="post-widgets">
+      <div id="needsharebutton-postbottom">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    </div>
+          <div class="reward-container">
+  <div>你的支持是我继续创作的动力</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/WeChatPay.png" alt="Zincer Wong 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/AliPay.jpg" alt="Zincer Wong 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Zincer Wong
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://www.poqpoq.net/2017/07/simpleware-generates-2d-surface-mesh-based-on-single-image.html" title="Simpleware基于单张图像生成2D面网格">http://www.poqpoq.net/2017/07/simpleware-generates-2d-surface-mesh-based-on-single-image.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/CAE/" rel="tag"># CAE</a>
+              <a href="/tags/%E4%BB%BF%E7%9C%9F/" rel="tag"># 仿真</a>
+              <a href="/tags/%E8%AE%A1%E7%AE%97/" rel="tag"># 计算</a>
+              <a href="/tags/Simpleware/" rel="tag"># Simpleware</a>
+              <a href="/tags/%E7%BD%91%E6%A0%BC/" rel="tag"># 网格</a>
+              <a href="/tags/3D%E9%87%8D%E6%9E%84/" rel="tag"># 3D重构</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/05/installation-test-odoo.html" rel="prev" title="安装测试Odoo">
+                  <i class="fa fa-chevron-left"></i> 安装测试Odoo
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2017/09/nail-robot-automatically-pushes-external-network-ip-to-group.html" rel="next" title="钉钉机器人自动推送外网IP到群组">
+                  钉钉机器人自动推送外网IP到群组 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="lv-container" data-id="city" data-uid="MTAyMC80NjQxNS8yMjkyNg=="></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2009 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zincer Wong</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">277k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">4:12</span>
+  </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
+  <script>
+      pbOptions = {};
+        pbOptions.iconStyle = "box";
+        pbOptions.boxForm = "horizontal";
+        pbOptions.position = "bottomCenter";
+        pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+  </script><script src="/js/third-party/comments/livere.js"></script>
+
+</body>
+</html>

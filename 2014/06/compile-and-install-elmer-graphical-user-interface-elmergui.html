@@ -20,16 +20,16 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.poqpoq.net","root":"/","images":"/images","scheme":"Pisces","version":"8.7.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="ElmerGUI需要qmake。 1sudo apt-get install qt4-qmake&lt;&#x2F;pre&gt; 收敛曲线绘图依赖qwt 1sudo apt-get install llibqwt5-qt4-dev 安装图形界面和后处理依赖的vtk库 12sudo apt-get install libvtk5-devsudo apt-get install libvtk5-qt4-dev">
+<meta name="description" content="Update：Ubuntu20.04下编译安装Elmer和ElmerGUI  ElmerGUI需要qmake。 1sudo apt-get install qt4-qmake&lt;&#x2F;pre&gt; 收敛曲线绘图依赖qwt 1sudo apt-get install llibqwt5-qt4-dev 安装图形界面和后处理依赖的vtk库 12sudo apt-get install libvtk5-">
 <meta property="og:type" content="article">
 <meta property="og:title" content="编译安装elmer图形用户界面ElmerGUI">
 <meta property="og:url" content="http://www.poqpoq.net/2014/06/compile-and-install-elmer-graphical-user-interface-elmergui.html">
 <meta property="og:site_name" content="M守望者">
-<meta property="og:description" content="ElmerGUI需要qmake。 1sudo apt-get install qt4-qmake&lt;&#x2F;pre&gt; 收敛曲线绘图依赖qwt 1sudo apt-get install llibqwt5-qt4-dev 安装图形界面和后处理依赖的vtk库 12sudo apt-get install libvtk5-devsudo apt-get install libvtk5-qt4-dev">
+<meta property="og:description" content="Update：Ubuntu20.04下编译安装Elmer和ElmerGUI  ElmerGUI需要qmake。 1sudo apt-get install qt4-qmake&lt;&#x2F;pre&gt; 收敛曲线绘图依赖qwt 1sudo apt-get install llibqwt5-qt4-dev 安装图形界面和后处理依赖的vtk库 12sudo apt-get install libvtk5-">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://www.poqpoq.net/images/blogimgs/cax/ElmerGUI.png">
 <meta property="article:published_time" content="2014-06-06T11:13:13.000Z">
-<meta property="article:modified_time" content="2021-08-10T08:30:33.481Z">
+<meta property="article:modified_time" content="2021-08-19T14:07:49.823Z">
 <meta property="article:author" content="Zincer Wong">
 <meta property="article:tag" content="CAE">
 <meta property="article:tag" content="多物理">
@@ -283,7 +283,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-08-10 16:30:33" itemprop="dateModified" datetime="2021-08-10T16:30:33+08:00">2021-08-10</time>
+        <time title="修改时间：2021-08-19 22:07:49" itemprop="dateModified" datetime="2021-08-19T22:07:49+08:00">2021-08-19</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -320,7 +320,9 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>ElmerGUI需要qmake。</p>
+        <p><strong>Update：</strong><a href="https://www.poqpoq.net/2021/08/compile-and-install-Elmer-and-ElmerGUI-under-Ubuntu-20.04.html">Ubuntu20.04下编译安装Elmer和ElmerGUI</a></p>
+<hr>
+<p>ElmerGUI需要qmake。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install qt4-qmake&lt;/pre&gt;</span><br></pre></td></tr></table></figure>
 <p>收敛曲线绘图依赖qwt</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install llibqwt5-qt4-dev</span><br></pre></td></tr></table></figure>

@@ -240,6 +240,128 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://www.poqpoq.net/2021/08/compile-and-install-Elmer-and-ElmerGUI-under-Ubuntu-20.04.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Zincer Wong">
+      <meta itemprop="description" content="好读书，不求甚解，每有会意便记录一下，仅此；活着，努力活着，努力有趣活着，如是">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M守望者">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/compile-and-install-Elmer-and-ElmerGUI-under-Ubuntu-20.04.html" class="post-title-link" itemprop="url">Ubuntu20.04下编译安装Elmer和ElmerGUI</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-08-19 19:10:49 / 修改时间：22:00:59" itemprop="dateCreated datePublished" datetime="2021-08-19T19:10:49+08:00">2021-08-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">软件学习</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>安装依赖：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install build-essential \</span><br><span class="line">    git \</span><br><span class="line">    libblas-dev \</span><br><span class="line">    liblapack-dev \</span><br><span class="line">    libmumps-dev \</span><br><span class="line">    libparmetis-dev \</span><br><span class="line">    libhypre-dev \</span><br><span class="line">    gfortran \</span><br><span class="line">    mpich \</span><br><span class="line">    sudo \</span><br><span class="line">    cmake \</span><br><span class="line">    ca-certificates \</span><br><span class="line">    less </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir elmerfem</span><br><span class="line">cd elmerfem</span><br></pre></td></tr></table></figure>
+
+<p>下载源码到 <code>repo</code>目录</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/ElmerCSC/elmerfem.git repo</span><br></pre></td></tr></table></figure>
+
+
+<p>创建编译目录<code>build</code>并进入</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir build</span><br><span class="line">cd build</span><br></pre></td></tr></table></figure>
+
+<h4 id="编译Elmer"><a href="#编译Elmer" class="headerlink" title="编译Elmer:"></a>编译Elmer:</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">Without MPI:</span></span><br><span class="line">cmake -DCMAKE_INSTALL_PREFIX=/path/to/inst ../repo</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">With MPI:</span></span><br><span class="line">cmake -DWITH_OpenMP=TRUE -DWITH_MPI=TRUE -DCMAKE_INSTALL_PREFIX=/path/to/inst ../repo</span><br><span class="line"></span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+
+<p>其中<code>/path/to/inst</code>是软件的安装目录，下同</p>
+<h4 id="编译ElmerGUI："><a href="#编译ElmerGUI：" class="headerlink" title="编译ElmerGUI："></a>编译ElmerGUI：</h4><p>软件默认使用的还是<code>QT4</code>，在 Ubuntu 20.04 的源中已经移除了<code>QT4</code>相关包，因此换用<code>QT5</code>，首先安装如下依赖：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">With ElmerGUI,USE QT4</span></span><br><span class="line"><span class="meta">#</span><span class="bash">sudo apt install libqt4-dev libqwt-dev</span></span><br><span class="line"><span class="meta">#</span><span class="bash">With ElmerGUI,USE QT5</span></span><br><span class="line">sudo apt install liboce-modeling-dev \</span><br><span class="line">	liboce-foundation-dev \</span><br><span class="line">	qtscript5-dev \</span><br><span class="line">	libqt5script5 \</span><br><span class="line">	libqt5widgets5 \</span><br><span class="line">	libqt5core5a \</span><br><span class="line">	libqt5gui5 \</span><br><span class="line">	libqt5help5 \</span><br><span class="line">	libqt5opengl5 \</span><br><span class="line">	libqt5opengl5-dev \</span><br><span class="line">	libqt5svg5-dev \</span><br><span class="line">	libvtk6.3 \</span><br><span class="line">	libvtk6-dev \</span><br><span class="line">	libvtk6.3-qt \</span><br><span class="line">	libvtk6-qt-dev </span><br></pre></td></tr></table></figure>
+
+<p>新建配置文件 <code>elmer.cmake</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ../elmer.cmake</span><br></pre></td></tr></table></figure>
+
+<p>输入如下内容：</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SET</span>(WITH_MPI <span class="keyword">TRUE</span> CACHE BOOL <span class="string">&quot;&quot;</span>)</span><br><span class="line"><span class="keyword">SET</span>(WITH_LUA <span class="keyword">TRUE</span> CACHE BOOL <span class="string">&quot;&quot;</span>)</span><br><span class="line"><span class="keyword">SET</span>(CMAKE_BUILD_TYPE <span class="string">&quot;RelWithDebInfo&quot;</span> CACHE <span class="keyword">STRING</span> <span class="string">&quot;&quot;</span>)</span><br><span class="line"><span class="keyword">SET</span>(WITH_Mumps <span class="keyword">TRUE</span> CACHE BOOL <span class="string">&quot;&quot;</span>)</span><br><span class="line"><span class="keyword">SET</span>(WITH_Hypre <span class="keyword">TRUE</span> CACHE BOOL <span class="string">&quot;&quot;</span>)</span><br><span class="line"><span class="keyword">SET</span>(Hypre_INCLUDE_DIR <span class="string">&quot;/usr/include/hypre&quot;</span> CACHE PATH <span class="string">&quot;&quot;</span>)</span><br><span class="line"><span class="keyword">SET</span>(WITH_ElmerIce <span class="keyword">TRUE</span> CACHE BOOL <span class="string">&quot;&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">SET</span>(ELMER_SOLVER_HOME <span class="string">&quot;/usr/share/elmersolver&quot;</span> CACHE PATH <span class="string">&quot;&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># ElmerGUI related.</span></span><br><span class="line"><span class="keyword">SET</span>(WITH_ELMERGUI <span class="keyword">TRUE</span> CACHE BOOL <span class="string">&quot;&quot;</span>)</span><br><span class="line"><span class="keyword">SET</span>(WITH_OCC <span class="keyword">TRUE</span> CACHE BOOL <span class="string">&quot;&quot;</span>)</span><br><span class="line"><span class="keyword">SET</span>(WITH_VTK <span class="keyword">FALSE</span> CACHE BOOL <span class="string">&quot;&quot;</span>)</span><br><span class="line"><span class="keyword">SET</span>(WITH_PARAVIEW <span class="keyword">TRUE</span> CACHE BOOL <span class="string">&quot;&quot;</span>)</span><br><span class="line"><span class="keyword">SET</span>(WITH_QWT <span class="keyword">FALSE</span> CACHE BOOL <span class="string">&quot;&quot;</span>)</span><br><span class="line"><span class="keyword">SET</span>(WITH_QT5 <span class="keyword">TRUE</span> CACHE BOOL <span class="string">&quot;&quot;</span>)</span><br><span class="line"><span class="keyword">SET</span>(QWT_LIBRARY <span class="string">&quot;/usr/lib/libqwt-qt5.so.6&quot;</span> CACHE <span class="keyword">FILE</span> <span class="string">&quot;qwt library file name&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>其中<code>WITH_ElmerIce</code>控制 <code>ElmerICE</code>模块编译，<code>WITH_QT5</code>使用<code>QT5</code>生成界面，<code>QWT_LIBRARY</code>用于手动指定依赖库。</p>
+<p>最后，执行编译安装：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cmake -C ../elmer.cmake -DCMAKE_INSTALL_PREFIX=/path/to/inst ../repo</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+
+<h4 id="运行ElmerGUI："><a href="#运行ElmerGUI：" class="headerlink" title="运行ElmerGUI："></a>运行ElmerGUI：</h4><p>使用完成路径启动 ElmerGUI</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/path/to/inst/bin/ElmerGUI</span><br></pre></td></tr></table></figure>
+
+<p>如有必要，可以将<code>/path/to/dist/bin</code>加入到系统<code>PATH</code>变量，之后可以直接使用 <code>ElmerGUI</code>命令启动软件</p>
+<h4 id="Ref："><a href="#Ref：" class="headerlink" title="Ref："></a>Ref：</h4><p><a target="_blank" rel="noopener" href="https://github.com/ElmerCSC/elmerfem">https://github.com/ElmerCSC/elmerfem</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=OZ2Lvk-hEkc&amp;ab_channel=elmerfem">https://www.youtube.com/watch?v=OZ2Lvk-hEkc&amp;ab_channel=elmerfem</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://www.poqpoq.net/2021/01/He-who-has-a-mind-to-beat-his-dog-will-easily-find-his-stick.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1358,130 +1480,6 @@
 <p>爱的能力取决于人们从自恋中解脱出来的能力，取决于从母系和氏族的稳固的眷恋中解脱出来的能力，取决于我们在与世界和自身的关系中生长和发展一种创造性倾向的能力。</p>
 </blockquote>
 <p>能力是需要培养的，也是可以培养的，前提是你知道他究竟是什么！</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://www.poqpoq.net/2020/02/ephemeral-life-like-a-dream,how-long-can-we-enjoy-the-happiness.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Zincer Wong">
-      <meta itemprop="description" content="好读书，不求甚解，每有会意便记录一下，仅此；活着，努力活着，努力有趣活着，如是">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="M守望者">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/02/ephemeral-life-like-a-dream,how-long-can-we-enjoy-the-happiness.html" class="post-title-link" itemprop="url">浮生若梦，为欢几何？</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-02-23 11:12:13" itemprop="dateCreated datePublished" datetime="2020-02-23T11:12:13+08:00">2020-02-23</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-08-10 16:30:32" itemprop="dateModified" datetime="2021-08-10T16:30:32+08:00">2021-08-10</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%97%A5%E5%BF%97%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">日志随笔</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.3k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>夫天地者，万物之逆旅也；光阴者，百代之过客也。而<strong>浮生若梦，为欢几何</strong>？古人秉烛夜游，良有以也。况阳春召我以烟景，大块假我以文章。会桃李之芳园，序天伦之乐事。群季俊秀，皆为惠连；吾人咏歌，独惭康乐。幽赏未已，高谈转清。开琼筵以坐花，飞羽觞而醉月。不有佳咏，何伸雅怀？如诗不成，罚依金谷酒数。</p>
-<p align="right">——李白《春夜宴从弟桃花园序》</p>
-少焉月印池中，虫声四起，设竹榻于篱下，老妪报酒温饭熟，遂就月光对酌，微醺而饭。**浴罢则凉鞋蕉扇，或坐或卧，听邻老谈因果报应事。**
-
-<p align="right">——沈复《浮生六记·闺房记乐》</p>
-芸则拔钗沽酒，不动声色，良辰美景，不放轻越。今则天各一方，风流云散，兼之玉碎香埋，不堪回首矣！非所谓“当日浑闲事，而今尽可怜”者乎！
-
-<p align="right">——沈复《浮生六记·闲情记趣》</p>
-奉劝世间夫妇，固不可彼此相仇，亦不可过于情笃。话云“**恩爱夫妻不到头**”，如余者，可作前车之鉴也。
-
-<p align="right">——沈复《浮生六记·坎坷记愁》</p>
-余凡事喜独出己见，不屑随人是非，即论诗品画，莫不存**人珍我弃、人弃我取**之意，故名胜所在，贵乎心得，有名胜而不觉其佳者，有非名胜面自以为妙者，聊以平生历历者记之。
-
-<p align="right">——沈复《浮生六记·浪游记快》</p>
-宰猪为饷，倾瓮为饮。令则拇战，不知诗文；歌则号呶，不讲音律。酒酣，挥工人舞拳相扑为戏。
-
-<p align="right">——沈复《浮生六记·浪游记快》</p>
-武昌黄鹤楼在黄鹄矶上，后拖黄鹄山，俗呼为蛇山。楼有三层，画栋飞檐，倚城屹峙，面临汉江，与汉阳晴川阁相对。余与琢堂冒雪登焉，俯视长空，琼花飞舞，遥指银山玉树，恍如身在瑶台。**江中往来小艇，纵横掀播，如浪卷残叶，名利之心至此一冷**。壁间题咏甚多，不能记忆，但记楹对有云：“**何时黄鹤重来，且共倒金樽，浇洲渚千年芳草；但见白云飞去，更谁吹玉笛，落江城五月梅花。**“
-
-<p align="right">——沈复《浮生六记·浪游记快》</p>
-摆脱时间有三种方式：活在回忆中，把过去永恒化；活在当下的激情中，把现在永恒化；活在期待中，把未来永恒化。然而，想象中的永恒并不能阻止事实上的时光流逝。所以，回忆是忧伤的，期待是迷惘的，当下的激情混合着狂喜和绝望。
-
-<p align="right">——周国平《失去的岁月》</p>
-***另：***
-
-<p>今天去社区卫生中心取了解除隔离确认书，其实早就满足解除隔离条件了，只是因为到那边还有一定距离，所以一直没有过去取。</p>
-<p>心理学有个说法叫做“自证预言效应”，积极点的，一个人觉得自己优秀，那么他确实更可能取得更好的成绩，而消极点的则是，一个人如果觉得自己得了某种疾病，那么他真的会慢慢有类似症状。疫情期间久居家中，很容易对自己的身心产生怀疑，这里记录一下，仅是自我提醒。</p>
-<p>记忆力太好不见得是好事情，让自己活在回忆里，很可能就错过了现在和未来。可是转念想想，永恒的事情都应该是美的，哪怕这种美仅存在于过去。</p>
-<p>最近的这段时间，有意识地控制自己少看新闻和评论，努力进入工作状态，几次尝试都无功而返之后选择逼迫自己沉下心来阅读。说来惭愧，沈复的《浮生六记》只是之前购书时候凑单的。《红楼梦》、《浮生六记》、《菜根谭》，这一系列读下来，加上疫情期间的一些思考，真的会让人功利之心大减。以前曾自语：“以悲观主义打底的乐观才是真的乐观”，今时今日，恐怕要附会上一句：“以出世之心积极入世才能不负人世。”</p>
-<p>“山川湖海，各自安好”，越来越喜欢这句话了。</p>
 
       
     </div>

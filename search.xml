@@ -5473,7 +5473,7 @@ p{font-family: sans-serif; font-size: 12pt;}
   </entry>
   <entry>
     <title>Ubuntu20.04下编译安装Elmer和ElmerGUI</title>
-    <url>/2014/05/compile-and-install-Elmer-and-ElmerGUI-under-Ubuntu-20.04.html</url>
+    <url>/2021/08/compile-and-install-Elmer-and-ElmerGUI-under-Ubuntu-20.04.html</url>
     <content><![CDATA[<p>安装依赖：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt install build-essential \</span><br><span class="line">    git \</span><br><span class="line">    libblas-dev \</span><br><span class="line">    liblapack-dev \</span><br><span class="line">    libmumps-dev \</span><br><span class="line">    libparmetis-dev \</span><br><span class="line">    libhypre-dev \</span><br><span class="line">    gfortran \</span><br><span class="line">    mpich \</span><br><span class="line">    sudo \</span><br><span class="line">    cmake \</span><br><span class="line">    ca-certificates \</span><br><span class="line">    less </span><br></pre></td></tr></table></figure>
 

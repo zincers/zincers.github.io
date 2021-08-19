@@ -6,7 +6,7 @@
   <link href="http://www.poqpoq.net/atom.xml" rel="self"/>
   
   <link href="http://www.poqpoq.net/"/>
-  <updated>2021-08-10T08:30:32.557Z</updated>
+  <updated>2021-08-19T14:00:59.005Z</updated>
   <id>http://www.poqpoq.net/</id>
   
   <author>
@@ -15,6 +15,43 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Ubuntu20.04下编译安装Elmer和ElmerGUI</title>
+    <link href="http://www.poqpoq.net/2021/08/compile-and-install-Elmer-and-ElmerGUI-under-Ubuntu-20.04.html"/>
+    <id>http://www.poqpoq.net/2021/08/compile-and-install-Elmer-and-ElmerGUI-under-Ubuntu-20.04.html</id>
+    <published>2021-08-19T11:10:49.000Z</published>
+    <updated>2021-08-19T14:00:59.005Z</updated>
+    
+    <content type="html"><![CDATA[<p>安装依赖：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install build-essential \</span><br><span class="line">    git \</span><br><span class="line">    libblas-dev \</span><br><span class="line">    liblapack-dev \</span><br><span class="line">    libmumps-dev \</span><br><span class="line">    libparmetis-dev \</span><br><span class="line">    libhypre-dev \</span><br><span class="line">    gfortran \</span><br><span class="line">    mpich \</span><br><span class="line">    sudo \</span><br><span class="line">    cmake \</span><br><span class="line">    ca-certificates \</span><br><span class="line">    less </span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir elmerfem</span><br><span class="line">cd elmerfem</span><br></pre></td></tr></table></figure><p>下载源码到 <code>repo</code>目录</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/ElmerCSC/elmerfem.git repo</span><br></pre></td></tr></table></figure><p>创建编译目录<code>build</code>并进入</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir build</span><br><span class="line">cd build</span><br></pre></td></tr></table></figure><h4 id="编译Elmer"><a href="#编译Elmer" class="headerlink" title="编译Elmer:"></a>编译Elmer:</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">Without MPI:</span></span><br><span class="line">cmake -DCMAKE_INSTALL_PREFIX=/path/to/inst ../repo</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">With MPI:</span></span><br><span class="line">cmake -DWITH_OpenMP=TRUE -DWITH_MPI=TRUE -DCMAKE_INSTALL_PREFIX=/path/to/inst ../repo</span><br><span class="line"></span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure><p>其中<code>/path/to/inst</code>是软件的安装目录，下同</p><h4 id="编译ElmerGUI："><a href="#编译ElmerGUI：" class="headerlink" title="编译ElmerGUI："></a>编译ElmerGUI：</h4><p>软件默认使用的还是<code>QT4</code>，在 Ubuntu 20.04 的源中已经移除了<code>QT4</code>相关包，因此换用<code>QT5</code>，首先安装如下依赖：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">With ElmerGUI,USE QT4</span></span><br><span class="line"><span class="meta">#</span><span class="bash">sudo apt install libqt4-dev libqwt-dev</span></span><br><span class="line"><span class="meta">#</span><span class="bash">With ElmerGUI,USE QT5</span></span><br><span class="line">sudo apt install liboce-modeling-dev \</span><br><span class="line">liboce-foundation-dev \</span><br><span class="line">qtscript5-dev \</span><br><span class="line">libqt5script5 \</span><br><span class="line">libqt5widgets5 \</span><br><span class="line">libqt5core5a \</span><br><span class="line">libqt5gui5 \</span><br><span class="line">libqt5help5 \</span><br><span class="line">libqt5opengl5 \</span><br><span class="line">libqt5opengl5-dev \</span><br><span class="line">libqt5svg5-dev \</span><br><span class="line">libvtk6.3 \</span><br><span class="line">libvtk6-dev \</span><br><span class="line">libvtk6.3-qt \</span><br><span class="line">libvtk6-qt-dev </span><br></pre></td></tr></table></figure><p>新建配置文件 <code>elmer.cmake</code></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ../elmer.cmake</span><br></pre></td></tr></table></figure><p>输入如下内容：</p><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SET</span>(WITH_MPI <span class="keyword">TRUE</span> CACHE BOOL <span class="string">&quot;&quot;</span>)</span><br><span class="line"><span class="keyword">SET</span>(WITH_LUA <span class="keyword">TRUE</span> CACHE BOOL <span class="string">&quot;&quot;</span>)</span><br><span class="line"><span class="keyword">SET</span>(CMAKE_BUILD_TYPE <span class="string">&quot;RelWithDebInfo&quot;</span> CACHE <span class="keyword">STRING</span> <span class="string">&quot;&quot;</span>)</span><br><span class="line"><span class="keyword">SET</span>(WITH_Mumps <span class="keyword">TRUE</span> CACHE BOOL <span class="string">&quot;&quot;</span>)</span><br><span class="line"><span class="keyword">SET</span>(WITH_Hypre <span class="keyword">TRUE</span> CACHE BOOL <span class="string">&quot;&quot;</span>)</span><br><span class="line"><span class="keyword">SET</span>(Hypre_INCLUDE_DIR <span class="string">&quot;/usr/include/hypre&quot;</span> CACHE PATH <span class="string">&quot;&quot;</span>)</span><br><span class="line"><span class="keyword">SET</span>(WITH_ElmerIce <span class="keyword">TRUE</span> CACHE BOOL <span class="string">&quot;&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">SET</span>(ELMER_SOLVER_HOME <span class="string">&quot;/usr/share/elmersolver&quot;</span> CACHE PATH <span class="string">&quot;&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># ElmerGUI related.</span></span><br><span class="line"><span class="keyword">SET</span>(WITH_ELMERGUI <span class="keyword">TRUE</span> CACHE BOOL <span class="string">&quot;&quot;</span>)</span><br><span class="line"><span class="keyword">SET</span>(WITH_OCC <span class="keyword">TRUE</span> CACHE BOOL <span class="string">&quot;&quot;</span>)</span><br><span class="line"><span class="keyword">SET</span>(WITH_VTK <span class="keyword">FALSE</span> CACHE BOOL <span class="string">&quot;&quot;</span>)</span><br><span class="line"><span class="keyword">SET</span>(WITH_PARAVIEW <span class="keyword">TRUE</span> CACHE BOOL <span class="string">&quot;&quot;</span>)</span><br><span class="line"><span class="keyword">SET</span>(WITH_QWT <span class="keyword">FALSE</span> CACHE BOOL <span class="string">&quot;&quot;</span>)</span><br><span class="line"><span class="keyword">SET</span>(WITH_QT5 <span class="keyword">TRUE</span> CACHE BOOL <span class="string">&quot;&quot;</span>)</span><br><span class="line"><span class="keyword">SET</span>(QWT_LIBRARY <span class="string">&quot;/usr/lib/libqwt-qt5.so.6&quot;</span> CACHE <span class="keyword">FILE</span> <span class="string">&quot;qwt library file name&quot;</span>)</span><br></pre></td></tr></table></figure><p>其中<code>WITH_ElmerIce</code>控制 <code>ElmerICE</code>模块编译，<code>WITH_QT5</code>使用<code>QT5</code>生成界面，<code>QWT_LIBRARY</code>用于手动指定依赖库。</p><p>最后，执行编译安装：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cmake -C ../elmer.cmake -DCMAKE_INSTALL_PREFIX=/path/to/inst ../repo</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure><h4 id="运行ElmerGUI："><a href="#运行ElmerGUI：" class="headerlink" title="运行ElmerGUI："></a>运行ElmerGUI：</h4><p>使用完成路径启动 ElmerGUI</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/path/to/inst/bin/ElmerGUI</span><br></pre></td></tr></table></figure><p>如有必要，可以将<code>/path/to/dist/bin</code>加入到系统<code>PATH</code>变量，之后可以直接使用 <code>ElmerGUI</code>命令启动软件</p><h4 id="Ref："><a href="#Ref：" class="headerlink" title="Ref："></a>Ref：</h4><p><a href="https://github.com/ElmerCSC/elmerfem">https://github.com/ElmerCSC/elmerfem</a></p><p><a href="https://www.youtube.com/watch?v=OZ2Lvk-hEkc&amp;ab_channel=elmerfem">https://www.youtube.com/watch?v=OZ2Lvk-hEkc&amp;ab_channel=elmerfem</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;安装依赖：&lt;/p&gt;
+&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;b</summary>
+      
+    
+    
+    
+    <category term="软件学习" scheme="http://www.poqpoq.net/categories/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="CAE" scheme="http://www.poqpoq.net/tags/CAE/"/>
+    
+    <category term="仿真" scheme="http://www.poqpoq.net/tags/%E4%BB%BF%E7%9C%9F/"/>
+    
+    <category term="计算" scheme="http://www.poqpoq.net/tags/%E8%AE%A1%E7%AE%97/"/>
+    
+    <category term="多物理" scheme="http://www.poqpoq.net/tags/%E5%A4%9A%E7%89%A9%E7%90%86/"/>
+    
+    <category term="Linux" scheme="http://www.poqpoq.net/tags/Linux/"/>
+    
+    <category term="Elmer" scheme="http://www.poqpoq.net/tags/Elmer/"/>
+    
+    <category term="开源" scheme="http://www.poqpoq.net/tags/%E5%BC%80%E6%BA%90/"/>
+    
+  </entry>
   
   <entry>
     <title>欲加之罪，程患无辞</title>
@@ -530,34 +567,6 @@
       
       
     <summary type="html">&lt;p&gt;上一次大连之行结束之后，我写了&lt;a href=&quot;https://www.poqpoq.net/2014/10/sixday-sixcity-record.html&quot;&gt;《六日六城记》&lt;/a&gt;。这一次的大连之行，依旧是借工作之便，依旧是匆匆路过，返程的时候依旧是想写点什么记录一</summary>
-      
-    
-    
-    
-    <category term="日志随笔" scheme="http://www.poqpoq.net/categories/%E6%97%A5%E5%BF%97%E9%9A%8F%E7%AC%94/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>书单</title>
-    <link href="http://www.poqpoq.net/2019/07/book-list.html"/>
-    <id>http://www.poqpoq.net/2019/07/book-list.html</id>
-    <published>2019-07-24T00:09:00.000Z</published>
-    <updated>2021-08-10T08:30:31.465Z</updated>
-    
-    <content type="html"><![CDATA[<ul><li>卡瑞尔·麦克布莱德《母爱的羁绊》</li><li>苏珊·福沃德《情感勒索》</li><li>埃里希·弗洛姆《逃避自由》</li><li>罗纳德·理查森《超越原生家庭》</li><li>奥利弗·詹姆斯《天生非此》</li><li>布鲁斯·费希尔，罗伯特·艾伯蒂《分手后，成为更好的自己》</li><li>约翰·格雷《男人来自火星，女人来自金星》</li></ul><hr><style>p{font-family: sans-serif; font-size: 12pt; text-indent: 0em;}</style>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;ul&gt;
-&lt;li&gt;卡瑞尔·麦克布莱德《母爱的羁绊》&lt;/li&gt;
-&lt;li&gt;苏珊·福沃德《情感勒索》&lt;/li&gt;
-&lt;li&gt;埃里希·弗洛姆《逃避自由》&lt;/li&gt;
-&lt;li&gt;罗纳德·理查森《超越原生家庭》&lt;/li&gt;
-&lt;li&gt;奥利弗·詹姆斯《天生非此》&lt;/li&gt;
-&lt;li&gt;布鲁斯·费希尔，罗伯特·</summary>
       
     
     

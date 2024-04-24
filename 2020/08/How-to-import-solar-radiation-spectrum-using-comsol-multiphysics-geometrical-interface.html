@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.2.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha256-wiz7ZSCn/btzhjKDQBms9Hx4sSeUYsDrTLg7roPstac=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.poqpoq.net","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.19.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="问题概述 COMSOL Multiphysics 软件的几何光学（Geometrical Optics）接口同时支持单色光和复色光计算，但是这里的复色光只允许定义不同的波长以便进行光路计算。对于需要考虑功率和强度分布的情况，因为软件只能指定总的辐照强度而无法指定每个波长的辐照强度，所以并不适用于评估实际太阳光辐照的功率分布。本文主要探讨如何基于软件的现有功能，实现太阳光能量光谱的表征。 太阳能光谱">
+<meta property="og:type" content="article">
+<meta property="og:title" content="COMSOL Geometrical Optics接口如何导入太阳能辐射光谱">
+<meta property="og:url" content="http://www.poqpoq.net/2020/08/How-to-import-solar-radiation-spectrum-using-comsol-multiphysics-geometrical-interface.html">
+<meta property="og:site_name" content="M守望者">
+<meta property="og:description" content="问题概述 COMSOL Multiphysics 软件的几何光学（Geometrical Optics）接口同时支持单色光和复色光计算，但是这里的复色光只允许定义不同的波长以便进行光路计算。对于需要考虑功率和强度分布的情况，因为软件只能指定总的辐照强度而无法指定每个波长的辐照强度，所以并不适用于评估实际太阳光辐照的功率分布。本文主要探讨如何基于软件的现有功能，实现太阳光能量光谱的表征。 太阳能光谱">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-08-07T01:19:00.000Z">
+<meta property="article:modified_time" content="2024-04-24T01:38:18.441Z">
+<meta property="article:author" content="Zincer Wong">
+<meta property="article:tag" content="CAE">
+<meta property="article:tag" content="COMSOL">
+<meta property="article:tag" content="仿真">
+<meta property="article:tag" content="计算">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://www.poqpoq.net/2020/08/How-to-import-solar-radiation-spectrum-using-comsol-multiphysics-geometrical-interface.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://www.poqpoq.net/2020/08/How-to-import-solar-radiation-spectrum-using-comsol-multiphysics-geometrical-interface.html","path":"2020/08/How-to-import-solar-radiation-spectrum-using-comsol-multiphysics-geometrical-interface.html","title":"COMSOL Geometrical Optics接口如何导入太阳能辐射光谱"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>COMSOL Geometrical Optics接口如何导入太阳能辐射光谱 | M守望者</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?8342a01453dfea35aa7807585b1b7395"></script>
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">M守望者</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">我想证明M的存在，我又想证明M的不存在，这是矛盾的，不矛盾的是，这两个证明我一个都证明不出来</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">问题概述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%AA%E9%98%B3%E8%83%BD%E5%85%89%E8%B0%B1"><span class="nav-number">2.</span> <span class="nav-text">太阳能光谱</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#comsol%E8%A1%A8%E5%BE%81"><span class="nav-number">3.</span> <span class="nav-text">COMSOL表征</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ref"><span class="nav-number">4.</span> <span class="nav-text">Ref：</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zincer Wong"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Zincer Wong</p>
+  <div class="site-description" itemprop="description">好读书，不求甚解，每有会意便记录一下，仅此；活着，努力活着，努力有趣活着，如是</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">261</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">86</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/wongzincer" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;wongzincer" rel="noopener me" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.douban.com/people/zincer" title="Douban → https:&#x2F;&#x2F;www.douban.com&#x2F;people&#x2F;zincer" rel="noopener me" target="_blank"><i class="fas fa-book fa-fw"></i>Douban</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.poqpoq.net/2020/08/How-to-import-solar-radiation-spectrum-using-comsol-multiphysics-geometrical-interface.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Zincer Wong">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M守望者">
+      <meta itemprop="description" content="好读书，不求甚解，每有会意便记录一下，仅此；活着，努力活着，努力有趣活着，如是">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="COMSOL Geometrical Optics接口如何导入太阳能辐射光谱 | M守望者">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          COMSOL Geometrical Optics接口如何导入太阳能辐射光谱
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-08-07 09:19:00" itemprop="dateCreated datePublished" datetime="2020-08-07T09:19:00+08:00">2020-08-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-04-24 09:38:18" itemprop="dateModified" datetime="2024-04-24T09:38:18+08:00">2024-04-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">软件学习</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h4 id="问题概述">问题概述</h4>
+<p>COMSOL Multiphysics 软件的几何光学（Geometrical
+Optics）接口同时支持单色光和复色光计算，但是这里的复色光只允许定义不同的波长以便进行光路计算。对于需要考虑功率和强度分布的情况，因为软件只能指定总的辐照强度而无法指定每个波长的辐照强度，所以并不适用于评估实际太阳光辐照的功率分布。本文主要探讨如何基于软件的现有功能，实现太阳光能量光谱的表征。</p>
+<h4 id="太阳能光谱">太阳能光谱</h4>
+<p>太阳辐照光谱随时间和位置变化，如下图 <span
+class="math inline">\(^{[1]}\)</span>
+所示，目前广泛采用的标准太阳能光谱是AM0（大气层外）和AM1.5（陆地），前者平均辐照强度是1366.1
+<span class="math inline">\(W/m^2\)</span> ，后者为1000 <span
+class="math inline">\(W/m^2\)</span> 。</p>
+<p><img
+src="/images/blogimgs/cax/optical/solar_spectra_am1.5.png" /></p>
+<p>实际数值模拟中，通常采用离散的太阳光光谱以方便计算。离散的太阳光数据曲线和实际太阳光数据曲线关系如下图
+<span class="math inline">\(^{[2]}\)</span> 所示。</p>
+<p><img
+src="/images/blogimgs/cax/optical/solar_spectrum_simu.bmp" /></p>
+<p>对于连续的波段，取其特征波长，积分可得到其辐照强度占总辐照强度的权重比，基于此，上图可以改写为如下表示形式
+<span class="math inline">\(^{[3]}\)</span> 。</p>
+<table>
+<thead>
+<tr class="header">
+<th>波段</th>
+<th>特征波长</th>
+<th>权重因子</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0.295-0.40</td>
+<td>0.374</td>
+<td>0.0267</td>
+</tr>
+<tr class="even">
+<td>0.40-0.43</td>
+<td>0.416</td>
+<td>0.0275</td>
+</tr>
+<tr class="odd">
+<td>0.43-0.45</td>
+<td>0.441</td>
+<td>0.0244</td>
+</tr>
+<tr class="even">
+<td>0.45-0.47</td>
+<td>0.460</td>
+<td>0.0291</td>
+</tr>
+<tr class="odd">
+<td>0.47-0.49</td>
+<td>0.480</td>
+<td>0.0320</td>
+</tr>
+<tr class="even">
+<td>0.49-0.51</td>
+<td>0.500</td>
+<td>0.0327</td>
+</tr>
+<tr class="odd">
+<td>0.51-0.53</td>
+<td>0.520</td>
+<td>0.0323</td>
+</tr>
+<tr class="even">
+<td>0.53-0.55</td>
+<td>0.540</td>
+<td>0.0322</td>
+</tr>
+<tr class="odd">
+<td>0.55-0.57</td>
+<td>0.560</td>
+<td>0.0319</td>
+</tr>
+<tr class="even">
+<td>0.57-0.60</td>
+<td>0.585</td>
+<td>0.0473</td>
+</tr>
+<tr class="odd">
+<td>0.60-0.63</td>
+<td>0.615</td>
+<td>0.0473</td>
+</tr>
+<tr class="even">
+<td>0.63-0.66</td>
+<td>0.645</td>
+<td>0.0475</td>
+</tr>
+<tr class="odd">
+<td>0.66-0.69</td>
+<td>0.675</td>
+<td>0.0456</td>
+</tr>
+<tr class="even">
+<td>0.69-0.73</td>
+<td>0.709</td>
+<td>0.0537</td>
+</tr>
+<tr class="odd">
+<td>0.73-0.78</td>
+<td>0.753</td>
+<td>0.0591</td>
+</tr>
+<tr class="even">
+<td>0.78-0.83</td>
+<td>0.804</td>
+<td>0.0562</td>
+</tr>
+<tr class="odd">
+<td>0.83-0.89</td>
+<td>0.857</td>
+<td>0.0623</td>
+</tr>
+<tr class="even">
+<td>0.89-0.99</td>
+<td>0.953</td>
+<td>0.0606</td>
+</tr>
+<tr class="odd">
+<td>0.99-1.06</td>
+<td>1.024</td>
+<td>0.0565</td>
+</tr>
+<tr class="even">
+<td>1.06-1.21</td>
+<td>1.129</td>
+<td>0.0621</td>
+</tr>
+<tr class="odd">
+<td>1.21-1.52</td>
+<td>1.274</td>
+<td>0.0649</td>
+</tr>
+<tr class="even">
+<td>1.52-2.20</td>
+<td>1.642</td>
+<td>0.0681</td>
+</tr>
+</tbody>
+</table>
+<h4 id="comsol表征">COMSOL表征</h4>
+<p>这个问题本身其实并不复杂，很容易想到，使用单色光模式，每个频率单独计算，辐照功率乘以每个频率下的权重因子，然后将计算结果累加到一起即可。如果频率比较少，可以直接手动操作；如果频率比较多，如本例中包含22个典型频率，手动操作就会比较麻烦而且显得不甚明智。对于较多频率的情况可以借助COMSOL
+with
+MATLAB编程实现，不过相关过程本文不做讨论，下面只给出完全基于COMSOL软件自身功能的实现过程。</p>
+<ol type="1">
+<li><p>首先以内插函数的形式导入特征波长（ <span
+class="math inline">\(\lambda\)</span> ）和权重因子（ <span
+class="math inline">\(w\)</span> ）之间的关系： $ w=f()$ 。</p></li>
+<li><p>同前，选用单色光模式，单色光波长为 <span
+class="math inline">\(\lambda\)</span> ，辐照总功率设置为 <span
+class="math inline">\(1000w W/m^2\)</span> 。</p></li>
+<li><p>启用参数化求解，对参数 <span
+class="math inline">\(\lambda\)</span>
+执行扫描，参数列表参照上表，依次输入即可。</p></li>
+<li><p>求解完成后，包含所有波长和所有时间（射线追踪求解本身是含时间的瞬态分析模式）的计算结果都保存在数据集“
+<span class="math inline">\(sol1\)</span> ”中。</p></li>
+<li><p>本例中对经聚光透镜汇聚的太阳光进行了计算，不同频率太阳光光路如下图所示，显示效果需要，这里仅显示了高中低三个频率。</p></li>
+</ol>
+<p><img
+src="/images/blogimgs/cax/optical/optical_ray_trajectories_am1.5.png" /></p>
+<ol start="6" type="1">
+<li><p>接下来的结果后处理过程是本文关键，默认地用户一次只能查看特定频率和特定时间下的计算结果，如果需要对所有频率的结果求和，需要使用软件内置的一些特殊的算符
+<span class="math inline">\(^{[4]}\)</span>
+。本例中输入的用于后处理的表达式为： <span
+class="math inline">\(sum(withsol(&#39;sol1&#39;,expr,
+setval(t,1[ns]),setind(\lambda, i)), i, 1, 22)\)</span> 。其中， <span
+class="math inline">\(sum\)</span> 表示求和， <span
+class="math inline">\(withsol\)</span> 表示在特定的解（ <span
+class="math inline">\(sol1\)</span> ）中提取数值， <span
+class="math inline">\(expr\)</span> 是用户预期提取的变量； <span
+class="math inline">\(setval(t,1[ns])\)</span> 表示对 <span
+class="math inline">\(t=1[ns]\)</span> 时刻的结果做操作， <span
+class="math inline">\(setind(\lambda, i)\)</span> 配合随后的 <span
+class="math inline">\(i, 1, 22\)</span> 表示提取所有参数 <span
+class="math inline">\(\lambda\)</span>
+（从第1到第22个）所对应的计算结果。因为要遍历数据解，该绘图过程耗时相对较久。</p></li>
+<li><p>本例中对底部的太阳光辐照表面的光照强度进行了提取，经由上一步操作，对所有频率求和得到的光功率分布（典型的高斯光束）如下图所示。</p></li>
+</ol>
+<p><img
+src="/images/blogimgs/cax/optical/optical_ray_trajectories_am1.5_I_cell.png" /></p>
+<h4 id="ref">Ref：</h4>
+<p>[1] Standard Solar Spectra | PVEducation[EB/OL]. [2020-08-07].
+https://www.pveducation.org/pvcdrom/appendices/standard-solar-spectra.</p>
+<p>[2] 吴贺利. 菲涅尔太阳能聚光器研究[D]. 武汉理工大学, 2010.</p>
+<p>[3] R. Fu <em>et al.</em>, “Design of broadband SOG Fresnel lens for
+GaInP/GaInAs/Ge multi-junction concentrator solar cells,” Malang, East
+Java, Indonesia, 2014, pp. 58–62, doi: <a
+target="_blank" rel="noopener" href="https://doi.org/10.1063/1.4897028">10.1063/1.4897028</a>.</p>
+<p>[4] COMSOL, 2020. COMSOL Multiphysics reference guide (for COMSOL
+version 5.5, www.comsol.com).</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Zincer Wong
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://www.poqpoq.net/2020/08/How-to-import-solar-radiation-spectrum-using-comsol-multiphysics-geometrical-interface.html" title="COMSOL Geometrical Optics接口如何导入太阳能辐射光谱">http://www.poqpoq.net/2020/08/How-to-import-solar-radiation-spectrum-using-comsol-multiphysics-geometrical-interface.html</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/CAE/" rel="tag"># CAE</a>
+              <a href="/tags/COMSOL/" rel="tag"># COMSOL</a>
+              <a href="/tags/%E4%BB%BF%E7%9C%9F/" rel="tag"># 仿真</a>
+              <a href="/tags/%E8%AE%A1%E7%AE%97/" rel="tag"># 计算</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/06/control.html" rel="prev" title="控制">
+                  <i class="fa fa-angle-left"></i> 控制
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/09/autumnal-equinox.html" rel="next" title="秋分">
+                  秋分 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2009 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Zincer Wong</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">235k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">14:16</span>
+  </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

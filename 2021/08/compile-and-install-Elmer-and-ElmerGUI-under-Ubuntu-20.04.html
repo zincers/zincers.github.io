@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.2.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha256-wiz7ZSCn/btzhjKDQBms9Hx4sSeUYsDrTLg7roPstac=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.poqpoq.net","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.19.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="安装依赖： 12345678910111213sudo apt install build-essential \    git \    libblas-dev \    liblapack-dev \    libmumps-dev \    libparmetis-dev \    libhypre-dev \    gfortran \    mpich \    sudo \    cm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu20.04下编译安装Elmer和ElmerGUI">
+<meta property="og:url" content="http://www.poqpoq.net/2021/08/compile-and-install-Elmer-and-ElmerGUI-under-Ubuntu-20.04.html">
+<meta property="og:site_name" content="M守望者">
+<meta property="og:description" content="安装依赖： 12345678910111213sudo apt install build-essential \    git \    libblas-dev \    liblapack-dev \    libmumps-dev \    libparmetis-dev \    libhypre-dev \    gfortran \    mpich \    sudo \    cm">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-08-19T11:10:49.000Z">
+<meta property="article:modified_time" content="2024-04-24T01:38:18.441Z">
+<meta property="article:author" content="Zincer Wong">
+<meta property="article:tag" content="CAE">
+<meta property="article:tag" content="仿真">
+<meta property="article:tag" content="计算">
+<meta property="article:tag" content="多物理">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Elmer">
+<meta property="article:tag" content="开源">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://www.poqpoq.net/2021/08/compile-and-install-Elmer-and-ElmerGUI-under-Ubuntu-20.04.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://www.poqpoq.net/2021/08/compile-and-install-Elmer-and-ElmerGUI-under-Ubuntu-20.04.html","path":"2021/08/compile-and-install-Elmer-and-ElmerGUI-under-Ubuntu-20.04.html","title":"Ubuntu20.04下编译安装Elmer和ElmerGUI"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Ubuntu20.04下编译安装Elmer和ElmerGUI | M守望者</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?8342a01453dfea35aa7807585b1b7395"></script>
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">M守望者</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">我想证明M的存在，我又想证明M的不存在，这是矛盾的，不矛盾的是，这两个证明我一个都证明不出来</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BC%96%E8%AF%91elmer"><span class="nav-number">1.</span> <span class="nav-text">编译Elmer:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BC%96%E8%AF%91elmergui"><span class="nav-number">2.</span> <span class="nav-text">编译ElmerGUI：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%90%E8%A1%8Celmergui"><span class="nav-number">3.</span> <span class="nav-text">运行ElmerGUI：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ref"><span class="nav-number">4.</span> <span class="nav-text">Ref：</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zincer Wong"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Zincer Wong</p>
+  <div class="site-description" itemprop="description">好读书，不求甚解，每有会意便记录一下，仅此；活着，努力活着，努力有趣活着，如是</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">261</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">86</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/wongzincer" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;wongzincer" rel="noopener me" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.douban.com/people/zincer" title="Douban → https:&#x2F;&#x2F;www.douban.com&#x2F;people&#x2F;zincer" rel="noopener me" target="_blank"><i class="fas fa-book fa-fw"></i>Douban</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.poqpoq.net/2021/08/compile-and-install-Elmer-and-ElmerGUI-under-Ubuntu-20.04.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Zincer Wong">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M守望者">
+      <meta itemprop="description" content="好读书，不求甚解，每有会意便记录一下，仅此；活着，努力活着，努力有趣活着，如是">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Ubuntu20.04下编译安装Elmer和ElmerGUI | M守望者">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Ubuntu20.04下编译安装Elmer和ElmerGUI
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-08-19 19:10:49" itemprop="dateCreated datePublished" datetime="2021-08-19T19:10:49+08:00">2021-08-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-04-24 09:38:18" itemprop="dateModified" datetime="2024-04-24T09:38:18+08:00">2024-04-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">软件学习</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>411</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>安装依赖：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install build-essential \</span><br><span class="line">    git \</span><br><span class="line">    libblas-dev \</span><br><span class="line">    liblapack-dev \</span><br><span class="line">    libmumps-dev \</span><br><span class="line">    libparmetis-dev \</span><br><span class="line">    libhypre-dev \</span><br><span class="line">    gfortran \</span><br><span class="line">    mpich \</span><br><span class="line">    sudo \</span><br><span class="line">    cmake \</span><br><span class="line">    ca-certificates \</span><br><span class="line">    less </span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir elmerfem</span><br><span class="line">cd elmerfem</span><br></pre></td></tr></table></figure>
+<p>下载源码到 <code>repo</code>目录</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/ElmerCSC/elmerfem.git repo</span><br></pre></td></tr></table></figure>
+<p>创建编译目录<code>build</code>并进入</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir build</span><br><span class="line">cd build</span><br></pre></td></tr></table></figure>
+<h4 id="编译elmer">编译Elmer:</h4>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">Without MPI:</span></span><br><span class="line">cmake -DCMAKE_INSTALL_PREFIX=/path/to/inst ../repo</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">With MPI:</span></span><br><span class="line">cmake -DWITH_OpenMP=TRUE -DWITH_MPI=TRUE -DCMAKE_INSTALL_PREFIX=/path/to/inst ../repo</span><br><span class="line"></span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+<p>其中<code>/path/to/inst</code>是软件的安装目录，下同</p>
+<h4 id="编译elmergui">编译ElmerGUI：</h4>
+<p>软件默认使用的还是<code>QT4</code>，在 Ubuntu 20.04
+的源中已经移除了<code>QT4</code>相关包，因此换用<code>QT5</code>，首先安装如下依赖：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">With ElmerGUI,USE QT4</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">sudo apt install libqt4-dev libqwt-dev</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">With ElmerGUI,USE QT5</span></span><br><span class="line">sudo apt install liboce-modeling-dev \</span><br><span class="line">	liboce-foundation-dev \</span><br><span class="line">	qtscript5-dev \</span><br><span class="line">	libqt5script5 \</span><br><span class="line">	libqt5widgets5 \</span><br><span class="line">	libqt5core5a \</span><br><span class="line">	libqt5gui5 \</span><br><span class="line">	libqt5help5 \</span><br><span class="line">	libqt5opengl5 \</span><br><span class="line">	libqt5opengl5-dev \</span><br><span class="line">	libqt5svg5-dev \</span><br><span class="line">	libvtk6.3 \</span><br><span class="line">	libvtk6-dev \</span><br><span class="line">	libvtk6.3-qt \</span><br><span class="line">	libvtk6-qt-dev </span><br></pre></td></tr></table></figure>
+<p>新建配置文件 <code>elmer.cmake</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ../elmer.cmake</span><br></pre></td></tr></table></figure>
+<p>输入如下内容：</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SET</span>(WITH_MPI <span class="keyword">TRUE</span> CACHE BOOL <span class="string">&quot;&quot;</span>)</span><br><span class="line"><span class="keyword">SET</span>(WITH_LUA <span class="keyword">TRUE</span> CACHE BOOL <span class="string">&quot;&quot;</span>)</span><br><span class="line"><span class="keyword">SET</span>(CMAKE_BUILD_TYPE <span class="string">&quot;RelWithDebInfo&quot;</span> CACHE <span class="keyword">STRING</span> <span class="string">&quot;&quot;</span>)</span><br><span class="line"><span class="keyword">SET</span>(WITH_Mumps <span class="keyword">TRUE</span> CACHE BOOL <span class="string">&quot;&quot;</span>)</span><br><span class="line"><span class="keyword">SET</span>(WITH_Hypre <span class="keyword">TRUE</span> CACHE BOOL <span class="string">&quot;&quot;</span>)</span><br><span class="line"><span class="keyword">SET</span>(Hypre_INCLUDE_DIR <span class="string">&quot;/usr/include/hypre&quot;</span> CACHE PATH <span class="string">&quot;&quot;</span>)</span><br><span class="line"><span class="keyword">SET</span>(WITH_ElmerIce <span class="keyword">TRUE</span> CACHE BOOL <span class="string">&quot;&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">SET</span>(ELMER_SOLVER_HOME <span class="string">&quot;/usr/share/elmersolver&quot;</span> CACHE PATH <span class="string">&quot;&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># ElmerGUI related.</span></span><br><span class="line"><span class="keyword">SET</span>(WITH_ELMERGUI <span class="keyword">TRUE</span> CACHE BOOL <span class="string">&quot;&quot;</span>)</span><br><span class="line"><span class="keyword">SET</span>(WITH_OCC <span class="keyword">TRUE</span> CACHE BOOL <span class="string">&quot;&quot;</span>)</span><br><span class="line"><span class="keyword">SET</span>(WITH_VTK <span class="keyword">FALSE</span> CACHE BOOL <span class="string">&quot;&quot;</span>)</span><br><span class="line"><span class="keyword">SET</span>(WITH_PARAVIEW <span class="keyword">TRUE</span> CACHE BOOL <span class="string">&quot;&quot;</span>)</span><br><span class="line"><span class="keyword">SET</span>(WITH_QWT <span class="keyword">FALSE</span> CACHE BOOL <span class="string">&quot;&quot;</span>)</span><br><span class="line"><span class="keyword">SET</span>(WITH_QT5 <span class="keyword">TRUE</span> CACHE BOOL <span class="string">&quot;&quot;</span>)</span><br><span class="line"><span class="keyword">SET</span>(QWT_LIBRARY <span class="string">&quot;/usr/lib/libqwt-qt5.so.6&quot;</span> CACHE <span class="keyword">FILE</span> <span class="string">&quot;qwt library file name&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>其中<code>WITH_ElmerIce</code>控制
+<code>ElmerICE</code>模块编译，<code>WITH_QT5</code>使用<code>QT5</code>生成界面，<code>QWT_LIBRARY</code>用于手动指定依赖库。</p>
+<p>最后，执行编译安装：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cmake -C ../elmer.cmake -DCMAKE_INSTALL_PREFIX=/path/to/inst ../repo</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+<h4 id="运行elmergui">运行ElmerGUI：</h4>
+<p>使用完成路径启动 ElmerGUI</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/path/to/inst/bin/ElmerGUI</span><br></pre></td></tr></table></figure>
+<p>如有必要，可以将<code>/path/to/dist/bin</code>加入到系统<code>PATH</code>变量，之后可以直接使用
+<code>ElmerGUI</code>命令启动软件</p>
+<h4 id="ref">Ref：</h4>
+<p>https://github.com/ElmerCSC/elmerfem</p>
+<p>https://www.youtube.com/watch?v=OZ2Lvk-hEkc&amp;ab_channel=elmerfem</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Zincer Wong
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://www.poqpoq.net/2021/08/compile-and-install-Elmer-and-ElmerGUI-under-Ubuntu-20.04.html" title="Ubuntu20.04下编译安装Elmer和ElmerGUI">http://www.poqpoq.net/2021/08/compile-and-install-Elmer-and-ElmerGUI-under-Ubuntu-20.04.html</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/CAE/" rel="tag"># CAE</a>
+              <a href="/tags/%E4%BB%BF%E7%9C%9F/" rel="tag"># 仿真</a>
+              <a href="/tags/%E8%AE%A1%E7%AE%97/" rel="tag"># 计算</a>
+              <a href="/tags/%E5%A4%9A%E7%89%A9%E7%90%86/" rel="tag"># 多物理</a>
+              <a href="/tags/Linux/" rel="tag"># Linux</a>
+              <a href="/tags/Elmer/" rel="tag"># Elmer</a>
+              <a href="/tags/%E5%BC%80%E6%BA%90/" rel="tag"># 开源</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/01/He-who-has-a-mind-to-beat-his-dog-will-easily-find-his-stick.html" rel="prev" title="欲加之罪，程患无辞">
+                  <i class="fa fa-angle-left"></i> 欲加之罪，程患无辞
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2009 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Zincer Wong</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">235k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">14:16</span>
+  </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

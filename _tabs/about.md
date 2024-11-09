@@ -4,5 +4,11 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-> Add Markdown syntax content to file `_tabs/about.md`{: .filepath } and it will show up on this page.
-{: .prompt-tip }
+***姓王行二，网字 Zincer***
+***附庸风雅低俗者；翻墙运动爱好者；独立音乐痴迷者；时事不怎么关注者***
+***神秘主义者；虚无主义者；自由主义者；时刻准备找上帝聊天的无神论者***
+***不学无术的理工科，一知半解的Linuxer，喜欢折腾的非程序员***
+***好读书，不求甚解，每有会意便记录一下，仅此***
+***活着，努力活着，努力有趣活着，如是***
+
+***关于 poqpoq，无他，仅仅是看起来比较像M而已***

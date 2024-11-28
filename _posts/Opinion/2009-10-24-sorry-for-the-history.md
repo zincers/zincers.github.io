@@ -30,7 +30,7 @@ tags: [书籍, 评论, 历史]
 
 ### 谁该说那声"对不起"
 
-主机托管在国内，这一段始终无法发布，又懒的去替换关键词，索性就全删掉了，全本请访问作者的[Blogger](http://wongzincer.blogspot.com/2009/10/blog-post_24.html "Blogger")。
+主机托管在国内，这一段始终无法发布，又懒的去替换关键词，索性就全删掉了，全本请访问作者的[Blogger](https://wongzincer.blogspot.com/2009/10/blog-post_24.html "Blogger")。
 
 ### 什么是"禁书"
 

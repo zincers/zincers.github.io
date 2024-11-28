@@ -10,7 +10,7 @@ tags: [软件, 开发, Python, Numpy, Matplotlib]
 
 闲来无事鼓捣Python，都说Python和Numpy配合，再搭配Matplotlib之后完全可以替代Matlab，一时兴起姑且安装试用之。之前曾见到有人用Matlab绘制心形图案，于是这次也以此为目的进行测试。
 
-源码来自于**[此](http://stackoverflow.com/questions/4680525/plotting-implicit-equations-in-3d)**,本人稍作修改，然后添加了3D心形的隐函数进来。
+源码来自于**[此](https://stackoverflow.com/questions/4680525/plotting-implicit-equations-in-3d)**,本人稍作修改，然后添加了3D心形的隐函数进来。
 
 ```python
 from mpl_toolkits.mplot3d import axes3d

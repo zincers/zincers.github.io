@@ -20,4 +20,4 @@ tags: [软件, Office, Onedrive]
 
 ![](/assets/img/blogimgs/Office_SkyDrive/Cap03.png)
 
-OK，一切恢复正常。当然对于网速还说得过去或者说完全不联网的用户来说，这完全是多此一举，不过话说回来，不联网谁还用SkyDrive啊。话说Office 2013搭配的这项快速同步功能，也就是所谓的“部分文件上传和下载功能”，极大地减小了SkyDrive后台同步的带宽占用，具体参看[这篇文章](http://livesino.net/archives/4361.live)。不过说实话，我看后更想诅咒网络运营商了。
+OK，一切恢复正常。当然对于网速还说得过去或者说完全不联网的用户来说，这完全是多此一举，不过话说回来，不联网谁还用SkyDrive啊。话说Office 2013搭配的这项快速同步功能，也就是所谓的“部分文件上传和下载功能”，极大地减小了SkyDrive后台同步的带宽占用，具体参看[这篇文章](https://livesino.net/archives/4361.live)。不过说实话，我看后更想诅咒网络运营商了。

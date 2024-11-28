@@ -8,7 +8,7 @@ date: 2016-04-13 20:02:13
 tags: [软件, 系统, Grub, EFI, 引导]
 ---
 
-安装系统到U盘，自动将原来的EFI引导替换了，导致原来的Windows 10/XUbuntu 14.04双系统中Ubuntu 无法正常引导，启动直接进入了Grub界面。参考[这篇文章](http://www.ibm.com/developerworks/cn/linux/l-GRUB2-features/)修复之，具体过程如下：
+安装系统到U盘，自动将原来的EFI引导替换了，导致原来的Windows 10/XUbuntu 14.04双系统中Ubuntu 无法正常引导，启动直接进入了Grub界面。参考[这篇文章](https://www.ibm.com/developerworks/cn/linux/l-GRUB2-features/)修复之，具体过程如下：
 
 *   1.首先ls产看硬盘分区，找到Linux系统/boot所在分区
 

@@ -2,7 +2,7 @@
 title: COMSOL Geometrical Optics接口如何导入太阳能辐射光谱
 categories:
   - 软件学习
-mathjax: true
+math: true
 translate_title: How-to-import-solar-radiation-spectrum-using-comsol-multiphysics-geometrical-interface
 date: 2020-08-07 09:19:00
 tags: [CAE, COMSOL, 仿真, 计算]

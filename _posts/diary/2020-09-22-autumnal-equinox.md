@@ -2,7 +2,7 @@
 title: '秋分'
 categories:
   - 日志随笔
-mathjax: true
+math: true
 translate_title: autumnal-equinox
 date: 2020-09-22 20:20:00
 tags: [日志]

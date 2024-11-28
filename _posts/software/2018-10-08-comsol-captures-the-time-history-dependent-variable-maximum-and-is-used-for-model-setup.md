@@ -2,7 +2,7 @@
 title: COMSOL捕捉时间历程因变量最大值并用于模型设置
 categories:
   - 软件学习
-mathjax: true
+math: true
 translate_title: >-
   comsol-captures-the-time-history-dependent-variable-maximum-and-is-used-for-model-setup
 date: 2018-10-08 20:16:53

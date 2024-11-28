@@ -45,4 +45,9 @@ tags:
 
 
 **相关链接：**
-[孤独的人是可耻的](/2011/04/loners-are-disgraceful.html)
+- [孤独的人是可耻的](/2011/04/loners-are-disgraceful.html)
+- [无酒不欢](/2011/05/no-wine-untasted.html)
+- [冷暖自知](/2011/05/cold-and-warm-self-knowledge-(proposition-composition-3).html)
+- [无言告白](/2011/06/wordless-address-(propositional-composition-no.-4).html)
+- [永远在路上](/2011/05/always-on-the-road-(proposition-5).html)
+- [每个人是每个人的过客](/2011/06/everyone-is-everyone's-passer-by-(proposition-6).html)

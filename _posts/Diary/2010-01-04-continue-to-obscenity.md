@@ -20,6 +20,6 @@ tags:
 
 最后共享一下昨天上传的一个推特中文圈：附加密码请留言索取。
 
-[http://zincer.0fees.net/twitter](http://zincer.0fees.net/twitter)
+[https://zincer.0fees.net/twitter](https://zincer.0fees.net/twitter)
 
 **Update**：已失效！

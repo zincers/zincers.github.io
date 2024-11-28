@@ -20,7 +20,7 @@ tags:
 
 **正文链接**：
 
-[沉默生长（上）——过往](http://goo.gl/xAtoq)
+[沉默生长（上）——过往](https://goo.gl/xAtoq)
 
 **初稿后记**：
 

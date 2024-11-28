@@ -20,11 +20,6 @@ tags: [CAE, 多物理, 仿真, MBD, 计算]
 
 左图是考虑了重力影响的结果，右侧是没有考虑重力作用的结果图：
 
-{% gp 2-2 %}
-
-  ![](/assets/img/blogimgs/cax/mbd_rotate/MBD_Model.gif)
-
-  ![](/assets/img/blogimgs/cax//mbd_rotate/MBD_Model_NoGravity.gif)
-
-{% endgp %}
-
+|   |   |
+|---|---|
+|![](/assets/img/blogimgs/cax/mbd_rotate/MBD_Model.gif)|![](/assets/img/blogimgs/cax//mbd_rotate/MBD_Model_NoGravity.gif)|

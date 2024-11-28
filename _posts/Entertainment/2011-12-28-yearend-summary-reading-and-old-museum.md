@@ -5,7 +5,7 @@ categories:
   - 影音映像
 translate_title: yearend-summary-reading-and-old-museum
 date: 2011-12-28 12:25:00
-tags: [书籍, 总结, 日志, 无聊, 1984]
+tags: [书籍, 总结, 日志, 无聊, "1984"]
 ---
 
 一个人有多无聊，从他这一年里看了多少电影，听了多少音乐，读了多少书中就可见分晓。

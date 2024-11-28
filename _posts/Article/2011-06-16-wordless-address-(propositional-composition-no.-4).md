@@ -25,10 +25,3 @@ M，你好吗？我很好！
 你知道M能够看见，但是你也知道她不会懂得。“M，你好吗？我很好！”这不过是对某部电影台词的拙劣复制，你猜想M会这样理解，事实上你也希望被M如是理解。你隐隐约约觉得，如是的结局未尝不好，而这样想之后，微笑浮现在了你的脸颊，只不过这一次你笑着笑着，笑到最后，连自己都忘了是因何而笑的了。
 
 **相关链接：**
-
-<!-- {% btn /2011/04/loners-are-disgraceful.html, 孤独的人是可耻的 %}
-{% btn /2011/05/no-wine-untasted.html, 无酒不欢 %}
-{% btn /2011/05/cold-and-warm-self-knowledge-(proposition-composition-3).html, 冷暖自知 %}
-{% btn /2011/06/wordless-address-(propositional-composition-no.-4).html, 无言告白 %}
-{% btn /2011/05/always-on-the-road-(proposition-5).html, 永远在路上 %}
-{% btn /2011/05/everyone-is-everyone's-passer-by-(proposition-6).html, 每个人是每个人的过客 %} -->

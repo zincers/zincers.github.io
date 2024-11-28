@@ -25,10 +25,3 @@ tags:
 你对M说，这个世界上仅有两个人真正的理解你，他们一个远走天涯，另一个如影随形，那个远走天涯的，在她离开后你爱上了她；而那个与你如影随形的，是你始终无法摆脱的另一个自己。很久之后，M回复你说，你爱上的不是某个人，而是爱这个人的时候那种牵肠挂肚的感觉。你说，是的是的，就像我爱的不是这杯中之物，而是这种液体给予我的那种轻度的眩晕感，即便这种感觉，现在的我已经找寻不回。
 
 **相关链接：**
-
-<!-- {% btn /2011/04/loners-are-disgraceful.html, 孤独的人是可耻的 %}
-{% btn /2011/05/no-wine-untasted.html, 无酒不欢 %}
-{% btn /2011/05/cold-and-warm-self-knowledge-(proposition-composition-3).html, 冷暖自知 %}
-{% btn /2011/06/wordless-address-(propositional-composition-no.-4).html, 无言告白 %}
-{% btn /2011/05/always-on-the-road-(proposition-5).html, 永远在路上 %}
-{% btn /2011/05/everyone-is-everyone's-passer-by-(proposition-6).html, 每个人是每个人的过客 %} -->

@@ -45,4 +45,4 @@ tags:
 
 
 **相关链接：**
-[孤独的人是可耻的](2011/04/loners-are-disgraceful.html)
+[孤独的人是可耻的](/2011/04/loners-are-disgraceful.html)

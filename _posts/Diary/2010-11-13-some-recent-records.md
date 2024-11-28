@@ -1,6 +1,6 @@
 ---
 title: 关于最近的一些记录
-id: 104
+
 categories:
   - 日志随笔
 translate_title: some-recent-records

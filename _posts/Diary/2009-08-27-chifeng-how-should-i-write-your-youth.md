@@ -1,6 +1,6 @@
 ---
 title: 赤峰，我该如何书写你的年轻
-id: 216
+
 categories:
   - 日志随笔
 translate_title: chifeng-how-should-i-write-your-youth

@@ -1,6 +1,6 @@
 ---
 title: 无处不在的高墙
-id: 148
+
 categories:
   - 评论观点
 translate_title: high-wall-everywhere

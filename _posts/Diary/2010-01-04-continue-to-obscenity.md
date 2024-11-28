@@ -1,6 +1,6 @@
 ---
 title: 继续意淫
-id: 149
+
 categories:
   - 日志随笔
 translate_title: continue-to-obscenity

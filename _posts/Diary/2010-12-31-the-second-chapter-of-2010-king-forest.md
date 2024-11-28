@@ -1,6 +1,6 @@
 ---
 title: 2010的林林总总之王二篇
-id: 94
+
 categories:
   - 日志随笔
 translate_title: the-second-chapter-of-2010-king-forest

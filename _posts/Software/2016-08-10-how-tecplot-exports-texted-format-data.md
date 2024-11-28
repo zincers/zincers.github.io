@@ -1,6 +1,6 @@
 ---
 title: Tecplot如何导出Texted格式数据
-id: 1297
+
 categories:
   - 软件学习
 translate_title: how-tecplot-exports-texted-format-data

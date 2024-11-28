@@ -1,6 +1,6 @@
 ---
 title: 孤独的人是可耻的
-id: 73
+
 categories:
   - 小说文字
 translate_title: loners-are-disgraceful

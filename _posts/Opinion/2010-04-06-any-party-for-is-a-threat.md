@@ -1,6 +1,6 @@
 ---
 title: 任何的party，对于Party而言，都是一种威胁
-id: 128
+
 categories:
   - 评论观点
 translate_title: any-party-for-is-a-threat

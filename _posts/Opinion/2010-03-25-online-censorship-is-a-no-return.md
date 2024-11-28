@@ -1,6 +1,6 @@
 ---
 title: 网络审查是一条不归路
-id: 130
+
 categories:
   - 评论观点
 translate_title: online-censorship-is-a-no-return

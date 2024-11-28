@@ -1,6 +1,6 @@
 ---
 title: 应景写一个关于玩具的小故事
-id: 64
+
 categories:
   - 日志随笔
 translate_title: ying-writes-a-little-story-about-toys

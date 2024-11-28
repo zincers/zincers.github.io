@@ -1,6 +1,6 @@
 ---
 title: 后国庆时代，我们拭目以待
-id: 193
+
 categories:
   - 评论观点
 translate_title: after-the-national-day-we-will-wait-and-see

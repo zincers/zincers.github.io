@@ -1,6 +1,6 @@
 ---
 title: 闲情乱寄
-id: 74
+
 categories:
   - 小说文字
 translate_title: casual-sending

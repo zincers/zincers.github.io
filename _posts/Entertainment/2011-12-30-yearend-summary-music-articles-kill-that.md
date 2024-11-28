@@ -1,6 +1,6 @@
 ---
 title: 年终总结（音乐篇）——杀死那个搞音乐的！
-id: 20
+
 categories:
   - 影音映像
 translate_title: yearend-summary-music-articles-kill-that

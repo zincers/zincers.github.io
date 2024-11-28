@@ -1,6 +1,6 @@
 ---
 title: Xubuntu 14.04 下编译安装开源多物理场FEM仿真软件Elmer
-id: 1157
+
 categories:
   - 软件学习
 translate_title: >-

@@ -1,6 +1,6 @@
 ---
 title: 何其低俗
-id: 101
+
 categories:
   - 小说文字
 translate_title: how-is-it-vulgar

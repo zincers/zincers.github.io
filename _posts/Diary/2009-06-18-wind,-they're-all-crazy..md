@@ -1,6 +1,6 @@
 ---
 title: 风啊，他们都疯了
-id: 221
+
 categories:
   - 日志随笔
 translate_title: 'wind,-they''re-all-crazy.'

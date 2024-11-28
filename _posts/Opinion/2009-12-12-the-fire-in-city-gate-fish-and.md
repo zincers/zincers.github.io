@@ -1,6 +1,6 @@
 ---
 title: 城门失火，殃及池鱼
-id: 157
+
 categories:
   - 评论观点
 translate_title: the-fire-in-city-gate-fish-and

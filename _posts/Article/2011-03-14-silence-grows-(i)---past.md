@@ -1,6 +1,6 @@
 ---
 title: 沉默生长（上）——过往
-id: 80
+
 categories:
   - 小说文字
 translate_title: silence-grows-(i)---past

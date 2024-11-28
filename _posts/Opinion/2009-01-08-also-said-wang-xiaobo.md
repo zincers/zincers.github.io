@@ -1,6 +1,6 @@
 ---
 title: 也说王小波
-id: 246
+
 categories:
   - 评论观点
 translate_title: also-said-wang-xiaobo

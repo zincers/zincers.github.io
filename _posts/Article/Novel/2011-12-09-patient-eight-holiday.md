@@ -1,6 +1,6 @@
 ---
 title: 病人（八）——假期
-id: 24
+
 categories:
   - 小说文字
 translate_title: patient-eight-holiday

@@ -1,6 +1,6 @@
 ---
 title: 开始和结束，还差一个故事
-id: 98
+
 categories:
   - 小说文字
 translate_title: 'beginning-and-ending,-one-story-is-still-missing'

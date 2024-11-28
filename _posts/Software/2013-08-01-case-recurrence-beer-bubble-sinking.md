@@ -1,6 +1,6 @@
 ---
 title: '案例复现:啤酒气泡下沉'
-id: 1087
+
 categories:
   - 软件学习
 translate_title: case-recurrence-beer-bubble-sinking

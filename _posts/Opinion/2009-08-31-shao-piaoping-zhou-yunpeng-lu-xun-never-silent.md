@@ -1,6 +1,6 @@
 ---
 title: 邵飘萍、周云蓬、鲁迅，从不沉默的诸君
-id: 757
+
 categories:
   - 评论观点
 translate_title: shao-piaoping-zhou-yunpeng-lu-xun-never-silent

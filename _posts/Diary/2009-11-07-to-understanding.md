@@ -1,6 +1,6 @@
 ---
 title: 了解
-id: 174
+
 categories:
   - 日志随笔
 translate_title: to-understanding

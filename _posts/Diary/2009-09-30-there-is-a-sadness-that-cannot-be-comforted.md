@@ -1,6 +1,6 @@
 ---
 title: 有一种哀伤无法被安慰
-id: 195
+
 categories:
   - 日志随笔
 translate_title: there-is-a-sadness-that-cannot-be-comforted

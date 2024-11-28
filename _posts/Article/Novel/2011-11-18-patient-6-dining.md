@@ -1,6 +1,6 @@
 ---
 title: 病人（六）——就餐
-id: 28
+
 categories:
   - 小说文字
 translate_title: patient-6-dining

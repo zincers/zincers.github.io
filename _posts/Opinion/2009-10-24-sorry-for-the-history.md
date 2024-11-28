@@ -1,6 +1,6 @@
 ---
 title: 对历史说声对不起
-id: 180
+
 categories:
   - 评论观点
 translate_title: sorry-for-the-history

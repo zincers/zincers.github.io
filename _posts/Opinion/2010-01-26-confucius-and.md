@@ -1,6 +1,6 @@
 ---
 title: 《孔子》以及孔子
-id: 142
+
 categories:
   - 评论观点
 translate_title: confucius-and

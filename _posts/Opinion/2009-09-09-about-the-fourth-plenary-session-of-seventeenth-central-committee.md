@@ -1,6 +1,6 @@
 ---
 title: 关于十七届四中全会
-id: 203
+
 categories:
   - 评论观点
 translate_title: about-the-fourth-plenary-session-of-seventeenth-central-committee

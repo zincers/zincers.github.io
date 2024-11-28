@@ -1,6 +1,6 @@
 ---
 title: 关于《中国不高兴》
-id: 234
+
 categories:
   - 评论观点
 translate_title: about-china-is-not-happy

@@ -1,6 +1,6 @@
 ---
 title: 你不曾经历的2011（年终总结，社会篇）
-id: 848
+
 categories:
   - 评论观点
 translate_title: 2011-that-you-have-not-experienced-yearend-summary-social-articles

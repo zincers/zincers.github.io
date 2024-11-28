@@ -1,6 +1,6 @@
 ---
 title: 命题作文后记以及那些反复听的音乐
-id: 60
+
 categories:
   - 日志随笔
 translate_title: postscripts-of-propositions-and-those-that-are-repeatedly-listened-to

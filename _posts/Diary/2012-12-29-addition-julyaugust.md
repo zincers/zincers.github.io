@@ -1,6 +1,6 @@
 ---
 title: 拾遗：July-August
-id: 1070
+
 categories:
   - 日志随笔
 translate_title: addition-julyaugust

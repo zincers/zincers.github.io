@@ -1,6 +1,6 @@
 ---
 title: 2011要做的几件事（中期报告）
-id: 59
+
 categories:
   - 日志随笔
 translate_title: a-few-things-to-do-in-2011-interim-report

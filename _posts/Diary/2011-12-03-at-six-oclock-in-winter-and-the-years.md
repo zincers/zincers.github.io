@@ -1,6 +1,6 @@
 ---
 title: 冬日六点钟以及《那些年》
-id: 26
+
 categories:
   - 日志随笔
 translate_title: at-six-oclock-in-winter-and-the-years

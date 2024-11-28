@@ -1,6 +1,6 @@
 ---
 title: 如果2012年是世界末日
-id: 167
+
 categories:
   - 影音映像
 translate_title: if-2012-is-the-end-of-world

@@ -1,6 +1,6 @@
 ---
 title: 冬天来了，这回是真的！
-id: 32
+
 categories:
   - 日志随笔
 translate_title: winter-is-here-this-time-true

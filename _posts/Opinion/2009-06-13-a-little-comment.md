@@ -1,6 +1,6 @@
 ---
 title: 一点评论
-id: 223
+
 categories:
   - 评论观点
 translate_title: a-little-comment

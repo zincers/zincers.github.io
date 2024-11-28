@@ -1,6 +1,6 @@
 ---
 title: 年终总结之二：我在反对什么？
-id: 150
+
 categories:
   - 评论观点
 translate_title: yearend-summary-2-what-am-i-against

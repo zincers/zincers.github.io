@@ -1,6 +1,6 @@
 ---
 title: 只不过是一场游戏
-id: 181
+
 categories:
   - 日志随笔
 translate_title: just-a-game

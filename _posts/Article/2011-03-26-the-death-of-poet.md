@@ -1,6 +1,6 @@
 ---
 title: 诗人之死
-id: 79
+
 categories:
   - 小说文字
 translate_title: the-death-of-poet

@@ -1,6 +1,6 @@
 ---
 title: 告别校内，专注于spaces
-id: 211
+
 categories:
   - 日志随笔
 translate_title: say-goodbye-to-the-school-focus-on-spaces

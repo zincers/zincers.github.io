@@ -1,6 +1,6 @@
 ---
 title: 羞于提及的“爱国”
-id: 212
+
 categories:
   - 评论观点
 translate_title: shy-to-mention-patriotism

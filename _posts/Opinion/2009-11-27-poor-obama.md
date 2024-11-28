@@ -1,6 +1,6 @@
 ---
 title: 可怜的奥巴马
-id: 163
+
 categories:
   - 评论观点
 translate_title: poor-obama

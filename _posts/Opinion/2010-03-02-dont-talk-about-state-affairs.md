@@ -1,6 +1,6 @@
 ---
 title: 莫谈国事
-id: 139
+
 categories:
   - 评论观点
 translate_title: dont-talk-about-state-affairs

@@ -1,6 +1,6 @@
 ---
 title: 关于大工同学“罢餐”事件的思考
-id: 82
+
 categories:
   - 评论观点
 translate_title: thoughts-on-the-break-event-of-dagong-students

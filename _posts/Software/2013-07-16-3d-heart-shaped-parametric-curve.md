@@ -1,6 +1,6 @@
 ---
 title: 3D心形参数化曲线
-id: 1077
+
 categories:
   - 软件学习
 translate_title: 3d-heart-shaped-parametric-curve

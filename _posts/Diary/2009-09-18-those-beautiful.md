@@ -1,6 +1,6 @@
 ---
 title: 那些美好
-id: 199
+
 categories:
   - 日志随笔
 translate_title: those-beautiful

@@ -1,6 +1,6 @@
 ---
 title: 病人（一）——入院
-id: 36
+
 categories:
   - 小说文字
 translate_title: patient-1-admission

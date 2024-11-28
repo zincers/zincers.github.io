@@ -1,6 +1,6 @@
 ---
 title: 替老百姓还是替党说话？这是个问题
-id: 220
+
 categories:
   - 评论观点
 translate_title: or-for-the-people-to-speak-party-this-is-a-problem

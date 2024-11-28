@@ -1,6 +1,6 @@
 ---
 title: 中国真的强大了吗
-id: 190
+
 categories:
   - 评论观点
 translate_title: is-china-really-strong

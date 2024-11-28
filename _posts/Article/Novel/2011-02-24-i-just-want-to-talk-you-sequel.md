@@ -1,6 +1,6 @@
 ---
 title: 我只想和你说说话(续篇)
-id: 84
+
 categories:
   - 小说文字
 translate_title: i-just-want-to-talk-you-sequel

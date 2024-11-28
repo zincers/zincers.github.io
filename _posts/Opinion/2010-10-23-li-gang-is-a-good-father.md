@@ -1,6 +1,6 @@
 ---
 title: 李刚是个好父亲
-id: 108
+
 categories:
   - 评论观点
 translate_title: li-gang-is-a-good-father

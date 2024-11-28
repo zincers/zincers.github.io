@@ -1,6 +1,6 @@
 ---
 title: 年终总结（阅读篇）以及老馆
-id: 21
+
 categories:
   - 影音映像
 translate_title: yearend-summary-reading-and-old-museum

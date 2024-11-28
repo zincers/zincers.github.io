@@ -1,6 +1,6 @@
 ---
 title: 病人（七）——玩笑
-id: 25
+
 categories:
   - 小说文字
 translate_title: patient-7-joke

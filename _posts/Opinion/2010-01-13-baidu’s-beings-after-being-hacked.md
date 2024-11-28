@@ -1,6 +1,6 @@
 ---
 title: 百度被黑之后的众生相
-id: 145
+
 categories:
   - 评论观点
 translate_title: baidu’s-beings-after-being-hacked

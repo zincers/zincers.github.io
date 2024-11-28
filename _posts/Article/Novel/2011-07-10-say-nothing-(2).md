@@ -1,6 +1,6 @@
 ---
 title: 二话不说（2）
-id: 56
+
 categories:
   - 小说文字
 translate_title: say-nothing-(2)

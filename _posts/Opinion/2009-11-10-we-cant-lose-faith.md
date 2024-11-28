@@ -1,6 +1,6 @@
 ---
 title: 我们不能失去信仰
-id: 173
+
 categories:
   - 评论观点
 translate_title: we-cant-lose-faith

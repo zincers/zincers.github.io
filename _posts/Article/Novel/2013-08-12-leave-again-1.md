@@ -1,6 +1,6 @@
 ---
 title: 再次离开（1）
-id: 1093
+
 categories:
   - 小说文字
 translate_title: leave-again-1

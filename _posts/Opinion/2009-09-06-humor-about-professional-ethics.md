@@ -1,6 +1,6 @@
 ---
 title: 关于职业道德的幽默
-id: 207
+
 categories:
   - 评论观点
 translate_title: humor-about-professional-ethics

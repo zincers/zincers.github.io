@@ -1,6 +1,6 @@
 ---
 title: 也来说说Google事件
-id: 144
+
 categories:
   - 评论观点
 translate_title: also-talk-about-google-events

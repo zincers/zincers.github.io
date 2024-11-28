@@ -1,6 +1,6 @@
 ---
 title: 武汉这些天一直在下雨
-id: 1113
+
 categories:
   - 日志随笔
 translate_title: wuhan-has-been-raining-these-days

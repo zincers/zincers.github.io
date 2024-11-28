@@ -1,6 +1,6 @@
 ---
 title: Google应该赞助2010年的春晚
-id: 219
+
 categories:
   - 评论观点
 translate_title: google-should-sponsor-the-spring-festival-gala-2010

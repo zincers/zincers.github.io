@@ -1,6 +1,6 @@
 ---
 title: 关于道德，关于批评，关于人性，关于教育，关于逻辑，关于历史的废话
-id: 81
+
 categories:
   - 评论观点
 translate_title: about-ethics-criticism-human-nature-education-logic-nonsense-of-history

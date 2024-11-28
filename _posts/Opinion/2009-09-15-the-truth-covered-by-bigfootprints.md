@@ -1,6 +1,6 @@
 ---
 title: 被“大脚印儿”覆盖的真实
-id: 201
+
 categories:
   - 评论观点
 translate_title: the-truth-covered-by-bigfootprints

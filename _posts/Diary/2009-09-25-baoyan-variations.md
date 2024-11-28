@@ -1,6 +1,6 @@
 ---
 title: 保研变奏曲
-id: 196
+
 categories:
   - 日志随笔
 translate_title: baoyan-variations

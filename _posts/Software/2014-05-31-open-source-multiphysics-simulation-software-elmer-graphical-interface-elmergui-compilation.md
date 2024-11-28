@@ -1,6 +1,6 @@
 ---
 title: 开源多物理仿真软件Elmer图形界面ElmerGUI编译
-id: 1159
+
 categories:
   - 软件学习
 translate_title: >-

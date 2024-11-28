@@ -1,6 +1,6 @@
 ---
 title: 安装测试Odoo
-id: 1348
+
 categories:
   - 软件学习
 translate_title: installation-test-odoo

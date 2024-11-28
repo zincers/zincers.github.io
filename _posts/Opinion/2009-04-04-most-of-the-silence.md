@@ -1,6 +1,6 @@
 ---
 title: 沉默的大多数
-id: 240
+
 categories:
   - 评论观点
 translate_title: most-of-the-silence

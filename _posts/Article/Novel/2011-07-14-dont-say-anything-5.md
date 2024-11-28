@@ -1,6 +1,6 @@
 ---
 title: 二话不说（5）
-id: 53
+
 categories:
   - 小说文字
 translate_title: dont-say-anything-5

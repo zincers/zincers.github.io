@@ -1,6 +1,6 @@
 ---
 title: 二话不说（N）
-id: 43
+
 categories:
   - 小说文字
 translate_title: dont-say-anything-n

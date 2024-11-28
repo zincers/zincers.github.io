@@ -1,6 +1,6 @@
 ---
 title: 大连的雨季
-id: 235
+
 categories:
   - 日志随笔
 translate_title: rainy-season-in-dalian

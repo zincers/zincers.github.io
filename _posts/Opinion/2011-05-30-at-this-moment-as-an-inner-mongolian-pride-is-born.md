@@ -1,6 +1,6 @@
 ---
 title: 这一刻，作为内蒙人，自豪感油然而生
-id: 66
+
 categories:
   - 评论观点
 translate_title: at-this-moment-as-an-inner-mongolian-pride-is-born

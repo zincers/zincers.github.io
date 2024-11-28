@@ -1,6 +1,6 @@
 ---
 title: 谁该获得诺贝尔和平奖
-id: 187
+
 categories:
   - 评论观点
 translate_title: who-should-win-the-nobel-peace-prize

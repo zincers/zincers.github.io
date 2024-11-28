@@ -1,6 +1,6 @@
 ---
 title: 相信或者不相信
-id: 88
+
 categories:
   - 日志随笔
 translate_title: believe-or-not

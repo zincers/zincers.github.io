@@ -1,6 +1,6 @@
 ---
 title: MBD-Recursive Gimbal
-id: 1140
+
 categories:
   - 软件学习
 translate_title: mbdrecursive-gimbal

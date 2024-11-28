@@ -1,6 +1,6 @@
 ---
 title: 每个人是每个人的过客（命题作文之六）
-id: 65
+
 categories:
   - 小说文字
 translate_title: everyone-is-everyone's-passer-by-(proposition-6)

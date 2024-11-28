@@ -1,6 +1,6 @@
 ---
 title: 六日六城记
-id: 1244
+
 categories:
   - 日志随笔
 translate_title: sixday-sixcity-record

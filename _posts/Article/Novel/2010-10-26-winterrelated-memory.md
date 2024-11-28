@@ -1,6 +1,6 @@
 ---
 title: 与冬天有关的记忆
-id: 106
+
 categories:
   - 小说文字
 translate_title: winterrelated-memory

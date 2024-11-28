@@ -1,6 +1,6 @@
 ---
 title: 二十年，依旧活不明白
-id: 236
+
 categories:
   - 评论观点
 translate_title: twenty-years-still-cant-understand

@@ -1,6 +1,6 @@
 ---
 title: Sony Xperia Z刷Android 5.0 (Lollipop)记录
-id: 1236
+
 categories:
   - 软件学习
 translate_title: sony-xperia-z-brushes-android-5.0-(lollipop)-records

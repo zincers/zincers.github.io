@@ -1,6 +1,6 @@
 ---
 title: 我要写诗歌朗诵稿
-id: 206
+
 categories:
   - 日志随笔
 translate_title: i-want-to-write-a-poem

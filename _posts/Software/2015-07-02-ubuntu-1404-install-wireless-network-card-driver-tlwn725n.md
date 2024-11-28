@@ -1,6 +1,6 @@
 ---
 title: Ubuntu 14.04安装无线网卡驱动TL-WN725N
-id: 1262
+
 categories:
   - 软件学习
 translate_title: ubuntu-1404-install-wireless-network-card-driver-tlwn725n

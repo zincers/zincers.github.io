@@ -1,6 +1,6 @@
 ---
 title: 关于王小波，关于阅读
-id: 126
+
 categories:
   - 评论观点
 translate_title: about-wang-xiaobo-reading

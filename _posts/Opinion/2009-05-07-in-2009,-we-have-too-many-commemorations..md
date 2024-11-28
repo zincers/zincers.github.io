@@ -1,6 +1,6 @@
 ---
 title: 零九年，我们有太多的纪念
-id: 759
+
 categories:
   - 评论观点
 translate_title: 'in-2009,-we-have-too-many-commemorations.'

@@ -1,6 +1,6 @@
 ---
 title: 七天
-id: 238
+
 categories:
   - 小说文字
 translate_title: seven-days

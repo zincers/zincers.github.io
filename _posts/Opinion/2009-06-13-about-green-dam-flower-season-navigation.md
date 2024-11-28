@@ -1,6 +1,6 @@
 ---
 title: 关于“绿坝-花季导航”
-id: 227
+
 categories:
   - 评论观点
 translate_title: about-green-dam-flower-season-navigation

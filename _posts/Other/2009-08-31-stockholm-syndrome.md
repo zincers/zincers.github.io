@@ -1,6 +1,6 @@
 ---
 title: 斯德哥尔摩综合症
-id: 215
+
 categories:
   - 杂七杂八
 translate_title: stockholm-syndrome

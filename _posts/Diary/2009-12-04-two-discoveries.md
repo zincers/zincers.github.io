@@ -1,6 +1,6 @@
 ---
 title: 两个发现
-id: 160
+
 categories:
   - 日志随笔
 translate_title: two-discoveries

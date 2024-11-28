@@ -1,6 +1,6 @@
 ---
 title: 我只是想和你说说话（开篇）
-id: 91
+
 categories:
   - 小说文字
 translate_title: i-just-want-to-talk-you-opening

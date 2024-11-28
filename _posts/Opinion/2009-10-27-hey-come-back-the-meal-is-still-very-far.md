@@ -1,6 +1,6 @@
 ---
 title: 嘀咕回来了，饭否依旧很远！
-id: 178
+
 categories:
   - 评论观点
 translate_title: hey-come-back-the-meal-is-still-very-far

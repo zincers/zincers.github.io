@@ -1,6 +1,6 @@
 ---
 title: Python+Numpy+Matplotlib绘制心形图案
-id: 455
+
 categories:
   - 软件学习
 translate_title: python+numpy+matplotlib-drawing-heart-patterns

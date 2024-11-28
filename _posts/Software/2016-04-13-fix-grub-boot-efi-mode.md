@@ -1,6 +1,6 @@
 ---
 title: 修复Grub引导（EFI模式）
-id: 1291
+
 categories:
   - 软件学习
 translate_title: fix-grub-boot-efi-mode

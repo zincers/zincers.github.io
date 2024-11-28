@@ -1,6 +1,6 @@
 ---
 title: 编译安装elmer图形用户界面ElmerGUI
-id: 1066
+
 categories:
   - 软件学习
 translate_title: compile-and-install-elmer-graphical-user-interface-elmergui

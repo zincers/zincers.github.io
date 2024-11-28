@@ -1,6 +1,6 @@
 ---
 title: 祝贺自己！
-id: 155
+
 categories:
   - 日志随笔
 translate_title: congratulations

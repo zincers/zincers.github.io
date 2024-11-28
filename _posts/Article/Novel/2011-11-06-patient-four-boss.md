@@ -1,6 +1,6 @@
 ---
 title: 病人（四）——老板
-id: 31
+
 categories:
   - 小说文字
 translate_title: patient-four-boss

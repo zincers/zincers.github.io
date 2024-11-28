@@ -1,6 +1,6 @@
 ---
 title: 冷暖自知（命题作文之三）
-id: 68
+
 categories:
   - 小说文字
 translate_title: cold-and-warm-self-knowledge-(proposition-composition-3)

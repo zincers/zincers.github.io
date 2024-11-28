@@ -1,6 +1,6 @@
 ---
 title: 无法坦诚相对
-id: 117
+
 categories:
   - 日志随笔
 translate_title: unable-to-be-honest

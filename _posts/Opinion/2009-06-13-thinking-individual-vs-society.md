@@ -1,6 +1,6 @@
 ---
 title: 思考：个人VS社会
-id: 226
+
 categories:
   - 评论观点
 translate_title: thinking-individual-vs-society

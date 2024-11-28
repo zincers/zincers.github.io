@@ -1,6 +1,6 @@
 ---
 title: Google七夕Logo
-id: 1097
+
 categories:
   - 杂七杂八
 translate_title: google-tanabata-logo

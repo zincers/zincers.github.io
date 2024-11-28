@@ -1,6 +1,6 @@
 ---
 title: 关于最近
-id: 37
+
 categories:
   - 日志随笔
 translate_title: about-recent

@@ -1,6 +1,6 @@
 ---
 title: Linux下批量转换avi文件为gif动画
-id: 1155
+
 categories:
   - 软件学习
 translate_title: batch-convert-avi-file-to-gif-animation-under-linux

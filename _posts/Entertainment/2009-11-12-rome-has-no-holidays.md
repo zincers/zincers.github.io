@@ -1,6 +1,6 @@
 ---
 title: 罗马没有假日
-id: 171
+
 categories:
   - 影音映像
 translate_title: rome-has-no-holidays

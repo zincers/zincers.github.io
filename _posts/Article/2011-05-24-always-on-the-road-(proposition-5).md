@@ -1,6 +1,6 @@
 ---
 title: 永远在路上（命题作文之五）
-id: 67
+
 categories:
   - 小说文字
 translate_title: always-on-the-road-(proposition-5)

@@ -1,6 +1,6 @@
 ---
 title: '旧事：October 18, 2012'
-id: 4
+
 categories:
   - 日志随笔
 translate_title: old-things-october-18-2012

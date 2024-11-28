@@ -1,6 +1,6 @@
 ---
 title: 那些旧事（修订版）
-id: 177
+
 categories:
   - 小说文字
 translate_title: those-old-things-revised-edition

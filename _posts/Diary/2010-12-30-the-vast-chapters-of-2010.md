@@ -1,6 +1,6 @@
 ---
 title: 2010的林林总总之茫茫篇
-id: 95
+
 categories:
   - 日志随笔
 translate_title: the-vast-chapters-of-2010

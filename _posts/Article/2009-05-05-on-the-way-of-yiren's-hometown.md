@@ -1,6 +1,5 @@
 ---
 title: 伊人 故乡 路上
-id: 233
 categories:
   - 小说文字
 translate_title: on-the-way-of-yiren's-hometown

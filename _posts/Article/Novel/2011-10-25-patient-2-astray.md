@@ -1,6 +1,6 @@
 ---
 title: 病人（二）——歧途
-id: 35
+
 categories:
   - 小说文字
 translate_title: patient-2-astray

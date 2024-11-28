@@ -1,6 +1,6 @@
 ---
 title: 注定处于下风的Google
-id: 133
+
 categories:
   - 评论观点
 translate_title: destined-to-be-in-the-disadvantage-of-google

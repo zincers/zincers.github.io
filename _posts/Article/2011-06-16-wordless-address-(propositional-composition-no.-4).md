@@ -1,6 +1,6 @@
 ---
 title: 无言告白（命题作文之四）
-id: 61
+
 categories:
   - 小说文字
 translate_title: wordless-address-(propositional-composition-no.-4)

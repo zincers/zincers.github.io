@@ -1,6 +1,6 @@
 ---
 title: 可是理智的我到底该爱你什么呢
-id: 194
+
 categories:
   - 评论观点
 translate_title: but-what-should-i-love-you-in-the-end

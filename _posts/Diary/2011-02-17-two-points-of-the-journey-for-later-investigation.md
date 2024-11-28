@@ -1,6 +1,6 @@
 ---
 title: 旅途的两点记录，以备后查
-id: 86
+
 categories:
   - 日志随笔
 translate_title: two-points-of-the-journey-for-later-investigation

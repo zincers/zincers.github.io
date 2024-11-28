@@ -1,6 +1,6 @@
 ---
 title: 求教校园广播的运营性质
-id: 202
+
 categories:
   - 评论观点
 translate_title: seeking-the-operational-nature-of-campus-broadcasting

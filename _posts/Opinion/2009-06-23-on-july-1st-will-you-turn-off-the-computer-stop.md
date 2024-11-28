@@ -1,6 +1,6 @@
 ---
 title: 七月一日，你会关掉电脑“罢网”吗？
-id: 218
+
 categories:
   - 评论观点
 translate_title: on-july-1st-will-you-turn-off-the-computer-stop

@@ -1,6 +1,6 @@
 ---
 title: 走开，别挡着我的阳光！
-id: 85
+
 categories:
   - 评论观点
 translate_title: go-away-dont-block-my-sunshine

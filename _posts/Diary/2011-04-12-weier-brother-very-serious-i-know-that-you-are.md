@@ -1,6 +1,6 @@
 ---
 title: 味儿哥，无比认真地说，我知道你是认真的
-id: 75
+
 categories:
   - 日志随笔
 translate_title: weier-brother-very-serious-i-know-that-you-are

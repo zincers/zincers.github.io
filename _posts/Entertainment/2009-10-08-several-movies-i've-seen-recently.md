@@ -1,6 +1,6 @@
 ---
 title: 最近看过的几部电影
-id: 188
+
 categories:
   - 影音映像
 translate_title: several-movies-i've-seen-recently

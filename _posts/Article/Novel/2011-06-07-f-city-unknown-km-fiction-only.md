@@ -1,6 +1,6 @@
 ---
 title: F市，未知KM（小说而已）
-id: 63
+
 categories:
   - 小说文字
 translate_title: f-city-unknown-km-fiction-only

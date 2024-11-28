@@ -1,6 +1,6 @@
 ---
 title: 我们生活在怎样的时代？
-id: 231
+
 categories:
   - 评论观点
 translate_title: what-kind-of-era-do-we-live-in

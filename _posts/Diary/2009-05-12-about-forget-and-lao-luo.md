@@ -1,6 +1,6 @@
 ---
 title: 关于忘记以及老罗
-id: 769
+
 categories:
   - 日志随笔
 translate_title: about-forget-and-lao-luo

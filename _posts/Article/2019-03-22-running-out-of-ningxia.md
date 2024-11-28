@@ -1,6 +1,6 @@
 ---
 title: 出走宁夏川
-id: 233
+
 categories:
   - 小说文字
 tags:

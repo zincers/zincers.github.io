@@ -1,6 +1,6 @@
 ---
 title: 克莱因瓶
-id: 1121
+
 categories:
   - 软件学习
 translate_title: klein-bottle

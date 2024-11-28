@@ -1,6 +1,6 @@
 ---
 title: 写在中秋，写给月夜
-id: 111
+
 categories:
   - 日志随笔
 translate_title: written-in-the-midautumn-festival-for-moon-night

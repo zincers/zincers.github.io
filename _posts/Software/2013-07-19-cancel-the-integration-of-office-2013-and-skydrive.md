@@ -1,6 +1,6 @@
 ---
 title: 取消Office 2013与SkyDrive的整合
-id: 1081
+
 categories:
   - 软件学习
 translate_title: cancel-the-integration-of-office-2013-and-skydrive

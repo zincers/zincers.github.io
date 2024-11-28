@@ -1,6 +1,6 @@
 ---
 title: 关于人民网推微博客服务的若干猜想
-id: 169
+
 categories:
   - 评论观点
 translate_title: some-conjectures-about-people's-network's-twitter-blog-service

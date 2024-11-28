@@ -1,6 +1,6 @@
 ---
 title: 你丫喝多了吧
-id: 89
+
 categories:
   - 小说文字
 translate_title: have-you-drunk-too-much

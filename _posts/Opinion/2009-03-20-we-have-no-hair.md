@@ -1,6 +1,6 @@
 ---
 title: 我们毛都没有
-id: 242
+
 categories:
   - 评论观点
 translate_title: we-have-no-hair

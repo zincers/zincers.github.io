@@ -1,6 +1,6 @@
 ---
 title: 基于Trelis 处理stl网格并导出
-id: 1340
+
 categories:
   - 软件学习
 translate_title: processing-the-stl-grid-based-on-trelis-and-exporting

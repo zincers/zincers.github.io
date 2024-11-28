@@ -1,6 +1,6 @@
 ---
 title: 去死吧，让你的生更加值得！
-id: 225
+
 categories:
   - 小说文字
 translate_title: go-to-death-and-make-your-life-more-worthwhile.

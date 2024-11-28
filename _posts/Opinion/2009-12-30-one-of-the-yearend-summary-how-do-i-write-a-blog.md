@@ -1,6 +1,6 @@
 ---
 title: 年终总结之一：我怎么写起博客了
-id: 151
+
 categories:
   - 评论观点
 translate_title: one-of-the-yearend-summary-how-do-i-write-a-blog

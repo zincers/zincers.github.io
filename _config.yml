@@ -7,20 +7,27 @@ theme: jekyll-theme-chirpy
 # If it has the same name as one of the files in folder `_data/locales`, the layout language will also be changed,
 # otherwise, the layout language will use the default value of 'en'.
 <<<<<<< HEAD
+<<<<<<< HEAD
 lang: zh
 
 # Change to your timezone › https://kevinnovak.github.io/Time-Zone-Picker
 timezone: Asia/Shanghai
 =======
+=======
+>>>>>>> v7.2.0
 lang: en
 
 # Change to your timezone › https://kevinnovak.github.io/Time-Zone-Picker
 timezone:
+<<<<<<< HEAD
+>>>>>>> v7.2.0
+=======
 >>>>>>> v7.2.0
 
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 title: M守望者 # the main title
 
@@ -39,6 +46,8 @@ github:
 twitter:
   username: wongzincer # change to your Twitter username
 =======
+=======
+>>>>>>> v7.2.0
 title: Chirpy # the main title
 
 tagline: A text-focused Jekyll theme # it will display as the subtitle
@@ -55,11 +64,15 @@ github:
 
 twitter:
   username: twitter_username # change to your Twitter username
+<<<<<<< HEAD
+>>>>>>> v7.2.0
+=======
 >>>>>>> v7.2.0
 
 social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
+<<<<<<< HEAD
 <<<<<<< HEAD
   name: Zincer Wong
   email: zincer@163.com # change to your email address
@@ -68,12 +81,17 @@ social:
     - https://twitter.com/wongzincer # change to your Twitter homepage
     - https://github.com/zincers # change to your GitHub homepage
 =======
+=======
+>>>>>>> v7.2.0
   name: your_full_name
   email: example@domain.com # change to your email address
   links:
     # The first element serves as the copyright owner's link
     - https://twitter.com/username # change to your Twitter homepage
     - https://github.com/username # change to your GitHub homepage
+<<<<<<< HEAD
+>>>>>>> v7.2.0
+=======
 >>>>>>> v7.2.0
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
@@ -134,7 +152,11 @@ cdn:
 
 # the avatar on sidebar, support local or CORS resources
 <<<<<<< HEAD
+<<<<<<< HEAD
 avatar: /assets/img/avatar.png
+=======
+avatar:
+>>>>>>> v7.2.0
 =======
 avatar:
 >>>>>>> v7.2.0

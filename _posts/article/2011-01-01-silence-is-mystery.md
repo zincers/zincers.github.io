@@ -272,9 +272,10 @@ tags: [灯谜]
 （“只道此冬天凉”化用了辛弃疾“却道天凉好个秋”句）
 
 ---
+### 另
 
-<style>
-p{font-family: sans-serif; font-size: 12pt; text-align: center;}
-</style>
+二看红楼，忆此效颦之文，一岁七苦，复观之为己笑
 
-<p text-align：left>二看红楼，忆此效颦之文，一岁七苦，复观之为己笑 ——茫茫于2019年12月4日更</p>
+<p align="right">
+——茫茫于2019年12月4日更
+</p>

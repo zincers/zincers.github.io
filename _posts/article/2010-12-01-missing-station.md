@@ -7,7 +7,6 @@ translate_title: missing-station
 date: 2010-12-01 21:31:00
 tags:
 ---
-<center>
 
 某年某月的某个午夜
 
@@ -58,5 +57,3 @@ tags:
 只是眼前的故人
 
 已然陌生
-
-</center>

@@ -6,7 +6,6 @@ translate_title: on-the-way-of-yiren's-hometown
 date: 2009-05-05 11:56:00
 tags:
 ---
-<center>
 
 我没有躺在床上
 
@@ -57,5 +56,3 @@ tags:
 伊人，故乡，原谅我，我还在路上
 
 伊人，故乡，相信我，我已经在路上
-
-</center>

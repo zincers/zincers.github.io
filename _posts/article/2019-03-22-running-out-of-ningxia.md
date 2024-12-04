@@ -9,7 +9,6 @@ tags:
 translate_title: running-out-of-ningxia
 date: 2019-03-22 10:24:00
 ---
-<center>
 
 黄河的水干了
 
@@ -45,8 +44,6 @@ date: 2019-03-22 10:24:00
 你不知道，尕妹妹的心也跟着变了
 
 三表姐召唤她将身体献给长江
-
-</center>
 
 ---
 

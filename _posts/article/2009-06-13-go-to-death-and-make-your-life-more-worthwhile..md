@@ -7,7 +7,6 @@ translate_title: go-to-death-and-make-your-life-more-worthwhile.
 date: 2009-06-13 15:13:00
 tags:
 ---
-<center>
 
 **这么多年过去了**
 
@@ -42,4 +41,3 @@ tags:
 **这才能**
 
 **让你的生更加值得**
-</center>

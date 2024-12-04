@@ -10,9 +10,9 @@ tags: [音乐, 日志, 总结]
 
 一个人有多无聊，从他这一年里看了多少电影，听了多少音乐，读了多少书中就可见分晓。
 
-#### <center>[书籍](https://www.poqpoq.net/2011/12/yearend-summary-reading-and-old-museum.html)</center>
+#### [书籍](https://www.poqpoq.net/2011/12/yearend-summary-reading-and-old-museum.html)
 
-#### <center>音乐</center>
+#### 音乐
 
 汪峰《生无所求》。汪峰试图用这张专辑证明自己不是被主流收编的晚会歌手，但总感觉他似乎用力过猛了一些。诚如某些人所言，将26首歌筛出一半出张专辑的感觉会更好。此刻，我能记住的仅是《存在》，还是因为这是提前放出来的宣传单曲。
 

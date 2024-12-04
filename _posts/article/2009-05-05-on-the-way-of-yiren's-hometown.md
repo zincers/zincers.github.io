@@ -56,3 +56,8 @@ tags:
 伊人，故乡，原谅我，我还在路上
 
 伊人，故乡，相信我，我已经在路上
+
+---
+<style>
+  p{text-align: center;}
+</style>

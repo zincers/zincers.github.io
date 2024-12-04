@@ -57,3 +57,8 @@ tags:
 只是眼前的故人
 
 已然陌生
+
+---
+<style>
+  p{text-align: center;}
+</style>

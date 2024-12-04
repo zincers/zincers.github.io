@@ -41,3 +41,8 @@ tags:
 **这才能**
 
 **让你的生更加值得**
+
+---
+<style>
+  p{text-align: center;}
+</style>
